@@ -1,0 +1,14 @@
+.signup_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    margin : 30px;
+    max-width: 900px;
+    border: 2px solid black;
+}
+/* .signup_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
