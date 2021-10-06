@@ -27,30 +27,85 @@ body{
     margin: 40px auto;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid rgb(196, 15, 15);
+    box-shadow: 10px 10px 5px #aaaaaa;
     border-radius: 10px;
-    padding: 50px 150px;
+    padding: 50px 80px;
+    font-size: 1.2rem;
 }
 .container form label {
     font-size: 1.5rem;
+    margin: auto 20px;
 }
+
 #name{
-    margin: auto 30px;
-    padding: 5px;
-    width: 250px;
+    margin: 10px 30px;
+    padding: 3px;
+    width: 350px;
 }
 #lnum{
-    margin: auto 42px;
-    padding: 5px;
-    width: 250px;
+    margin: 10px 42px;
+    padding: 3px;
+    width: 350px;
 }
 #oname{
-    margin: auto 77px;
-    padding: 5px;
-    width: 250px;
+    margin: 10px 77px;
+    padding: 3px;
+    width: 350px;
 }
 #phn{
-    margin: auto 60px;
-    padding: 5px;
-    width: 250px;
+    margin: 10px 0px;
+    padding: 3px;
+    width: 200px;
+}
+#email{
+    margin: 10px 0px;
+    padding: 3px;
+    width: 200px;
+}
+#address{
+    margin: 10px 127px;
+    padding: 3px;
+    width: 350px;
+}
+#city{
+    margin: 10px 0px;
+    padding: 3px;
+    width: 150px;
+}
+#state{
+    margin: 10px 0px;
+    padding: 3px;
+    width: 150px;
+}
+#pincode{
+    margin: 10px 0px;
+    padding: 3px;
+    width: 150px;
+}
+#otime{
+    margin: 10px 0px;
+    padding: 3px;
+    width: 150px;
+}
+#ctime{
+    margin: 10px 0px;
+    padding: 3px;
+    width: 150px;
+}
+.submit{
+    display: flex;
+    margin:auto 400px;
+}
+.submit input{
+    margin: 30px autos;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    font-size: 1.5rem;
+    border: 2px solid rgb(196, 15, 15);
+    border-radius: 8px;
+    background-color: rgb(196, 15, 15);
+    color: white;
+    cursor: pointer;
 }
