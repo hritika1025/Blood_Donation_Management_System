@@ -1,0 +1,26 @@
+.avail_bld_container form{
+    display: flex;
+    flex-direction: column;
+    border : 2px solid rgb(223, 17, 17);
+    /* width: 70%; */
+    /* margin : 3rem 5rem; */
+    /* margin-right : 5rem; */
+    justify-content: center;
+}
+.bld_avail_form{
+    padding : 30px;
+    justify-content: center;
+    /* align-items: center; */
+}
+.avail_bld_container h1{
+    display: flex;
+    justify-content: center;
+    color: rgb(223, 17, 17);
+}
+.input_tag{
+    font-size: 30px;
+    margin-top : 0px;
+} 
+.form-check-label{
+    font-size: 1rem;
+}
