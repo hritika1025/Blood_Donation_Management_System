@@ -1,3 +1,21 @@
+.red{
+    /* background-color: #EA5455; */
+    background-color: rgb(196, 15, 15);
+    color: white;
+    display: flex;
+    
+}
+.nav1{
+    font-size: 2.5rem;
+    /* color: beige; */
+    color: white;
+    text-decoration: none;
+    
+}
+
+
+
+
 .avail_bld_container form{
     display: flex;
     flex-direction: column;
@@ -16,6 +34,7 @@
     display: flex;
     justify-content: center;
     color: rgb(223, 17, 17);
+    margin-top: 20px;
 }
 .input_tag{
     font-size: 30px;
@@ -23,4 +42,8 @@
 } 
 .form-check-label{
     font-size: 1rem;
+}
+.blood_avail_table{
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
