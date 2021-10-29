@@ -13,25 +13,28 @@
   </head>
   <body style="color: rgba(49, 48, 48, 0.835);" >
     <section class="vh-100 gradient-custom">
-        <div class="container  h-100">
+        <div class="container  h-1000">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
               <div class="card bg-danger text-yellow" style="border-radius: 1rem;">
                 <div class="card-body p-5 ">
       
-                  <div class="mb-md-5 mt-md-4 pb-5">
+                  <div >
       
                     <h2 class="fw-bold mb-2 text-uppercase" style="text-align:center;"><u>User Login</u> </h2>
                     <p class="text-white-50 mb-5" style="text-align:center;">Please enter your Username and password!</p>
-      
+      <form action="/user_login" method="POST" >
                     <div class="form-outline form-white mb-4">
                         <label class="form-label" for="typeEmailX" ><h4>Username:</h4> </label>
-                      <input type="text" id="typeEmailX" class="form-control form-control-lg" placeholder="Username" />
+                      <input type="text" id="typeEmailX" class="form-control form-control-lg" placeholder="Username" name="username" />
                     </div>
       
                     <div class="form-outline form-white mb-4">
                         <label class="form-label" for="typePasswordX"><h4> Password:</h4></label>
-                      <input type="password" id="typePasswordX"  placeholder="Password"class="form-control form-control-lg" />
+                      <input type="password" id="typePasswordX"  placeholder="Password"class="form-control form-control-lg" name="password" />
+                    </div>
+                    <div class="my-3" style="text-align: center;color: yellow;">
+                      {{msg}}
                     </div>
       
                     <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
@@ -40,6 +43,7 @@
         <button class="btn btn-outline-light btn-lg px-5" type="submit" >Login</button>
       </div>
       <br>
+    </form>
       <p class="mb-0" style="text-align: center;">Don't have an account? <a href="user_signup.html" class="text-white-50 fw-bold">Sign Up</a></p>
                     </div>
                     
