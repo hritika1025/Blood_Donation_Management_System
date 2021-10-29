@@ -1,6 +1,6 @@
 from flask import Flask ,render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template = 'template', static = 'static')
 
 @app.route("/")
 def index():
@@ -21,6 +21,10 @@ def blood_bank_registeration():
 @app.route("/blood_bank_login")
 def blood_bank_login():
     return render_template('blood_bank_login.html')
+
+@app.route("/check_blood_availability")
+def check_blood_availability():
+    return render_template('check_blood_availability.html')
 
 @app.route("/admin_dashboard")
 def admin_dashboard():
