@@ -1,16 +1,13 @@
 CREATE DATABASE IF NOT EXISTS blood_donation_dbms;
 USE blood_donation_dbms;
 CREATE TABLE IF NOT EXISTS  `Blood_bank` (
-           `Username` varchar(100) NOT NULL,
            `Password` varchar(100) NOT NULL,
            `License_Number` varchar(100) NOT NULL,
            `Blood_bank_name` varchar(100) NOT NULL,
            `Owner_name` varchar(100) NOT NULL,
            `email1` varchar(100) NOT NULL,
-           `email2` varchar(100) ,
            `phone_num1` int NOT NULL,
-           `phone_num2` int ,
-           `Street` varchar(100) NOT NULL,
+           `Address` varchar(100) NOT NULL,
            `Pincode` int NOT NULL,
            `City` varchar(100) NOT NULL,
            `State` varchar(100) NOT NULL,
@@ -19,7 +16,7 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            PRIMARY KEY (`Username`) );
            
 CREATE TABLE IF NOT EXISTS `Blood_bank_timings` (
-		    `Username` varchar(100) NOT NULL,
+		    `License_Number` varchar(100) NOT NULL,
             `Opening_time` time NOT NULL,
             `Closing_time` time NOT NULL,
             `Weekday` varchar(50) NOT NULL,
@@ -48,9 +45,12 @@ CREATE TABLE IF NOT EXISTS `Blood_stock` (
               `Blood_group` varchar(20) NOT NULL,
               `Eligibility` bool NOT NULL,
               `Phone_num` int NOT NULL,
-              `Street` varchar(100) NOT NULL,
+              `Address` varchar(100) NOT NULL,
+              `City` varchar(30) NOT NULL,
+              `District` varchar(50) NOT NULL,
               `Pincode` int NOT NULL,
               `State` varchar(100) NOT NULL,
+              `Frequent`  bool NOT NULL,
               PRIMARY KEY (`Email_id`) );
 
 CREATE TABLE IF NOT EXISTS `Donations` (
