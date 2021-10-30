@@ -13,26 +13,26 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `State` varchar(100) NOT NULL,
            `Website` varchar(100) ,
            `Verification` varchar(100) NOT NULL DEFAULT 'Not Verified',
-           PRIMARY KEY (`Username`) );
+           PRIMARY KEY (`License_Number`) );
            
 CREATE TABLE IF NOT EXISTS `Blood_bank_timings` (
 		    `License_Number` varchar(100) NOT NULL,
             `Opening_time` time NOT NULL,
             `Closing_time` time NOT NULL,
             `Weekday` varchar(50) NOT NULL,
-            PRIMARY KEY (`Username` , `Weekday`), 
-            FOREIGN KEY (`Username`) REFERENCES `Blood_bank`(`Username`));
+            PRIMARY KEY (`License_Number` , `Weekday`), 
+            FOREIGN KEY (`License_Number`) REFERENCES `Blood_bank`(`License_Number`));
             
 CREATE TABLE IF NOT EXISTS `Blood_stock` (
             `Id` int NOT NULL AUTO_INCREMENT,
-            `Username` varchar(100) NOT NULL,
+            `License_Number` varchar(100) NOT NULL,
             `Blood_group` varchar(10) NOT NULL,
             `Adding_date` date ,
             `Removing_date` date,
             `Units_added` int,
             `Units_removed` int,
             PRIMARY KEY (`Id`),
-            FOREIGN KEY (`Username`) REFERENCES `Blood_bank`(`Username`)
+            FOREIGN KEY (`License_Number`) REFERENCES `Blood_bank`(`License_Number`)
             ) AUTO_INCREMENT=1;
             
   CREATE TABLE IF NOT EXISTS `Donor` (
@@ -63,11 +63,11 @@ CREATE TABLE IF NOT EXISTS `Donations` (
 
 CREATE TABLE IF NOT EXISTS `Notif_Admin_to_Blood_bank` (
             `Id` int NOT NULL,
-            `Username` varchar(100) NOT NULL,
+            `License_Number` varchar(100) NOT NULL,
             `Message` varchar(500) NOT NULL,
             `Date` date NOT NULL,
             PRIMARY KEY (`Id`),
-            FOREIGN KEY (`Username`) REFERENCES `Blood_bank`(`Username`) );
+            FOREIGN KEY (`License_Number`) REFERENCES `Blood_bank`(`License_Number`) );
             
 CREATE TABLE IF NOT EXISTS `Notif_Blood_bank_to_Donor` (
             `Id` int NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `Notif_Blood_bank_to_Donor` (
             `Message` varchar(500) NOT NULL,
             `Date` date NOT NULL,
             PRIMARY KEY (`Id`),
-            FOREIGN KEY (`Blood_bank_user`) REFERENCES `Blood_bank`(`Username`),
+            FOREIGN KEY (`Blood_bank_user`) REFERENCES `Blood_bank`(`License_Number`),
 			FOREIGN KEY (`Donor_user`) REFERENCES `Donor`(`Email_id`));
             
 CREATE TABLE IF NOT EXISTS `Notif_Admin_to_Donor` (
