@@ -99,7 +99,7 @@
 
                   </td>
                   <td>
-                    <div class="form-outline mb-4"> <input type="text" id="name" value="{{name}} " name="name"></div>
+                    <div class="form-outline mb-4"> <input type="text" id="name" value="{{Blood_bank_name}} " name="Blood_bank_name"></div>
 
                   </td>
                 </tr>
@@ -114,7 +114,7 @@
                   </td>
                   <td>
                     <div class="form-outline mb-4">
-                      <input type="text" id="lnum" value="{{lnum}} " name="lnum">
+                      <input type="text" id="License" value="{{License_number}} " name="License_number">
                     </div>
                   </td>
                 </tr>
@@ -131,7 +131,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="text" id="oname" value="{{oname}} " name="oname">
+                      <input type="text" id="owner" value="{{Owner_name}} " name="Owner_name">
                     </div>
 
                   </td>
@@ -149,7 +149,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="number" id="phn" value="{{phn}} " name="phn">
+                      <input type="number" id="phn" value="{{Phone_number}} " name="Phone_number">
                     </div>
 
                   </td>
@@ -168,7 +168,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="email" id="email" value="{{email}} " name="email">
+                      <input type="email" id="email" value="{{Email}} " name="Email">
                     </div>
 
                   </td>
@@ -186,7 +186,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="password" id="password" name="password">
+                      <input type="password" id="password" name="Password">
                     </div>
 
                   </td>
@@ -223,7 +223,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="text" id="address" value="{{address}} " name="address">
+                      <input type="text" id="address" value="{{Address}} " name="Address">
                     </div>
 
                   </td>
@@ -241,7 +241,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="text" id="city" value="{{city}} " name="city">
+                      <input type="text" id="city" value="{{City}} " name="City">
                     </div>
 
                   </td>
@@ -259,7 +259,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="text" id="pincode" value="{{pincode}} " name="pincode">
+                      <input type="text" id="pincode" value="{{Pincode}} " name="Pincode">
                     </div>
 
                   </td>
@@ -279,7 +279,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="text" id="district" value="{{district}} " name="district">
+                      <input type="text" id="district" value="{{District}} " name="District">
                     </div>
 
                   </td>
@@ -298,8 +298,8 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <select id="inputState" required class="form-select" name="state">
-                        <option selected value="{{state}} " >{{state}}</option>
+                      <select id="state" required class="form-select" name="State">
+                        <option selected value="{{State}} " >{{State}}</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -354,8 +354,8 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <select id="inputState" required class="form-select" name="state">
-                        <option selected value="{{weekday}} " > {{weekday}}</option>
+                      <select id="weekday" required class="form-select" name="Weekday">
+                        <option selected value="{{Weekday}} " > {{Weekday}}</option>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
                         <option value="Wednesday">Wednesday</option>
@@ -384,7 +384,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="time" id="otime" value="{{otime}} " name="otime">
+                      <input type="time" id="otime" value="{{Opening_time}} " name="Opening_time">
                     </div>
 
                   </td>
@@ -402,7 +402,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <input type="time" id="ctime" value="{{ctime}} " name="ctime">
+                      <input type="time" id="ctime" value="{{Closing_time}} " name="Closing_time">
                     </div>
 
                   </td>
@@ -410,10 +410,10 @@
               </table>
               <br>
               <div class="pt-1 mb-4" style="margin-left:200px; margin-right: 30px;">
-                <button class="btn btn-success btn-lg btn-block" type="button"
+                <button class="btn btn-success btn-lg btn-block" type="submit"
                   style="text-align: center;">Register</button>
               </div>
-
+              <p class="mb-0" style="text-align: center;">Already have an account? <a href="{{url_for('blood_bank_login')}}" class="text-white-50 fw-bold">Log In</a></p>
             </form>
 
           </div>
