@@ -1,94 +1,118 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <title> Responsive Admin Dashboard </title>
-    <link rel='stylesheet' href='../static/css/style4.css'>
-    <meta name="viewport" contents="width=device-width, initial scale=1,0">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    
-</head>
-<body>
-    <div class="sidebar">
-        <div class="logo-details">
-            <i class='bx bx-polygon'></i>
-            <span class="logo-name"> Dashboard </span>
-    </div>
-    <ul class="nav-links">
-        <li>
-            <a href="#">
-                <i class='bx bxs-dashboard'></i>
-                <span class="link-name"> Dashboard </span>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Title -->
+    <title>iDonor</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/admin_dashboard2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+      <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg red">
+        <div class="container-fluid">
+          <span>
+            <a class="navbar-brand nav1" href="index.html">iDonor</a>
+          </span>
+  
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown"></li>
+              <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li> -->
+            </ul>
+            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Log In
             </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-label' ></i>
-                <span class="link-name"> Blood Camps </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-label' ></i>
-                <span class="link-name"> Total Donations </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-label' ></i>
-                <span class="link-name"> Active Donors </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-label' ></i>
-                <span class="link-name"> Donation Camps </span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-label' ></i>
-                <span class="link-name"> Health Centers </span>
-            </a>
-        </li>
-        <li>  
-            <a href=#>
-                <i class='bx bx-log-out'></i>
-                <span class="link-name"> Log Out </span>
-            </a>
-        </li>    
-    </ul>
-    </div>
-
-    <section class="home-section">
-        <nav>
-            <div class="sidebar-button">  
-                <i class='bx bx-menu'></i> 
-                <span class="dashboard"> Dashboard </span>
-            </div>
-            <div class="search-box">
-                
-                <input type="text" placeholder="Search Here">
-                <i class='bx bx-search' ></i>
-            </div>
-            <div class="profile-details">
-                <span class="admin-name"> Admin-Name </span>
-                <i class='bx bx-chevron-down' ></i>
-            </div>
-        </nav>
-        
-        <div class="home-content">
-            <div class="overview-boxes">
-                <div>
-                <div class="box">
-                    <div class="left-side">
-                        <div class="box-topic"> Blood Groups </div>
-                        
-                    </div>
-                </div>
-            </div>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Donor Login</a></li>
+              <li><a class="dropdown-item" href="#">Blood Bank Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Admin Login</a></li>
+            </ul> -->
+            <a class="btn btn-outline-light" href="contact.html" role="button" style="margin: auto 10px;">Contact Us</a>
+            <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
+           <div class="dropdown">
+             <button
+               class="btn btn-light dropdown-toggle"
+               type="button"
+               style="margin-right: 35px"
+               id="dropdownMenuButton1"
+               data-bs-toggle="dropdown"
+               aria-expanded="false"
+             >
+               Log In
+             </button>
+             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+               <li><a class="dropdown-item" href="user_login.html">Donor Login</a></li>
+               <li><a class="dropdown-item" href="blood_bank_login.html">Blood Bank Login</a></li>
+               <li><a class="dropdown-item" href="#">Admin</a></li>
+             </ul>
+           </div>
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+          </div>
         </div>
+      </nav>
+      <br><br>
 
-    </section>
-</body>
+      <div class="title" style="display:flex;">
+        ADMIN DASHBOARD
+      </div>
+      <br>
+      <br>
+      <br>
+
+      <br>
+
+      <div class="links" style="display:flex;">
+        <a href="admin_dashboard3.html"> USER FEEDBACKS </a>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="links" style="display:flex;">
+        <a href="admin_dashboard3.html"> VERIFICATION REQUESTS </a>
+        
+      </div>
+      
+    
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    
+
+    
+  </body>
 </html>
