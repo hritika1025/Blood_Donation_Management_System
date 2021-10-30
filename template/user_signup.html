@@ -36,20 +36,20 @@
         <form class="row g-3 signup_form" action="/user_signup" method="POST">
             <div class="col-md-6">
                 <label for="inputFirstname" class="form-label">First Name</label>
-                <input type="text" required name="f_name"  class="form-control" id="inputFirstname" placeholder="First name">
+                <input type="text" required name="First_name"  class="form-control" id="inputFirstname" placeholder="First name">
             </div>
             <div class="col-md-6">
                 <label for="inputLastname" class="form-label">Last Name</label>
-                <input type="text" required class="form-control" name="l_name" id="inputLastname"placeholder="Last name">
+                <input type="text" required class="form-control" name="Last_name" id="inputLastname"placeholder="Last name">
             </div>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" required class="form-control" name="email" id="inputEmail4"placeholder="Email">
+                <input type="email" required class="form-control" name="Email_id" id="inputEmail4"placeholder="Email">
             </div>
             
             <div class="col-md-6">
-                <label for="inputState" class="form-label">Blood Group</label>
-                <select id="inputState" required class="form-select" name="blood_group">
+                <label for="inputtate" class="form-label">Blood Group</label>
+                <select id="inputtate" required class="form-select" name="Blood_group">
                     <option seleceted value="">Select blood group</option>
                     <option  value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -63,7 +63,7 @@
             </div>
             <div class="col-md-6">
                 <label for="gender" class="form-label">Gender</label>
-                <select id="gender" required class="form-select" name="gender">
+                <select id="gender" required class="form-select" name="Gender">
                     <option selected value="">Select gender </option>
                     <option  value="Male">Male</option>
                     <option value="Female">Female</option>        
@@ -73,15 +73,15 @@
 
             <div class="col-md-6">
                 <label for="inpuAge" class="form-label">Age</label>
-                <input type="text" required class="form-control" id="inpuAge"placeholder="Age" name="age">
+                <input type="text" required class="form-control" id="inpuAge"placeholder="Age" name="Age">
             </div>
             <div class="col-md-6">
                 <label for="inputphone number" class="form-label">Phone number</label>
-                <input type="text" required class="form-control" name="phone_number" id="inputphone number"placeholder="Phone number">
+                <input type="text" required class="form-control" name="Phone_num" id="inputphone number"placeholder="Phone number">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" required class="form-control" name="password" id="inputPassword4"placeholder="Password">
+                <input type="password" required class="form-control" name="Password" id="inputPassword4"placeholder="Password">
             </div>
             <div class="col-md-6">
                 <label for="inputconfirmPassword4" class="form-label">Confirm Password</label>
@@ -89,7 +89,7 @@
             </div>
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" required class="form-control" name="address" id="inputAddress" placeholder="1234 Main St">
+                <input type="text" required class="form-control" name="Address" id="inputAddress" placeholder="1234 Main St">
             </div>
             <!-- <div class="col-12">
                 <label for="inputAddress2" class="form-label">Address 2</label>
@@ -100,13 +100,13 @@
                 <legend class="col-form-label col-md-6 pt-0">Are you eligible for donating blood?</legend>
                 <div class="col-sm-10">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="eligibility" id="gridRadios1" value="True" checked>
+                    <input class="form-check-input" type="radio" name="Eligibility" id="gridRadios1" value="True" checked>
                     <label class="form-check-label" for="gridRadios1">
                       Yes
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="eligibility" id="gridRadios2" value="False">
+                    <input class="form-check-input" type="radio" name="Eligibility" id="gridRadios2" value="False">
                     <label class="form-check-label" for="gridRadios2">
                       No
                     </label>
@@ -117,13 +117,13 @@
                 <legend class="col-form-label col-md-6 pt-0">Are you a frequent donar?</legend>
                 <div class="col-sm-10">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="fd" id="fd1" value="True" checked>
+                    <input class="form-check-input" type="radio" name="Frequent" id="fd1" value="True" checked>
                     <label class="form-check-label" for="fd1">
                       Yes
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="fd" id="fd2" value="False">
+                    <input class="form-check-input" type="radio" name="Frequent" id="fd2" value="False">
                     <label class="form-check-label" for="fd2">
                       No
                     </label>
@@ -132,14 +132,14 @@
               </fieldset>
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">City</label>
-                <input type="text" required class="form-control" name="city" id="inputCity"placeholder="City">
+                <input type="text" required class="form-control" name="City" id="inputCity"placeholder="City">
             </div>
             <div class="col-md-6">
                 <label for="inputdistrict" class="form-label">District</label>
-                <input type="text" required class="form-control" name="district" id="inputdistrict"placeholder="District">
+                <input type="text" required class="form-control" name="District" id="inputdistrict"placeholder="District">
             </div>
             <label for="inputState" class="form-label">State</label>
-                <select id="inputState" required class="form-select" name="state">
+                <select id="inputState" required class="form-select" name="State">
                     <option selected >Select Your state</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -180,7 +180,7 @@
                     </select>
             <div class="col-md-2">
                 <label for="inputZip" class="form-label">Pincode</label>
-                <input  type="text" required class="form-control" id="inputZip" name="pincode" placeholder="Pincode">
+                <input  type="text" required class="form-control" id="inputZip" name="Pincode" placeholder="Pincode">
             </div>
             <div class="col-12">
                 <div class="form-check">
@@ -194,7 +194,7 @@
                 <button type="submit" class="btn btn-success">Sign Up</button>
             </div>
         </form>
-        <p class="mb-0" style="text-align: center;">Already have an account? <a href="user_login.html" class="text-white-50 fw-bold">Log In</a></p>
+        <p class="mb-0" style="text-align: center;">Already have an account? <a href="{{url_for('user_login')}}" class="text-white-50 fw-bold">Log In</a></p>
     </div>
 <!-- </div> -->
 
