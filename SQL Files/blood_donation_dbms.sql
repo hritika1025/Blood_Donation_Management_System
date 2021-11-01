@@ -1,3 +1,4 @@
+DROP DATABASE blood_donation_dbms;
 CREATE DATABASE IF NOT EXISTS blood_donation_dbms;
 USE blood_donation_dbms;
 CREATE TABLE IF NOT EXISTS  `Blood_bank` (
@@ -8,7 +9,7 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `email1` varchar(100) NOT NULL,
            `phone_num1` int NOT NULL,
            `Address` varchar(100) NOT NULL,
-           `Pincode` int NOT NULL,
+           `Pincode` int(20) NOT NULL,
            `City` varchar(100) NOT NULL,
            `State` varchar(100) NOT NULL,
            `Website` varchar(100) ,
@@ -21,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `Blood_bank_timings` (
             `Closing_time` time NOT NULL,
             `Weekday` varchar(50) NOT NULL,
             PRIMARY KEY (`License_Number` , `Weekday`), 
-            FOREIGN KEY (`License_Number`) REFERENCES `Blood_bank`(`License_Number`));
+            FOREIGN KEY (`License_Number`) REFERENCES `Blood_bank`(`License_Number`)  ON DELETE CASCADE);
             
 CREATE TABLE IF NOT EXISTS `Blood_stock` (
             `Id` int NOT NULL AUTO_INCREMENT,
