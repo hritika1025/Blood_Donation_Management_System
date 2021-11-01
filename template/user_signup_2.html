@@ -95,8 +95,15 @@
                 <label for="inputAddress2" class="form-label">Address 2</label>
                 <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
             </div> -->
-            
-            <fieldset class="row mb-2 mt-3">
+            <div class="col-md-6">
+                <label for="eligibility" class="form-label">Are you eligible for donating blood?</label>
+                <input type="text" required class="form-control" name="eligibility" id="eligibility" placeholder="Enter y for YES and n for NO">
+            </div>
+            <div class="col-md-6">
+                <label for="Frequent" class="form-label">Are you a frequent donor?</label>
+                <input type="text" required class="form-control"  name="Frequent" id="Frequent" placeholder="Enter y for YES and n for NO">
+            </div>
+            <!-- <fieldset class="row mb-2 mt-3">
                 <legend class="col-form-label col-md-6 pt-0">Are you eligible for donating blood?</legend>
                 <div class="col-sm-10">
                   <div class="form-check">
@@ -129,7 +136,7 @@
                     </label>
                   </div>
                 </div>
-              </fieldset>
+              </fieldset> -->
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">City</label>
                 <input type="text" value="{{city}} " required class="form-control" name="city" id="inputCity"placeholder="City">
@@ -182,14 +189,14 @@
                 <label for="inputZip" class="form-label">Pincode</label>
                 <input  type="text" value="{{pincode}} " required class="form-control" id="inputZip" name="pincode" placeholder="Pincode">
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">
                     <label class="form-check-label" for="gridCheck">
                         Check me out
                     </label>
                 </div>
-            </div>
+            </div> -->
             <div class="col-12">
                 <input type="submit" value="Sign up" class="btn text-white btn-block btn-success">
             </div>

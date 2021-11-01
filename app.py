@@ -78,7 +78,7 @@ def user_signup():
         account=cursor.fetchone()
         if account :
             msg="An account had been registered with this email"
-            return render_template('user_singup.html',msg=msg)
+            return render_template('user_signup.html',msg=msg)
         
         elif (Password != c_password):
             msg="Password and Confirm Password are not matching! "
@@ -88,8 +88,8 @@ def user_signup():
 
             cursor.execute('INSERT INTO Donor(First_name,Last_name,Email_id,Age,Phone_num,Password,Address,Blood_group,Eligibility,Frequent,City,District,State,Pincode,Gender) VALUES(%s,%s,%s,%d,%d,%s,%s,%s,%s,%s,%s,%s,%s,%d,%s)', (First_name,Last_name,Email_id,Age,Phone_num,Password,Address,Blood_group,Eligibility,Frequent,City,District,State,Pincode,Gender))
             mysql.connection.commit()
-            return redirect(url_for('user_login'))
-    return render_template('user_signup.html')
+            return redirect(url_for('index'))
+    return render_template('user_signup.html', msg = msg)
 
 @app.route("/blood_bank_registeration",methods=['POST','GET'])
 def blood_bank_registeration():
