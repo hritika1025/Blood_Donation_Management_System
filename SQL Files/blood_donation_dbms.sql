@@ -43,14 +43,14 @@ CREATE TABLE IF NOT EXISTS `Blood_stock` (
               `Age` int NOT NULL,
               `Gender` varchar(30) NOT NULL,
               `Blood_group` varchar(20) NOT NULL,
-              `Eligibility` bool NOT NULL,
+              `Eligibility` TEXT(5) NOT NULL,
               `Phone_num` int NOT NULL,
               `Address` varchar(100) NOT NULL,
               `City` varchar(30) NOT NULL,
               `District` varchar(50) NOT NULL,
               `Pincode` int NOT NULL,
               `State` varchar(100) NOT NULL,
-              `Frequent`  bool NOT NULL,
+              `Frequent` TEXT(5) NOT NULL,
               PRIMARY KEY (`Email_id`) );
 
 CREATE TABLE IF NOT EXISTS `Donations` (
