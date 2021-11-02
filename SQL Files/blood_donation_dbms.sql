@@ -1,3 +1,4 @@
+DROP DATABASE blood_donation_dbms;
 CREATE DATABASE IF NOT EXISTS blood_donation_dbms;
 USE blood_donation_dbms;
 CREATE TABLE IF NOT EXISTS  `Blood_bank` (
@@ -8,7 +9,7 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Email` varchar(100) NOT NULL,
            `Phone_number` int NOT NULL,
            `Address` varchar(100) NOT NULL,
-           `Pincode` int NOT NULL,
+           `Pincode` int(20) NOT NULL,
            `City` varchar(100) NOT NULL,
            `District`varchar(100) NOT NULL,
            `State` varchar(100) NOT NULL,
@@ -21,8 +22,13 @@ CREATE TABLE IF NOT EXISTS `Blood_bank_timings` (
             `Opening_time` time NOT NULL,
             `Closing_time` time NOT NULL,
             `Weekday` varchar(50) NOT NULL,
+<<<<<<< HEAD
             PRIMARY KEY (`Username` , `Weekday`), 
             FOREIGN KEY (`Username`) REFERENCES `Blood_bank`(`Username`));
+=======
+            PRIMARY KEY (`License_Number` , `Weekday`), 
+            FOREIGN KEY (`License_Number`) REFERENCES `Blood_bank`(`License_Number`)  ON DELETE CASCADE);
+>>>>>>> cd7301b18dca1bad0e81e51acad6d9e859956394
             
 CREATE TABLE IF NOT EXISTS `Blood_stock` (
             `Id` int NOT NULL AUTO_INCREMENT,
@@ -44,14 +50,14 @@ CREATE TABLE IF NOT EXISTS `Blood_stock` (
               `Age` int NOT NULL,
               `Gender` varchar(30) NOT NULL,
               `Blood_group` varchar(20) NOT NULL,
-              `Eligibility` bool NOT NULL,
+              `Eligibility` TEXT(5) NOT NULL,
               `Phone_num` int NOT NULL,
               `Address` varchar(100) NOT NULL,
               `City` varchar(30) NOT NULL,
               `District` varchar(50) NOT NULL,
               `Pincode` int NOT NULL,
               `State` varchar(100) NOT NULL,
-              `Frequent`  bool NOT NULL,
+              `Frequent` TEXT(5) NOT NULL,
               PRIMARY KEY (`Email_id`) );
 
 CREATE TABLE IF NOT EXISTS `Donations` (
