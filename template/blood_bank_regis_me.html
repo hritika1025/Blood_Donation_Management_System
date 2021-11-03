@@ -25,10 +25,12 @@
         height: 100%;
       }
     }
+
+   
   </style>
 </head>
 
-<body style="background-color: rgba(224, 20, 20, 0.609);">
+<body style="background-color: rgba(245, 82, 82, 0.233);">
 
   <nav class="navbar navbar-expand-lg red">
     <div class="container-fluid">
@@ -54,8 +56,8 @@
         </ul>
         <!-- <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-        <button class="btn btn-outline-light" type="submit">Log In</button>
         <!-- </form> -->
+        <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
       </div>
     </div>
   </nav>
@@ -68,29 +70,20 @@
       Blood Bank Registration :</h1>
   </div>
   <br>
-  
-  <section class="vh-100">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img
-            src="https://images.adsttc.com/media/images/53bf/72df/c07a/8034/c400/011e/large_jpg/00portada.jpg?1405055698"
-            alt="Login image" class=" vh-100" style="object-fit: cover; object-position: left;">
-        </div>
-        <div class="col-sm-6 text-black">
 
+  <div class="container ">
 
-          <div class="d-flex  h-custom-2 " style="padding: 10px; background-color: red; border-radius: 5px;">
-
-            <form>
-              <div style="text-align: center;color: black;">
-                <h4>{{msg}} </h4>
-                 </div>
-              <table style="width: 26rem; padding-top: 200px;">
-                
+    <div class="mx-5 mb-5 pb-5 border bordre-danger border-4 rounded-3 pt-1" style="background-color: rgba(247, 96, 96, 0.609); border-color: rgb(143, 25, 25);">
+      <div class="pb-3" style="text-align: center; color: yellow;">
+        <h4>{{msg}} </h4>
+      </div>
+      <div class="mx-5">
+        <form action="">
+          <div class="row">
+            <div class=" col-sm-6 text-black border-end ">
+              <table style="width: 26rem; padding-top: 200px; ">
                 <tr>
                   <td>
-
                     <div class="form-outline mb-4">
                       <label for="name">
                         <h5>Blood Bank Name:</h5>
@@ -99,7 +92,7 @@
 
                   </td>
                   <td>
-                    <div class="form-outline mb-4"> <input type="text" id="name" name="name"></div>
+                    <div> <input class="form-control mb-4" type="text" id="name" name="Blood_bank_name"></div>
 
                   </td>
                 </tr>
@@ -113,8 +106,8 @@
                     </div>
                   </td>
                   <td>
-                    <div class="form-outline mb-4">
-                      <input type="text" id="lnum" name="lnum">
+                    <div>
+                      <input class="form-control mb-4" type="text" id="License" name="License_number">
                     </div>
                   </td>
                 </tr>
@@ -130,8 +123,8 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="text" id="oname" name="oname">
+                    <div>
+                      <input class="form-control mb-4" type="text" id="oname" name="Owner_name">
                     </div>
 
                   </td>
@@ -148,8 +141,8 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="number" id="phn" name="phn">
+                    <div>
+                      <input class="form-control mb-4" type="number" id="phn" name="Phone_number">
                     </div>
 
                   </td>
@@ -167,8 +160,8 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="email" id="email" name="email">
+                    <div>
+                      <input class="form-control mb-4" type="email" id="email" name="Email">
                     </div>
 
                   </td>
@@ -185,8 +178,8 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="password" id="password" name="password">
+                    <div>
+                      <input class="form-control mb-4" type="password" id="password" name="Password">
                     </div>
 
                   </td>
@@ -204,12 +197,63 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="password" id="c_password" name="c_password">
+                    <div>
+                      <input class="form-control mb-4" type="password" id="c_password" name="c_password">
                     </div>
 
                   </td>
                 </tr>
+                <tr>
+                  <td>
+
+                    <div class="form-outline mb-4">
+                      <label for="otime">
+                        <h5> Opening Time:</h5>
+                      </label>
+                    </div>
+
+                  </td>
+                  <td>
+
+                    <div>
+                      <input class="form-outline mb-4" type="time" id="otime" name="Opening_time">
+                    </div>
+
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col-sm-6 text-black px-5">
+
+
+
+              <table style="width: 26rem; padding-top: 200px;">
+
+
+
+
+                <tr>
+                  <td>
+
+                    <div class="form-outline mb-4">
+                      <label for="website">
+                        <h5>Website:</h5>
+                      </label>
+                    </div>
+
+                  </td>
+                  <td>
+
+                    <div>
+                      <input class="form-control mb-4" type="text" id="website" name="Website">
+                    </div>
+
+                  </td>
+                </tr>
+
+
+
                 <tr>
                   <td>
 
@@ -222,8 +266,8 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="text" id="address" name="address">
+                    <div>
+                      <input class="form-control mb-4" type="text" id="address" name="Address">
                     </div>
 
                   </td>
@@ -240,8 +284,8 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="text" id="city" name="city">
+                    <div>
+                      <input class="form-control mb-4" type="text" id="city" name="City">
                     </div>
 
                   </td>
@@ -258,8 +302,8 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="text" id="pincode" name="pincode">
+                    <div>
+                      <input class="form-control mb-4" type="text" id="pincode" name="Pincode">
                     </div>
 
                   </td>
@@ -278,8 +322,8 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="text" id="district" name="district">
+                    <div>
+                      <input class="form-control mb-4" type="text" id="district" name="District">
                     </div>
 
                   </td>
@@ -289,7 +333,7 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <label for="state">
+                      <label for="State">
                         <h5>State:</h5>
                       </label>
                     </div>
@@ -298,8 +342,8 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <select id="inputState" required class="form-select" name="state">
-                        <option selected >Select Your state</option>
+                      <select id="State" required class="form-select" name="State">
+                        <option selected>Select Your state</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -336,7 +380,7 @@
                         <option value="Uttar Pradesh">Uttar Pradesh</option>
                         <option value="Uttarakhand">Uttarakhand</option>
                         <option value="West Bengal">West Bengal</option>
-                        </select>
+                      </select>
                     </div>
 
                   </td>
@@ -354,16 +398,16 @@
                   <td>
 
                     <div class="form-outline mb-4">
-                      <select id="inputState" required class="form-select" name="state">
-                        <option selected >Select Weekday</option>
+                      <select id="weekday" required class="form-select" name="Weekday">
+                        <option selected>Select Weekday</option>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
                         <option value="Wednesday">Wednesday</option>
                         <option value="Thursday">Thursday</option>
                         <option value="Friday">Friday</option>
                         <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>                        
-                        </select>
+                        <option value="Sunday">Sunday</option>
+                      </select>
                     </div>
 
                   </td>
@@ -371,24 +415,7 @@
 
 
 
-                <tr>
-                  <td>
 
-                    <div class="form-outline mb-4">
-                      <label for="otime">
-                        <h5> Opening Time:</h5>
-                      </label>
-                    </div>
-
-                  </td>
-                  <td>
-
-                    <div class="form-outline mb-4">
-                      <input type="time" id="otime" name="otime">
-                    </div>
-
-                  </td>
-                </tr>
                 <tr>
                   <td>
 
@@ -401,28 +428,32 @@
                   </td>
                   <td>
 
-                    <div class="form-outline mb-4">
-                      <input type="time" id="ctime" name="ctime">
+                    <div>
+                      <input class="form-outline mb-4" type="time" id="ctime" name="Closing_time">
                     </div>
 
                   </td>
                 </tr>
               </table>
               <br>
-              <div class="pt-1 mb-4" style="margin-left:200px; margin-right: 30px;">
-                <button class="btn btn-success btn-lg btn-block" type="button"
-                  style="text-align: center;">Register</button>
-              </div>
 
-            </form>
-
+            </div>
+            <div class="pt-1 mb-4 d-grid gap-1 my-4 mt-3" style=" text-align: center;">
+              <button class="btn btn-success btn-lg " type="submit" style="text-align: center;">Register</button>
+            </div>
           </div>
 
-        </div>
 
+          <p class="mb-0" style="text-align: center;">Already have an account? <a href="{{url_for('blood_bank_login')}}"
+              class="text-white-50 fw-bold">Log In</a></p>
+
+
+        </form>
       </div>
     </div>
-  </section>
+
+  </div>
+
 
   <!-- Optional JavaScript; choose one of the two! -->
 
