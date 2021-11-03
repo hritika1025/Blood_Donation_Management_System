@@ -19,6 +19,14 @@ mysql = MySQL(app)
 def index():
     return render_template('index.html')
 
+@app.route("/home")
+def home():
+    msg=''
+    if 'Email_id' in session:
+        msg=session['Email_id']
+        return render_template('home.html',msg=msg)
+    return redirect(url_for('index'))
+
 @app.route("/user_login" ,methods=['POST','GET'])
 def user_login():
     msg = ""
@@ -33,9 +41,9 @@ def user_login():
             session['loggedin']=True
             session['Email_id'] = Email_id
             session['Phone_num'] = account['Phone_num']
-            session['First_num'] = account['First_name']
-            session['Lasr_num'] = account['Last_num']
-            return render_template('index.html')
+            session['First_name'] = account['First_name']
+            session['Last_name'] = account['Last_name']
+            return render_template('home.html')
         else:
             msg='Incorrect username/password!'  
     else:
@@ -47,8 +55,8 @@ def user_logout():
     session.pop('loggedin',None)
     session.pop('Email_id',None)
     session.pop('Phone_num',None)
-    session.pop('First_num',None)
-    session.pop('Last_num',None)
+    session.pop('First_name',None)
+    session.pop('Last_name',None)
     return redirect(url_for('user_login'))
 
 
@@ -65,7 +73,7 @@ def user_logout():
 
 @app.route("/user_signup",methods=['POST','GET'])
 def user_signup():
-    msg="Please fill all the elements of the form!"
+    msg=''
     if request.method=='POST' and  'First_name' in request.form and 'Gender' in request.form and 'Email_id' in request.form and 'Last_name' in request.form and 'Age' in request.form and 'Phone_num' in request.form and  'Password' in request.form and 'c_password' in request.form and 'Street' in request.form and 'Blood_group' in request.form and 'eligibility' in request.form and 'Frequent' in request.form and 'City' in request.form and 'District' in request.form and 'State' in request.form and 'Pincode' in request.form :
         First_name=request.form['First_name']
         Last_name=request.form['Last_name']
@@ -115,7 +123,7 @@ def user_signup():
             session['First_name'] = First_name
             session['Last_name'] = Last_name
             cursor.close()
-            return redirect(url_for('index'))
+            return redirect(url_for('home'))
     elif request.method == 'POST':
         msg = 'Please fill out the form !'
     
