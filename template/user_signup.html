@@ -81,7 +81,7 @@
 
     <div class="container-fluid p-5 h5 pt-2 " >
         <div class="px-5 py-3 pt-5 border rounded  " style="background-color:rgba(247, 96, 96, 0.609) ;">
-        <form class="row g-3 signup_form" action="/user_signup" method="POST">
+        <form class="row g-3 signup_form" action="" method="POST">
             <div class="col-md-6">
                 <label for="inputFirstname" class="form-label">First Name</label>
                 <input type="text" required name="First_name"  class="form-control" id="inputFirstname" placeholder="First name">
@@ -115,6 +115,7 @@
                     <option selected value="">Select gender </option>
                     <option  value="Male">Male</option>
                     <option value="Female">Female</option>        
+                    <option value="Female">Other</option>        
                 </select>
             </div>
 
@@ -136,22 +137,15 @@
                 <input type="password" required class="form-control" name="c_password" id="inputconfirmPassword4"placeholder="Confirm password">
             </div>
             <div class="col-12">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" required class="form-control" name="Address" id="inputAddress" placeholder="1234 Main St">
+                <label for="inputAddress" class="form-label">Street</label>
+                <input type="text" required class="form-control" name="Street" id="inputAddress" placeholder="1234 Main St">
             </div>
             <!-- <div class="col-12">
                 <label for="inputAddress2" class="form-label">Address 2</label>
                 <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
             </div> -->
 
-            <div class="col-md-6">
-                <label for="eligibility" class="form-label">Are you eligible for donating blood?</label>
-                <input type="text" required class="form-control" name="eligibility" id="eligibility" placeholder="Enter y for YES and n for NO">
-            </div>
-            <div class="col-md-6">
-                <label for="Frequent" class="form-label">Are you a frequent donor?</label>
-                <input type="text" required class="form-control"  name="Frequent" id="Frequent" placeholder="Enter y for YES and n for NO">
-            </div>
+           
 
 <!--             
             <fieldset class="row mb-2 mt-3">
@@ -240,6 +234,14 @@
                 <label for="inputZip" class="form-label">Pincode</label>
                 <input  type="text" required class="form-control" id="inputZip" name="Pincode" placeholder="Pincode">
             </div>
+            <div class="col-md-6">
+              <label for="eligibility" class="form-label">Are you eligible for donating blood?</label>
+              <input type="text" required class="form-control" name="eligibility" id="eligibility" placeholder="Enter y for YES and n for NO">
+          </div>
+          <div class="col-md-6">
+              <label for="Frequent" class="form-label">Are you a frequent donor?</label>
+              <input type="text" required class="form-control"  name="Frequent" id="Frequent" placeholder="Enter y for YES and n for NO">
+          </div>
             <!-- <div class="col-12">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">

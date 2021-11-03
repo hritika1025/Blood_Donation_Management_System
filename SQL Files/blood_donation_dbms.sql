@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Email` varchar(100) NOT NULL,
            `Phone_number` varchar(20) NOT NULL,
            `Street` varchar(100) NOT NULL,
-           `Pincode` int NOT NULL,
+           `Pincode` varchar(20) NOT NULL,
            `City` varchar(100) NOT NULL,
            `District`varchar(100) NOT NULL,
            `State` varchar(100) NOT NULL,
@@ -37,13 +37,13 @@ CREATE TABLE IF NOT EXISTS `Blood_stock` (
             PRIMARY KEY (`Id`),
             FOREIGN KEY (`License_Number`) REFERENCES `Blood_bank`(`License_Number`) ON DELETE CASCADE
             ) AUTO_INCREMENT=1;
-            
+
   CREATE TABLE IF NOT EXISTS `Donor` (
               `Email_id` varchar(100) NOT NULL,
               `Password` varchar(100) NOT NULL ,
               `First_name` varchar(100) NOT NULL,
               `Last_name` varchar(100) ,
-              `Age` int NOT NULL,
+              `Age` varchar(10) NOT NULL,
               `Gender` varchar(30) NOT NULL,
               `Blood_group` varchar(20) NOT NULL,
               `Eligibility` varchar(5) NOT NULL DEFAULT 'False',
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `Blood_stock` (
               `Street` varchar(100) NOT NULL,
               `City` varchar(30) NOT NULL,
               `District` varchar(50) NOT NULL,
-              `Pincode` int NOT NULL,
+              `Pincode` varchar(20) NOT NULL,
               `State` varchar(100) NOT NULL,
               `Frequent_Donor` varchar(5) NOT NULL DEFAULT 'NO',
               PRIMARY KEY (`Email_id`) );
