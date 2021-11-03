@@ -143,9 +143,25 @@ def bank_logout():
     #     return render_template('user_login.html')
     # return render_template('blood_bank_login.html')
 
-@app.route("/check_blood_availability")
+@app.route("/check_blood_availability", methods = ['GET', 'POST'])
 def check_blood_availability():
-    return render_template('check_blood_availability.html')
+     if request.method == "POST":
+        username = session['username']
+        state = request.form['state']
+        district = request.form['district']
+        bloodgroup = request.form['bloodgroup']
+        if len(username) > 0 and len(state) > 0 and len(district) > 0 and len(bloodgroup) >0:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            # cursor.execute('INSERT INTO record VALUES (NULL, % s, % s, % s,% s)',(username , state, district, bloodgroup,))
+            mysql.connection.commit()
+            cursor.execute('SELECT Blood_bank_name, phone_num1, Address FROM Blood_bank WHERE State = %s AND District = %s', (state, district))
+            rows = cursor.fetchall();
+            for row in rows:
+                row = row
+                cursor.close()
+
+
+    # return render_template('check_blood_availability.html')
 
 @app.route("/admin_dashboard")
 def admin_dashboard():

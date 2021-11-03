@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Address` varchar(100) NOT NULL,
            `Pincode` int NOT NULL,
            `City` varchar(100) NOT NULL,
+           `District` varchar(100) NOT NULL,
            `State` varchar(100) NOT NULL,
            `Website` varchar(100) ,
            `Verification` varchar(100) NOT NULL DEFAULT 'Not Verified',

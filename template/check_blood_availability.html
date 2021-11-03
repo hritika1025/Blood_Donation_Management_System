@@ -52,7 +52,7 @@
 
     <div class="container-fluid avail_bld_container">
         <h1>Search Blood Stock</h1>
-        <form class="bld_avail_form">
+        <form class="bld_avail_form" action = "" method="POST">
             <div class="row mb-3">
                 <label for="state" class="col-sm-2 col-form-label input_tag" style="font-size: 1.5rem;">State</label>
                 <div class="col-sm-10">
@@ -85,43 +85,43 @@
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" style="margin-top: 0.5rem;" type="radio" name="gridRadios"
-                            id="gridRadios1" value="option1" checked>
-                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios1">
+                            id="gridRadios3" value="option1" checked>
+                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios3">
                             B+
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" style="margin-top: 0.5rem;" type="radio" name="gridRadios"
-                            id="gridRadios2" value="option2">
-                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios2">
+                            id="gridRadios4" value="option2">
+                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios4">
                             B-
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" style="margin-top: 0.5rem;" type="radio" name="gridRadios"
-                            id="gridRadios1" value="option1" checked>
-                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios1">
+                            id="gridRadios5" value="option1" checked>
+                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios5">
                             AB+
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" style="margin-top: 0.5rem;" type="radio" name="gridRadios"
-                            id="gridRadios2" value="option2">
-                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios2">
+                            id="gridRadios6" value="option2">
+                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios6">
                             AB-
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" style="margin-top: 0.5rem;" type="radio" name="gridRadios"
-                            id="gridRadios1" value="option1" checked>
-                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios1">
+                            id="gridRadios7" value="option1" checked>
+                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios7">
                             O+
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" style="margin-top: 0.5rem;" type="radio" name="gridRadios"
-                            id="gridRadios2" value="option2">
-                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios2">
+                            id="gridRadios8" value="option2">
+                        <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios8">
                             O-
                         </label>
                     </div>
@@ -147,7 +147,7 @@
             <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
     </div>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <table class="table table-secondary table-bordered border-primary blood_avail_table">
             <thead>
                 <tr>
@@ -175,7 +175,35 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
+
+    <div class="table-responsive">
+        <div class="analysecontain">
+          <h2>Your sleeping records of last 7 days:</h2>
+      
+          <table class="ana table table-bordered pt-4">
+            <thead>
+              <tr class="bg-warning">
+                <th scope="col">Blood Bank</th>
+                <th scope="col">Address</th>
+                <th scope="col">Availability</th>
+                <th scope="col">Last updated</th>
+      
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in rows %}
+              <tr class="rows bg-success">
+                <td>{{row.Blood_bank_name}}</td>
+                <td>{{row.Address}}</td>
+                <td>{{row.Availability}}</td>
+                <td>{{row.Last_updated}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
 </body>
 
