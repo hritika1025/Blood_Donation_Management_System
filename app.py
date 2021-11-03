@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request,session,redirect,url_for
 from flask_mysqldb import MySQL
+import re
 import mysql.connector
 import MySQLdb.cursors 
 from werkzeug.utils import redirect
@@ -9,7 +10,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mitika@03'
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -27,18 +28,27 @@ def user_login():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM Donor WHERE Email_id=%s AND Password=%s',(Email_id,Password))
         account=cursor.fetchone()
-        if account:
+        cursor.close()
+        if account and account['Password']==Password:
             session['loggedin']=True
             session['Email_id'] = Email_id
+            session['Phone_num'] = account['Phone_num']
+            session['First_num'] = account['First_name']
+            session['Lasr_num'] = account['Last_num']
             return render_template('index.html')
         else:
-            msg='Incorrect username/password!'    
+            msg='Incorrect username/password!'  
+    else:
+        msg = " Please fill the form !"  
     return render_template('user_login.html',msg=msg)
 
 @app.route("/user_logout")
 def user_logout():
     session.pop('loggedin',None)
     session.pop('Email_id',None)
+    session.pop('Phone_num',None)
+    session.pop('First_num',None)
+    session.pop('Last_num',None)
     return redirect(url_for('user_login'))
 
 
@@ -56,7 +66,7 @@ def user_logout():
 @app.route("/user_signup",methods=['POST','GET'])
 def user_signup():
     msg="Please fill all the elements of the form!"
-    if request.method=='POST' and  'First_name' in request.form and 'Gender' in request.form and 'Email_id' in request.form and 'Last_name' in request.form and 'Age' in request.form and 'Phone_num' in request.form and  'Password' in request.form and 'c_password' in request.form and 'Address' in request.form and 'Blood_group' in request.form and 'Eligibility' in request.form and 'Frequent' in request.form and 'City' in request.form and 'District' in request.form and 'State' in request.form and 'Pincode' in request.form :
+    if request.method=='POST' and  'First_name' in request.form and 'Gender' in request.form and 'Email_id' in request.form and 'Last_name' in request.form and 'Age' in request.form and 'Phone_num' in request.form and  'Password' in request.form and 'c_password' in request.form and 'Street' in request.form and 'Blood_group' in request.form and 'eligibility' in request.form and 'Frequent' in request.form and 'City' in request.form and 'District' in request.form and 'State' in request.form and 'Pincode' in request.form :
         First_name=request.form['First_name']
         Last_name=request.form['Last_name']
         Email_id=request.form['Email_id']
@@ -65,30 +75,50 @@ def user_signup():
         Phone_num=request.form['Phone_num']
         Password=request.form['Password']
         c_password=request.form['c_password']
-        Address=request.form['Address']
+        Street=request.form['Street']
         Blood_group=request.form['Blood_group']
-        Eligibility=request.form['Eligibility']
+        Eligibility=request.form['eligibility']
         Frequent=request.form['Frequent']
         City=request.form['City']
         District=request.form['District']
         State=request.form['State']
         Pincode=request.form['Pincode']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Donor WHERE Email_id=Email_id')
-        account=cursor.fetchone()
-        if account :
-            msg="An account had been registered with this email"
-            return render_template('user_signup.html',msg=msg)
-        
+        cursor.execute('SELECT * FROM Donor WHERE Email_id= % s', (Email_id, ))
+        account1=cursor.fetchone()
+        cursor.execute('SELECT * FROM Donor WHERE Phone_num= % s', (Phone_num, ))
+        account2=cursor.fetchone()
+        cursor.close()
+        if account1 :
+            msg="An account is already registered with this email."
+        elif account2 :
+            msg="An account is already registered with this Phone Number."
+        elif not re.match(r'[0-9]+', Phone_num):
+            msg = 'Invalid Phone number !'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', Email_id):
+            msg = 'Invalid email address !'
+        elif len(Phone_num) != 10:
+            msg = 'Please enter a 10 digit correct phone number !'
+        elif len(Password) < 8:
+            msg = 'Password must containe atleast 8 digits or characters !'
         elif (Password != c_password):
-            msg="Password and Confirm Password are not matching! "
-            return render_template('user_signup_2.html',msg=msg,First_name=First_name,Last_name=Last_name,Email_id=Email_id,Gender=Gender,Age=Age,Phone_num=Phone_num,Password=Password,Address=Address,Blood_group=Blood_group,Eligibility=Eligibility,Frequent=Frequent,City=City,District=District,State=State,Pincode=Pincode)
-        
+            msg="Password does not match! "
+        elif not Phone_num or not Password or not Email_id:
+            msg = 'Please fill out the form !'
         else:
-
-            cursor.execute('INSERT INTO Donor(First_name,Last_name,Email_id,Age,Phone_num,Password,Address,Blood_group,Eligibility,Frequent,City,District,State,Pincode,Gender) VALUES(%s,%s,%s,%d,%d,%s,%s,%s,%s,%s,%s,%s,%s,%d,%s)', (First_name,Last_name,Email_id,Age,Phone_num,Password,Address,Blood_group,Eligibility,Frequent,City,District,State,Pincode,Gender))
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('INSERT INTO Donor(First_name,Last_name,Email_id,Age,Phone_num,Password,Street,Blood_group,Eligibility,Frequent_Donor,City,District,State,Pincode,Gender) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)', (First_name,Last_name,Email_id,Age,Phone_num,Password,Street,Blood_group,Eligibility,Frequent,City,District,State,Pincode,Gender))
             mysql.connection.commit()
+            session['loggedin'] = True
+            session['Email_id'] = Email_id
+            session['Phone_num'] = Phone_num
+            session['First_name'] = First_name
+            session['Last_name'] = Last_name
+            cursor.close()
             return redirect(url_for('index'))
+    elif request.method == 'POST':
+        msg = 'Please fill out the form !'
+    
     return render_template('user_signup.html', msg = msg)
 
 @app.route("/blood_bank_registeration",methods=['POST','GET'])
@@ -104,6 +134,7 @@ def blood_bank_registeration():
             cursor.exceute('INSERT INTO Blood_bank(Blood_bank_name,License_number,Owner_name,Phone_number,Email,Password,Address,City,Pincode,District,State,Website) VALUES(%s,%s,%s,%d,%s,%s,%s,%s,%d,%s,%s,%s)',(details['Blood_bank_name'],details['License_number'],details['Owner_name'],details['Phone_number'],details['Email'],details['Password'],details['Address'],details['City'],details['Pincode'],details['District'],details['State'],details['Website']))
             cursor.execute('INSERT INTO Blood_bank_timings(License_number,Weekday,Opening_time,Closing_time) VALUES(%s,%s,%s,%s)', (details['License_number'],details['Weekday'],details['Opening_time'],details['Closing_time']))
             mysql.connection.commit()
+            cursor.close()
 
     return render_template('blood_bank_regis_me.html')
 
