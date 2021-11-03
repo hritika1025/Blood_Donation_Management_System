@@ -28,18 +28,27 @@ def user_login():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM Donor WHERE Email_id=%s AND Password=%s',(Email_id,Password))
         account=cursor.fetchone()
-        if account:
+        cursor.close()
+        if account and account['Password']==Password:
             session['loggedin']=True
             session['Email_id'] = Email_id
+            session['Phone_num'] = account['Phone_num']
+            session['First_num'] = account['First_name']
+            session['Lasr_num'] = account['Last_num']
             return render_template('index.html')
         else:
-            msg='Incorrect username/password!'    
+            msg='Incorrect username/password!'  
+    else:
+        msg = " Please fill the form !"  
     return render_template('user_login.html',msg=msg)
 
 @app.route("/user_logout")
 def user_logout():
     session.pop('loggedin',None)
     session.pop('Email_id',None)
+    session.pop('Phone_num',None)
+    session.pop('First_num',None)
+    session.pop('Last_num',None)
     return redirect(url_for('user_login'))
 
 
@@ -100,6 +109,11 @@ def user_signup():
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute('INSERT INTO Donor(First_name,Last_name,Email_id,Age,Phone_num,Password,Street,Blood_group,Eligibility,Frequent_Donor,City,District,State,Pincode,Gender) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)', (First_name,Last_name,Email_id,Age,Phone_num,Password,Street,Blood_group,Eligibility,Frequent,City,District,State,Pincode,Gender))
             mysql.connection.commit()
+            session['loggedin'] = True
+            session['Email_id'] = Email_id
+            session['Phone_num'] = Phone_num
+            session['First_name'] = First_name
+            session['Last_name'] = Last_name
             cursor.close()
             return redirect(url_for('index'))
     elif request.method == 'POST':
