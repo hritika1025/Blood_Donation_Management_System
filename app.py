@@ -10,7 +10,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'mitika@03'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
