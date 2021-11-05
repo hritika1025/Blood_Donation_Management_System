@@ -210,6 +210,27 @@ def bank_logout():
 def check_blood_availability():
     return render_template('check_blood_availability.html')
 
+@app.route("/admin_login",methods=['GET','POST'])
+def admin_login():
+    msg=''
+    if request.method=='POST'and "Email_id" in request.form and "Password" in request.form :
+        Email=request.form['Email_id']
+        Password=request.form['Password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM Admin WHERE Email=%s ',(Email,))
+        account=cursor.fetchone()
+        cursor.close()
+        if account and account['Password']==Password:
+            session['loggedin']=True
+            session['Email'] = Email
+           
+            return render_template('admin_dashboard.html')
+        else:
+            msg='Incorrect username/password!'  
+    else:
+        msg = " Please fill the form !" 
+    return render_template('admin_login.html',msg=msg)
+
 @app.route("/admin_dashboard")
 def admin_dashboard():
     return render_template('admin_dashboard.html')
