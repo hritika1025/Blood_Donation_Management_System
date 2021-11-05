@@ -34,7 +34,7 @@ def user_login():
         Email_id=request.form['Email_id']
         Password=request.form['Password']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Donor WHERE Email_id=%s AND Password=%s',(Email_id,Password))
+        cursor.execute('SELECT * FROM Donor WHERE Email_id=%s ',(Email_id,))
         account=cursor.fetchone()
         cursor.close()
         if account and account['Password']==Password:
@@ -183,14 +183,20 @@ def blood_bank_login():
         License_number=request.form['License_number']
         Password=request.form['Password']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Blood_bank WHERE License_number=%s AND Password=%s',(License_number,Password))
+        cursor.execute('SELECT * FROM Blood_bank WHERE License_number=%s ',(License_number,))
         account=cursor.fetchone()
-        if account:
-            session['loggedin']=True
-            session['License_number']=License_number
+        cursor.close()
+        if account and account['Password']==Password:
+            session['loggedin'] = True
+            session['Email'] = account['Email']
+            session['Phone_number'] = account['Phone_number']
+            session['License_number'] = account['License_number']
+            session['Blood_bank_name'] = account['Blood_bank_name']
             return render_template('')
         else:
             msg="Incorrect username/password!"
+    else:
+        msg = " Please fill the form !" 
     return render_template('blood_bank_login.html',msg=msg)        
 
 @app.route("/bank_logout")
