@@ -1,6 +1,10 @@
 DROP DATABASE blood_donation_dbms;
 CREATE DATABASE IF NOT EXISTS blood_donation_dbms;
 USE blood_donation_dbms;
+CREATE TABLE IF NOT EXISTS `Admin` (
+            `Email` varchar(100) NOT NULL,
+            `Password` varchar(100) NOT NULL,
+	        PRIMARY KEY(`Email`) );
 CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Password` varchar(100) NOT NULL,
            `License_number` varchar(100) NOT NULL,
@@ -92,13 +96,13 @@ CREATE TABLE IF NOT EXISTS `Notif_Admin_to_Donor` (
             FOREIGN KEY (`Donor_user`) REFERENCES `Donor`(`Email_id`)  ON DELETE CASCADE) AUTO_INCREMENT=1;
             
 CREATE TABLE IF NOT EXISTS `Message_to_admin` (
-            `Id` int NOT NULL,
+            `Id` int NOT NULL AUTO_INCREMENT,
             `Name` varchar(100) NOT NULL,
             `Email_id` varchar(100) NOT NULL,
             `phone_num` varchar(20) NOT NULL,
             `Message` varchar(500) NOT NULL,
             `Date` date NOT NULL,
-            PRIMARY KEY (`Id`) );
+            PRIMARY KEY (`Id`) )AUTO_INCREMENT=1;
             
  CREATE TABLE IF NOT EXISTS `Post_by_admin` (
             `Id` int NOT NULL AUTO_INCREMENT,

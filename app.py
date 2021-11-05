@@ -27,6 +27,32 @@ def home():
         return render_template('home.html',msg=msg)
     return redirect(url_for('index'))
 
+@app.route("/contact",methods=['GET','POST'])
+def contact():
+    msg=''
+    if request.method=='POST'and "Email_id" in request.form and "phone_num" in request.form and "Name" in request.form and "Date" in request.form:
+        Name=request.form['Name']
+        Email_id=request.form['Email_id']
+        phone_num=request.form['phone_num']
+        Message=request.form['Message']
+        Date=request.form['Date']
+        if not re.match(r'[0-9]+', phone_num):
+            msg = 'Invalid Phone number !'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', Email_id):
+            msg = 'Invalid email address !'
+        elif len(phone_num) != 10:
+            msg = 'Please enter a 10 digit correct phone number !'
+        elif len(Message) > 500:
+            msg = 'Message is too long!'
+        else:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('INSERT INTO Message_to_admin(Name,Email_id,phone_num,Message,Date) VALUES(%s,%s,%s,%s,%s)', (Name,Email_id,phone_num,Message,Date,))
+            mysql.connection.commit()
+            msg='Message Sent'
+    elif request.method == 'POST':
+        msg = 'Please fill out the form !'
+    return render_template('contact.html',msg=msg)
+
 @app.route("/user_login" ,methods=['POST','GET'])
 def user_login():
     msg = ""
@@ -235,8 +261,10 @@ def admin_login():
 def admin_dashboard():
     return render_template('admin_dashboard.html')
 
-@app.route("/contact")
-def contact():
-    return render_template('contact.html')
+@app.route("/user_msg_to_admin")
+def user_msg_to_admin():
+    return render_template('user_msg_to_admin',msg=msg)
+
+
 
 app.run(debug=True)
