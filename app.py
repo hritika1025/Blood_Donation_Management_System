@@ -122,6 +122,7 @@ def user_signup():
             session['Phone_num'] = Phone_num
             session['First_name'] = First_name
             session['Last_name'] = Last_name
+            session['Blood_group'] = Blood_group
             cursor.close()
             return redirect(url_for('home'))
     elif request.method == 'POST':
@@ -185,6 +186,7 @@ def bank_logout():
 @app.route("/check_blood_availability", methods = ['GET', 'POST'])
 def check_blood_availability():
      if request.method == "POST":
+        msg = ''
         username = session['username']
         state = request.form['state']
         district = request.form['district']
@@ -193,14 +195,16 @@ def check_blood_availability():
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             # cursor.execute('INSERT INTO record VALUES (NULL, % s, % s, % s,% s)',(username , state, district, bloodgroup,))
             mysql.connection.commit()
-            cursor.execute('SELECT Blood_bank_name, phone_num1, Address FROM Blood_bank WHERE State = %s AND District = %s', (state, district))
-            rows = cursor.fetchall();
-            for row in rows:
-                row = row
-                cursor.close()
+            if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = state AND District = district)'):
+                session['bloodgroup'] = bloodgroup
+                cursor.execute('SELECT Blood_bank_name, Street, FROM Blood_bank WHERE State = %s AND District = %s', (state, district))
+                rows = cursor.fetchall();
+                for row in rows:
+                    row = row
+                    cursor.close()
+                return render_template('check_blood_availability.html', rows = rows, row = row, msg=msg)
+            return render_template('check_blood_availability.html', msg = "Sorry! No data available.")
 
-
-    # return render_template('check_blood_availability.html')
 
 @app.route("/admin_dashboard")
 def admin_dashboard():
