@@ -1,3 +1,6 @@
+INSERT INTO Admin ( Email, Password) VALUES 
+            ('hritika123@gmail.com','Hritika123'),
+            ('mitika343@gmail.com','Mitika343');
 INSERT INTO Blood_bank (Password, License_Number, Blood_bank_name, Owner_name, Email, Phone_number, Street, Pincode, City, District,State, Website)
 VALUES
 ('riz345', '32564178', 'Rotary Blood Bank', 'Varun Tiwari', 'rotarybank321@gmail.com', '96542135470', 'i-587,2nd Floor, Moolchand Towers , Block i,sector 22', '500042', 'Hyderabad','Musheerabad', 'Telangna', 'www.rotarybankhyedrabad.com'),
