@@ -10,7 +10,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'mitika@03'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -137,6 +137,7 @@ def user_signup():
             session['Phone_num'] = Phone_num
             session['First_name'] = First_name
             session['Last_name'] = Last_name
+            session['Blood_group'] = Blood_group
             cursor.close()
             return redirect(url_for('home'))
     elif request.method == 'POST':
@@ -232,9 +233,45 @@ def bank_logout():
     return redirect(url_for('blood_bank_login'))
 
 
-@app.route("/check_blood_availability")
+    #     Query='''SELECT * FROM Donor WHERE Email_id =%s and password=%s''' ,(email,password)
+    #     cur = myconn.cursor()
+    #     cur.execute(Query)
+    #     Details = cur.fetchone()
+    #     if Details:
+    #         return 
+    #     else :
+    #         msg='Incorrect username/password!'    
+    # else:    
+    #     return render_template('user_login.html')
+    # return render_template('blood_bank_login.html')
+
+@app.route("/check_blood_availability", methods = ['GET', 'POST'])
 def check_blood_availability():
-    return render_template('check_blood_availability.html')
+    msg = ''
+    if request.method == "POST":
+        Email_id = session['Email_id']
+        State = request.form['State']
+        District = request.form['District']
+        bloodgroup = request.form['bloodgroup']
+        if len(Email_id) > 0 and len(State) > 0 and len(District) > 0 and len(bloodgroup) >0:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            # cursor.execute('INSERT INTO record VALUES (NULL, % s, % s, % s,% s)',(username , state, district, bloodgroup,))
+            mysql.connection.commit()
+            if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = State AND District = District)'):
+                session['bloodgroup'] = bloodgroup
+                cursor.execute('SELECT Blood_bank_name, Street, FROM Blood_bank WHERE State = %s AND District = %s', (State, District))
+                rows = cursor.fetchall();
+                for row in rows:
+                    row = row
+                    cursor.close()
+                return render_template('blood_avail.html', rows = rows, row = row)
+            return render_template('check_blood_availability.html', msg = "Sorry! No data available.")
+        else:
+            msg = "Please fill all the details!"
+            return render_template('check_blood_availability.html', msg = msg)
+
+        
+
 
 @app.route("/admin_login",methods=['GET','POST'])
 def admin_login():
@@ -263,6 +300,7 @@ def admin_dashboard():
 
 @app.route("/user_msg_to_admin")
 def user_msg_to_admin():
+    msg = ''
     return render_template('user_msg_to_admin',msg=msg)
 
 
