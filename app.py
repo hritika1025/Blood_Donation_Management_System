@@ -185,25 +185,30 @@ def bank_logout():
 
 @app.route("/check_blood_availability", methods = ['GET', 'POST'])
 def check_blood_availability():
-     if request.method == "POST":
-        msg = ''
-        username = session['username']
-        state = request.form['state']
-        district = request.form['district']
+    msg = ''
+    if request.method == "POST":
+        Email_id = session['Email_id']
+        State = request.form['State']
+        District = request.form['District']
         bloodgroup = request.form['bloodgroup']
-        if len(username) > 0 and len(state) > 0 and len(district) > 0 and len(bloodgroup) >0:
+        if len(Email_id) > 0 and len(State) > 0 and len(District) > 0 and len(bloodgroup) >0:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             # cursor.execute('INSERT INTO record VALUES (NULL, % s, % s, % s,% s)',(username , state, district, bloodgroup,))
             mysql.connection.commit()
-            if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = state AND District = district)'):
+            if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = State AND District = District)'):
                 session['bloodgroup'] = bloodgroup
-                cursor.execute('SELECT Blood_bank_name, Street, FROM Blood_bank WHERE State = %s AND District = %s', (state, district))
+                cursor.execute('SELECT Blood_bank_name, Street, FROM Blood_bank WHERE State = %s AND District = %s', (State, District))
                 rows = cursor.fetchall();
                 for row in rows:
                     row = row
                     cursor.close()
-                return render_template('check_blood_availability.html', rows = rows, row = row, msg=msg)
+                return render_template('blood_avail.html', rows = rows, row = row)
             return render_template('check_blood_availability.html', msg = "Sorry! No data available.")
+        else:
+            msg = "Please fill all the details!"
+            return render_template('check_blood_availability.html', msg = msg)
+
+        
 
 
 @app.route("/admin_dashboard")

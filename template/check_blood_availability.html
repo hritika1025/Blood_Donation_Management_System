@@ -52,18 +52,18 @@
 
     <div class="container-fluid avail_bld_container">
         <h1>Search Blood Stock</h1>
-        <form class="bld_avail_form" action = "" method="POST">
+        <form class="bld_avail_form" action = "/check_blood_availability" method="POST">
             <div class="row mb-3">
-                <label for="state" class="col-sm-2 col-form-label input_tag" style="font-size: 1.5rem;">State</label>
+                <label for="State" class="col-sm-2 col-form-label input_tag" style="font-size: 1.5rem;">State</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" style="margin-top: 0.5rem;" id="state">
+                    <input type="text" class="form-control" style="margin-top: 0.5rem;" id="State" name = "State">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="district" class="col-sm-2 col-form-label input_tag"
+                <label for="District" class="col-sm-2 col-form-label input_tag"
                     style="font-size: 1.5rem;">District</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" style="margin-top: 0.5rem;" id="district">
+                    <input type="text" class="form-control" style="margin-top: 0.5rem;" name = "District" id="District">
                 </div>
             </div>
             <fieldset class="row mb-3">
@@ -147,6 +147,7 @@
             <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
     </div>
+    <p>{{msg}}</p>
     <!-- <div class="container-fluid">
         <table class="table table-secondary table-bordered border-primary blood_avail_table">
             <thead>
@@ -176,7 +177,7 @@
             </tbody>
         </table>
     </div> -->
-    <p>{{msg}}</p>
+    <!-- <p>{{msg}}</p>
     <div class="table-responsive">
         <div class="check_avail_contain">
       
@@ -202,7 +203,7 @@
             </tbody>
           </table>
         </div>
-      </div>
+      </div> -->
 
 </body>
 
