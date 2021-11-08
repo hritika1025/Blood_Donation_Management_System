@@ -12,244 +12,144 @@
     <link rel="stylesheet" href="../static/css/blood_bank_regis_me.css">
     <title>Hello, world!</title>
     <style>
+          
         .bg-image-vertical {
-            position: relative;
-            overflow: hidden;
-            background-repeat: no-repeat;
-            background-position: right center;
-            background-size: auto 100%;
+          position: relative;
+          overflow: hidden;
+          background-repeat: no-repeat;
+          background-position: right center;
+          background-size: auto 100%;
         }
-
+    
         @media (min-width: 1025px) {
-            .h-custom-2 {
-                height: 100%;
-            }
+          .h-custom-2 {
+            height: 100%;
+          }
         }
-    </style>
+      </style>
 </head>
 
 <body style="background-color: rgba(252, 147, 147, 0.089);" >
     <nav class="navbar navbar-expand-lg red">
         <div class="container-fluid">
             <span>
-                <a class="navbar-brand nav1" href="/home">iDonor </a>
+                <a class="navbar-brand nav1" href="#">iDonor </a>
             </span>
-
-            <div class="container-fluid avail_bld_container">
-                <h1>Search Blood Stock</h1>
-                <form class="bld_avail_form" action="/check_blood_availability" method="POST">
-                    <div class="row mb-3">
-                        <label for="State" class="col-sm-2 col-form-label input_tag"
-                            style="font-size: 1.5rem;">State</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" style="margin-top: 0.5rem;" id="State" name="State">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="District" class="col-sm-2 col-form-label input_tag"
-                            style="font-size: 1.5rem;">District</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" style="margin-top: 0.5rem;" name="District"
-                                id="District">
-                        </div>
-                    </div>
-                    <fieldset class="row mb-3">
-                        <legend class="col-form-label col-sm-2 pt-0 input_tag" style="font-size: 1.5rem;">Blood group
-                        </legend>
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" style="margin-top: 0.5rem;" type="radio"
-                                    name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios1">
-                                    A+
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" style="margin-top: 0.5rem;" type="radio"
-                                    name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios2">
-                                    A-
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" style="margin-top: 0.5rem;" type="radio"
-                                    name="gridRadios" id="gridRadios3" value="option1" checked>
-                                <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios3">
-                                    B+
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" style="margin-top: 0.5rem;" type="radio"
-                                    name="gridRadios" id="gridRadios4" value="option2">
-                                <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios4">
-                                    B-
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" style="margin-top: 0.5rem;" type="radio"
-                                    name="gridRadios" id="gridRadios5" value="option1" checked>
-                                <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios5">
-                                    AB+
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" style="margin-top: 0.5rem;" type="radio"
-                                    name="gridRadios" id="gridRadios6" value="option2">
-                                <label class="form-check-label" style="font-size: 1.2rem;" for="gridRadios6">
-                                    AB-
-                                </label>
-                                <select id="inputState" required class="form-control" name="State">
-                                    <option selected>Select Your state</option>
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chandigarh">Chandigarh</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                    <option value="Daman and Diu">Daman and Diu</option>
-                                    <option value="Delhi">Delhi</option>
-                                    <option value="Lakshadweep">Lakshadweep</option>
-                                    <option value="Puducherry">Puducherry</option>
-                                    <option value="Goa">Goa</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                    <option value="Jharkhand">Jharkhand</option>
-                                    <option value="Karnataka">Karnataka</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                    <option value="Maharashtra">Maharashtra</option>
-                                    <option value="Manipur">Manipur</option>
-                                    <option value="Meghalaya">Meghalaya</option>
-                                    <option value="Mizoram">Mizoram</option>
-                                    <option value="Nagaland">Nagaland</option>
-                                    <option value="Odisha">Odisha</option>
-                                    <option value="Punjab">Punjab</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Sikkim">Sikkim</option>
-                                    <option value="Tamil Nadu">Tamil Nadu</option>
-                                    <option value="Telangana">Telangana</option>
-                                    <option value="Tripura">Tripura</option>
-                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="Uttarakhand">Uttarakhand</option>
-                                    <option value="West Bengal">West Bengal</option>
-                                </select>
-
-
-
-                            </div>
-
-
-                            <div class="col-4">
-
-                                <label for="district">
-                                    <h5>District</h5>
-                                </label>
-                                <input type="text" required name="district" class="form-control" id="District"
-                                    placeholder="District">
-
-                            </div>
-
-                            <div class="col-4">
-                                <label for="inputtate">
-                                    <h5>Blood group</h5>
-                                </label>
-                                <select id="inputtate" required class="form-control" name="Blood_group">
-                                    <option seleceted value="">Select blood group</option>
-                                    <option value="A+">A+</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB">AB-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                </select>
-
-
-                            </div>
-
-                        </div>
-                        <div class="my-4" style="text-align: center;">
-
-                            <button type="submit" class="btn btn-success" value="submit">submit</button>
-                        </div>
+<!-- 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+                    <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li> -->
+                </ul>
+                <!-- <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                <!-- </form> -->
+                <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-            </form>
         </div>
-        <p>{{msg}}</p>
-        <!-- <div class="container-fluid">
-        <table class="table table-secondary table-bordered border-primary blood_avail_table">
-            <thead>
-                <tr>
-                    <th scope="col">S. No.</th>
-                    <th scope="col">Blood Bank</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Availability</th>
-                    <th scope="col">Last updated</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>..</td>
-                    <td>...</td>
-                    <td>....</td>
-                    <td>....</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>..</td>
-                    <td>...</td>
-                    <td>....</td>
-                    <td>....</td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
-        <!-- <p>{{msg}}</p>
-    <div class="table-responsive">
-        <div class="check_avail_contain">
-      
-          <table class="ana table table-bordered pt-4">
-            <thead>
-              <tr class="bg-warning">
-                <th scope="col">Blood Bank</th>
-                <th scope="col">Address</th>
-                <th scope="col">Availability</th>
-                <th scope="col">Last updated</th>
-      
-              </tr>
-            </thead>
-            <tbody>
-              {% for row in rows %}
-              <tr class="rows bg-success">
-                <td>{{row.Blood_bank_name}}</td>
-                <td>{{row.Address}}</td>
-                <td>{{row.Availability}}</td>
-                <td>{{row.Last_updated}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+    </nav>
+    <div class="my-4 " style="text-align: center; color: rgba(189, 3, 3, 0.856); ">
+        <h1>Search Blood Stock</h1>
+    </div>
+    <form action="/check_blood_availability" class="bld_avail_form" method="POST">
+
+        <div class="container border rounded border-danger border-3 pt-4 px-5" style="background-color: white; ">
+            
+                <div class="row">
+                    <div class="col-4">
+                        <label for="state">
+                            <h5>State</h5>
+                        </label>
+                        <select id="inputState" required class="form-control" name="State">
+                            <option selected>Select Your state</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+
+
+
+                    </div>
+
+
+                    <div class="col-4">
+
+                        <label for="district">
+                            <h5>District</h5>
+                        </label>
+                        <input type="text" name="district" class="form-control" id="District" placeholder="District">
+
+                    </div>
+
+                    <div class="col-4">
+                        <label for="inputtate">
+                            <h5>Blood group</h5>
+                        </label>
+                        <select id="inputtate" required class="form-control" name="Blood_group">
+                            <option seleceted value="">Select blood group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+
+
+                    </div>
+
+                </div>
+                <div class="my-4" style="text-align: center;">
+
+                    <button type="submit" class="btn btn-success" value="submit">submit</button>
+                </div>
+            
         </div>
-      </div> -->
-
-        <!-- Optional JavaScript; choose one of the two! -->
-
-        <!-- Option 1: Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-
-        <!-- Option 2: Separate Popper and Bootstrap JS -->
-        <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-</body>
-</html>
+    </form>
+    <h4 class="py-4" style="text-align: center; color: tomato;">{{msg}}</h4>
