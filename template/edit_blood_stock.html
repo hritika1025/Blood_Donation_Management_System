@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/blood_bank_regis_me.css">
+  <title>Hello, world!</title>
+  <style>
+    .bg-image-vertical {
+      position: relative;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: auto 100%;
+    }
+td{
+  padding: 10px;
+}
+
+    @media (min-width: 1025px) {
+      .h-custom-2 {
+        height: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body style="background-color:rgba(252, 147, 147, 0.089);">
+  <nav class="navbar navbar-expand-lg red">
+    <div class="container-fluid">
+      <span>
+        <a class="navbar-brand nav1" href="#">iDonor </a>
+      </span>
+
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+          <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li> -->
+        </ul>
+        <!-- <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+        <!-- </form> -->
+        <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
+      </div>
+    </div>
+  </nav>
+  <div class="my-4 " style="text-align: center; color: rgba(189, 3, 3, 0.856); ">
+    <h1>Edit Blood Stock</h1>
+</div>
+<div class="container border border-3 border-danger mb-4" style="background-color: rgba(224, 20, 20, 0.322);">
+  <div class="mx-5 px-5 py-4" style="background-color: white; ">
+  <table style="width: 70%; font-size: 22px; margin-left: 200px;">
+
+      <tr >
+        <td>
+          <label for="inputtate"> Blood Group:</label>
+        </td>
+        <td>
+          <select id="inputtate" required class="form-outline" name="Blood_group">
+            <option seleceted value="">Select blood group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+
+        </td>
+      </tr>
+
+    <!-- <tr>
+            <td>
+<label for="add">ADD/DEL</label>
+            </td>
+            <td>
+                <select id="add" required class="form-control" name="">
+                    <option value="ADD">ADD</option>
+                    <option value="DEL">DELETE</option>
+                </select>
+            </td>
+        </tr> -->
+ 
+      <tr >
+        <td>
+          <label for="add">Adding Date:</label>
+
+        </td>
+        <td>
+          <input type="date" id="add" name="Adding_date" placeholder="Adding date">
+        </td>
+      </tr>
+    
+      <tr>
+        <td>
+          <label for="remove">Removing Date:</label>
+          
+        </td>
+        <td>
+          <input type="date" id="remove" name="Removing_date" placeholder="Removing date">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="add_units"> Units Added:</label>
+        </td>
+        <td>
+          <input type="number" id="add_units" class="form-outline" placeholder="Units Added" name="Units_added">
+        </td>
+      </tr>
+    <tr>
+      <td>
+        <label for="remove_units"> Units Removed:</label>
+      </td>
+      <td>
+        <input type="number" id="remove_units" class="form-outline" placeholder="Units Removed" name="Units_removed">
+      </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="updation_date"> Updation Date:</label>
+        </td>
+        <td>
+            <input type="date" id="updation_date" name="Updation_date"  >
+        </td>
+    </tr>
+
+  </table>
+  <div style="text-align: center;" class="mt-4">
+    <button type="submit" class="btn btn-success" value="submit">Submit</button>
+  </div>
+</div>
+</div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
