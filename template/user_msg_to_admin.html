@@ -92,33 +92,38 @@
       <br>
 
       
-      <div class="user" style="display:flex;">
+      <!-- <div class="user" style="display:flex;">
         Name of User
       </div>
       <div class="message" style="display:flex;">
-        This is just a a temporary message instead of deedbacks from users. Users feedback will appear here instead.
+        This is just a a temporary message instead of feedbacks from users. Users feedback will appear here instead.
       </div>
       <div class="message" style="display:flex;">
         <button type="submit" class="btn btn-secondary">Message</button>
       </div>
-      
-      <br>
-
+       -->
+       {% for row in rows %}
+       <br>
       <div class="user" style="display:flex;">
+        Name : {{row.Name}}
+      </div>
+      <div class="user" style="display:flex;">
+        Email Id : {{row.Email_id}}
+      </div>
+      <div class="message" style="display:flex;">
+        Message : {{row.Message}}
+        <!-- This is just a a temporary message instead of feedbacks from users. Users feedback will appear here instead. -->
+      </div>
+      <!-- <div class="message" style="display:flex;">
+        <button type="submit" class="btn btn-secondary"></button>
+      </div> -->
+      <br>
+      {% endfor %}
+      <!-- <div class="user" style="display:flex;">
         Name of User
       </div>
       <div class="message" style="display:flex;">
-        This is just a a temporary message instead of deedbacks from users. Users feedback will appear here instead.
-      </div>
-      <div class="message" style="display:flex;">
-        <button type="submit" class="btn btn-secondary">Message</button>
-      </div>
-      <br>
-      <div class="user" style="display:flex;">
-        Name of User
-      </div>
-      <div class="message" style="display:flex;">
-        This is just a a temporary message instead of deedbacks from users. Users feedback will appear here instead.
+        This is just a a temporary message instead of feedbacks from users. Users feedback will appear here instead.
       </div>
       <div class="message" style="display:flex;">
         <button type="submit" class="btn btn-secondary">Message</button>
@@ -127,9 +132,9 @@
         Name of User
       </div>
       <div class="message" style="display:flex;">
-        This is just a a temporary message instead of deedbacks from users. Users feedback will appear here instead.
+        This is just a a temporary message instead of feedbacks from users. Users feedback will appear here instead.
       </div>
-      
+       -->
       
     
 

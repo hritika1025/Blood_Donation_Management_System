@@ -4,6 +4,8 @@ import re
 import mysql.connector
 import MySQLdb.cursors 
 from werkzeug.utils import redirect
+from datetime import date, datetime, timedelta
+import datetime
 
 app = Flask(__name__, template_folder = 'template', static_folder  = 'static')
 app.secret_key="blood_donation"
@@ -27,31 +29,6 @@ def home():
         return render_template('home.html',msg=msg)
     return redirect(url_for('index'))
 
-@app.route("/contact",methods=['GET','POST'])
-def contact():
-    msg=''
-    if request.method=='POST'and "Email_id" in request.form and "phone_num" in request.form and "Name" in request.form and "Date" in request.form:
-        Name=request.form['Name']
-        Email_id=request.form['Email_id']
-        phone_num=request.form['phone_num']
-        Message=request.form['Message']
-        Date=request.form['Date']
-        if not re.match(r'[0-9]+', phone_num):
-            msg = 'Invalid Phone number !'
-        elif not re.match(r'[^@]+@[^@]+\.[^@]+', Email_id):
-            msg = 'Invalid email address !'
-        elif len(phone_num) != 10:
-            msg = 'Please enter a 10 digit correct phone number !'
-        elif len(Message) > 500:
-            msg = 'Message is too long!'
-        else:
-            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Message_to_admin(Name,Email_id,phone_num,Message,Date) VALUES(%s,%s,%s,%s,%s)', (Name,Email_id,phone_num,Message,Date,))
-            mysql.connection.commit()
-            msg='Message Sent'
-    elif request.method == 'POST':
-        msg = 'Please fill out the form !'
-    return render_template('contact.html',msg=msg)
 
 @app.route("/user_login" ,methods=['POST','GET'])
 def user_login():
@@ -269,9 +246,14 @@ def check_blood_availability():
         else:
             msg = "Please fill all the details!"
             return render_template('check_blood_availability.html', msg = msg)
+    return render_template('check_blood_availability.html')
 
         
+        # ADMIN PART :
 
+@app.route("/admin_dashboard")
+def admin_dashboard():
+    return render_template('admin_dashboard.html')
 
 @app.route("/admin_login",methods=['GET','POST'])
 def admin_login():
@@ -294,15 +276,79 @@ def admin_login():
         msg = " Please fill the form !" 
     return render_template('admin_login.html',msg=msg)
 
-@app.route("/admin_dashboard")
-def admin_dashboard():
-    return render_template('admin_dashboard.html')
-
-@app.route("/user_msg_to_admin")
-def user_msg_to_admin():
-    msg = ''
-    return render_template('user_msg_to_admin',msg=msg)
+@app.route('/registeration_verification_by_admin') 
+def registeration_verification_by_admin() :
+    return render_template('registeration_verification_by_admin.html')
 
 
+# @app.route('/contact', methods = ['GET', 'POST'])
+# def contact():
+#     msg = ''
+#     if request.method == 'POST' :
+#         Name = request.form['Name']
+#         Email_id = request.form['Email_id']
+#         phone_num = request.form['phone_num']
+#         Message = request.form['Message']
+#         Date = request.form['Date']
+#         if len(Name) > 0 and len(Email_id) > 0 and len(phone_num) > 0 and len(Message) > 0 and len(Date) >0:
+#             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#             cursor.execute('INSERT INTO Message_to_admin VALUES (NULL, % s, % s, % s,% s, %s)',(Name, Email_id, phone_num, Message, Date,))
+#             mysql.connection.commit()
+#             session['Name'] = Name
+#             session['Email_id'] = Email_id
+#             session['phone_num'] = phone_num
+#             session['Message'] = Message
+#             session['Date'] = Date
+#             cursor.close()
+#             return render_template('contact.html', msg = "Your message has been successfully sent to the admin.")
+#         else :
+#             return render_template('contact.html', msg = "Please fill out the form")
+#     return render_template('contact.html')
+
+@app.route("/contact",methods=['GET','POST'])
+def contact():
+    msg=''
+    if request.method=='POST'and "Email_id" in request.form and "phone_num" in request.form and "Name" in request.form and "Date" in request.form:
+        Name=request.form['Name']
+        Email_id=request.form['Email_id']
+        phone_num=request.form['phone_num']
+        Message=request.form['Message']
+        Date=request.form['Date']
+        if not re.match(r'[0-9]+', phone_num):
+            msg = 'Invalid Phone number !'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', Email_id):
+            msg = 'Invalid email address !'
+        elif len(phone_num) != 10:
+            msg = 'Please enter a 10 digit correct phone number !'
+        elif len(Message) > 5000:
+            msg = 'Message is too long!'
+        else:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('INSERT INTO Message_to_admin (Id, Name, Email_id,phone_num,Message,Date) VALUES(NULL, %s,%s,%s,%s,%s)', (Name,Email_id,phone_num,Message,Date,))
+            mysql.connection.commit()
+            session['Name'] = Name
+            session['Email_id'] = Email_id
+            session['phone_num'] = phone_num
+            session['Message'] = Message
+            session['Date'] = Date
+            msg='Message Sent'
+    elif request.method == 'POST':
+        msg = 'Please fill out the form !'
+    return render_template('contact.html',msg=msg)
+
+@app.route('/user_msg_to_admin')
+def user_msg_to_admin() :
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    current_date = date.today()
+    days = datetime.timedelta(7)
+    new_date = current_date - days
+    # cursor.execute('SELECT * FROM record WHERE username = % s AND date >= %s ORDER BY date DESC', (session['username'], new_date))
+    cursor.execute('SELECT * FROM Message_to_admin WHERE Email_id = %s AND Date >= %s ORDER BY Date DESC', (session['Email_id'], new_date))
+    rows = cursor.fetchall();
+    for row in rows:
+        row = row
+    return render_template("user_msg_to_admin.html", rows = rows, row = row)
+
+        
 
 app.run(debug=True)
