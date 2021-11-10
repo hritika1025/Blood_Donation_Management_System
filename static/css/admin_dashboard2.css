@@ -136,9 +136,10 @@ body{
 }
 .links{
     margin: auto;
-  width: 75%;
+    align-items: center;
+  width: 30%;
   border: 3px solid white;
-  padding: 20px;
+  padding: 10px;
   background-color: white;
   text-align: center;
 }
