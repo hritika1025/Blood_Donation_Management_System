@@ -210,18 +210,6 @@ def bank_logout():
     return redirect(url_for('blood_bank_login'))
 
 
-    #     Query='''SELECT * FROM Donor WHERE Email_id =%s and password=%s''' ,(email,password)
-    #     cur = myconn.cursor()
-    #     cur.execute(Query)
-    #     Details = cur.fetchone()
-    #     if Details:
-    #         return 
-    #     else :
-    #         msg='Incorrect username/password!'    
-    # else:    
-    #     return render_template('user_login.html')
-    # return render_template('blood_bank_login.html')
-
 @app.route("/check_blood_availability", methods = ['GET', 'POST'])
 def check_blood_availability():
     msg = ''
@@ -229,18 +217,19 @@ def check_blood_availability():
         Email_id = session['Email_id']
         State = request.form['State']
         District = request.form['District']
-        bloodgroup = request.form['bloodgroup']
+        bloodgroup = request.form['Blood_group']
         if len(Email_id) > 0 and len(State) > 0 and len(District) > 0 and len(bloodgroup) >0:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             # cursor.execute('INSERT INTO record VALUES (NULL, % s, % s, % s,% s)',(username , state, district, bloodgroup,))
             mysql.connection.commit()
-            if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = State AND District = District)'):
+            if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = %s AND District = %s', (State, District)):
                 session['bloodgroup'] = bloodgroup
-                cursor.execute('SELECT Blood_bank_name, Street, FROM Blood_bank WHERE State = %s AND District = %s', (State, District))
+                cursor.execute('SELECT Blood_bank_name, Street, District FROM Blood_bank WHERE State = %s AND District = %s ', (State, District))
                 rows = cursor.fetchall();
+                # cursor.execute('SELECT updation_time FROM Blood_Stock WHERE Blood_group = %s')
                 for row in rows:
                     row = row
-                    cursor.close()
+                cursor.close()
                 return render_template('blood_avail.html', rows = rows, row = row)
             return render_template('check_blood_availability.html', msg = "Sorry! No data available.")
         else:

@@ -25,12 +25,15 @@ VALUES
 
 INSERT INTO Blood_stock (Id, License_Number, Blood_group, Adding_date, Removing_date, Units_added, Units_removed)
 VALUES
-('1', '32564178', 'A +ve', '2021-08-22', '2021-07-27', '2340', '540'),
-('2', '25647895', 'A +ve', '2021-08-22', '2021-07-16', '3654', '200'),
-('3', '69874328', 'A +ve', '2021-08-22', '2021-08-02', '1063', '2220'),
-('4', '45587556', 'A +ve', '2021-08-22', '2021-08-15', '1300', '150'),
-('5', '23699875', 'A +ve', '2021-08-22', '2021-09-23', '4521', '630'),
-('6', '57148222', 'A +ve', '2021-08-22', '2021-10-20', '820', '360');
+('1', '32564178', 'B-', '2021-08-22', '2021-07-27', '2340', '540'),
+('2', '25647895', 'B+', '2021-08-22', '2021-07-16', '3654', '200'),
+('3', '69874328', 'A+', '2021-08-22', '2021-08-02', '1063', '2220'),
+('4', '45587556', 'AB+', '2021-08-22', '2021-08-15', '1300', '150'),
+('5', '23699875', 'O+', '2021-08-22', '2021-09-23', '4521', '630'),
+('6', '57148222', 'O-', '2021-08-22', '2021-10-20', '820', '360');
+USE blood_Donation_dbms;
+INSERT INTO Blood_stock(License_Number, Blood_group, Adding_date, Removing_date, Units_added, Units_removed)
+VALUES('32564178', 'A+', '2021-08-22', '2021-08-27', '23', '5');
 
 INSERT INTO Donor (Email_id, Password, First_name, Last_name, Age, Gender, Blood_group, Eligibility, Phone_num, Street, City, District, Pincode, State, Frequent_Donor)
 VALUES
@@ -76,14 +79,14 @@ VALUES
 (5, 'mitika243@gmail.com', 'This is another demo message', '2021-08-06'),
 (6, 'pradeepreddy1@gmail.com', 'This is another demo message', '2021-09-16');
 
-INSERT INTO Message_to_admin (Id, Name, Email_id, phone_num, Message, Date)
+INSERT INTO Message_to_admin (Name, Email_id, phone_num, Message, Date)
 VALUES
-(1, 'Aditya', 'aditya234@gmail.com', '9021365478', 'Demo Message', '2021-10-30'),
-(2, 'Chaitanya', 'chaitanya123@gmail.com', '6547812498', 'Demo Message', '2021-10-30'),
-(3, 'Aditya', 'aditya234@gmail.com', '9021365478', 'Demo Message', '2021-10-30'),
-(4, 'Mitika', 'mitika243@gmail.com', '9856421368', 'Demo Message', '2021-10-30'),
-(5, 'Pradeep', 'pradeepreddy1@gmail.com', '9421569875', 'Demo Message', '2021-10-30'),
-(6, 'Pradeep', 'pradeepreddy1@gmail.com', '9421569875', 'Demo Message', '2021-10-30');
+('Aditya', 'aditya234@gmail.com', '9021365478', 'Demo Message', '2021-10-30'),
+( 'Chaitanya', 'chaitanya123@gmail.com', '6547812498', 'Demo Message', '2021-10-30'),
+( 'Aditya', 'aditya234@gmail.com', '9021365478', 'Demo Message', '2021-10-30'),
+( 'Mitika', 'mitika243@gmail.com', '9856421368', 'Demo Message', '2021-10-30'),
+( 'Pradeep', 'pradeepreddy1@gmail.com', '9421569875', 'Demo Message', '2021-10-30'),
+('Pradeep', 'pradeepreddy1@gmail.com', '9421569875', 'Demo Message', '2021-10-30');
 
 INSERT INTO Post_by_admin (Id, Heading, Post, Date)
 VALUES
