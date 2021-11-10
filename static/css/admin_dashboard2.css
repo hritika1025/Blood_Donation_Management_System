@@ -24,7 +24,7 @@ body{
     color:white;
 } */
 /* .button{
-    margin-right: 0px;
+    margin-right: 20px;
 }
 .pink{
     /* color: white; */
@@ -124,6 +124,8 @@ body{
 
 .title{
     margin: auto;
+    align-items: center;
+    text-align: center;
   width: 35%;
   border: 3px solid rgb(211, 9, 9);
   padding: 8px;
@@ -139,4 +141,7 @@ body{
   padding: 20px;
   background-color: white;
   text-align: center;
+}
+.btn btn-secondary{
+    margin: 5px;
 }
