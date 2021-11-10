@@ -90,61 +90,39 @@
       <br>
       <br>
       <br>
-
+      {% for row in rows %}
       
       <div class="user" style="display:flex;">
-        USERNAME
+        Blood Bank :{{row.Blood_bank_name}}
       </div>
-      <div class="message" style="display:flex;">
-        Do you want to verify this user?
-      </div>
-      <div class="message" style="display:flex;">
-      <button style="margin: 10px;" type="submit" class="btn btn-secondary">Approve</button><button style="margin: 10px;" type="submit" class="btn btn-secondary">Reject</button>
-      </div>
-      <br>
       <div class="user" style="display:flex;">
-        USERNAMES
+        License Number :{{row.License_number}}
       </div>
-      <div class="message" style="display:flex;">
-        Do you want to verify this user?
-      </div>
-      <div class="message" style="display:flex;">
-        <button style="margin: 10px;" type="submit" class="btn btn-secondary">Approve</button><button style="margin: 10px;" type="submit" class="btn btn-secondary">Reject</button>
-      </div>
-      <br>
       <div class="user" style="display:flex;">
-        USERNAMES
+        Owner Name :{{row.Owner_name}}
       </div>
-      <div class="message" style="display:flex;">
-        Do you want to verify this user?
-      </div>
-      <div class="message" style="display:flex;">
-        <button style="margin: 10px;" type="submit" class="btn btn-secondary">Approve</button><button style="margin: 10px;" type="submit" class="btn btn-secondary">Reject</button>
-      </div>
-      <br>
       <div class="user" style="display:flex;">
-        USERNAMES
+        Email Id :{{row.Email}}
       </div>
-      <div class="message" style="display:flex;">
-        Do you want to verify this user?
-      </div>
-      <div class="message" style="display:flex;">
-        <button style="margin: 10px;" type="submit" class="btn btn-secondary">Approve</button><button style="margin: 10px;" type="submit" class="btn btn-secondary">Reject</button>
-      </div>
-      <br>
       <div class="user" style="display:flex;">
-        USERNAMES
+        Phone Number :{{row.Phone_number}}
       </div>
-      <div class="message" style="display:flex;">
+      <div class="user" style="display:flex;">
+        Website :{{row.Website}}
+      </div>
+      <div class="user" style="display:flex;">
+        Address :{{row.Street}},{{row.City}},{{row.District}},{{row.Pincode}},{{row.State}},
+      </div>
+      <!-- <div class="message" style="display:flex;">
         Do you want to verify this user?
-      </div>
+      </div> -->
       <div class="message" style="display:flex;">
-        <button style="margin: 10px;" type="submit" class="btn btn-secondary">Approve</button><button style="margin: 10px;" type="submit" class="btn btn-secondary">Reject</button>
+      <input type="button" value="Approve" style="margin: 10px;" class="btn btn-secondary" name="result" placeholder="Approve"><input type="button" value="Reject"  name = "result"style="margin: 10px;" class="btn btn-secondary" placeholder="Reject">
+      <!-- <button style="margin: 10px;" type="submit" class="btn btn-secondary">Approve</button><button style="margin: 10px;" type="submit" class="btn btn-secondary">Reject</button> -->
       </div>
       <br>
-      <br>
-      
-
+      {% endfor %}
+     
 
 
 

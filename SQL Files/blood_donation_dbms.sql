@@ -1,3 +1,4 @@
+Drop database blood_donation_dbms;
 CREATE DATABASE IF NOT EXISTS blood_donation_dbms;
 USE blood_donation_dbms;
 CREATE TABLE IF NOT EXISTS `Admin` (
@@ -104,8 +105,7 @@ CREATE TABLE IF NOT EXISTS `Message_to_admin` (
             `Date` date NOT NULL,
             PRIMARY KEY (`Id`) )AUTO_INCREMENT=1;
 
-INSERT INTO Message_to_admin(Name, Email_id, phone_num, Message, Date) VALUES('hello', 'hello@gmail.com', '1234567890', 'Test Message', 08/11/2021);
-SELECT * FROM Message_to_admin;
+
  CREATE TABLE IF NOT EXISTS `Post_by_admin` (
             `Id` int NOT NULL AUTO_INCREMENT,
             `Heading` varchar(200) NOT NULL,
