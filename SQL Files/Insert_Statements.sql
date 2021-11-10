@@ -81,9 +81,9 @@ VALUES
 (1, 'Aditya', 'aditya234@gmail.com', '9021365478', 'Demo Message', '2021-10-30'),
 (2, 'Chaitanya', 'chaitanya123@gmail.com', '6547812498', 'Demo Message', '2021-10-30'),
 (3, 'Aditya', 'aditya234@gmail.com', '9021365478', 'Demo Message', '2021-10-30'),
-(4, 'Mitika', 'mitika243@gmail.com', '9856421368', 'Demo Message', '2021-10-30'),
+(4, 'Mitika', 'mitika243@gmail.com', '9856421368', 'Demo Message', '2021-11-15'),
 (5, 'Pradeep', 'pradeepreddy1@gmail.com', '9421569875', 'Demo Message', '2021-10-30'),
-(6, 'Pradeep', 'pradeepreddy1@gmail.com', '9421569875', 'Demo Message', '2021-10-30');
+(6, 'Pradeep', 'pradeepreddy1@gmail.com', '9421569875', 'Demo Message', '2021-11-10');
 
 INSERT INTO Post_by_admin (Id, Heading, Post, Date)
 VALUES
