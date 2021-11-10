@@ -122,6 +122,10 @@ def user_signup():
     
     return render_template('user_signup.html', msg = msg)
 
+@app.route("/user_profile",methods=['POST','GET'])
+def user_profile():
+    return render_template('user_profile.html')
+
 @app.route("/bloodbank_registeration",methods=['POST','GET'])
 def bloodbank_registeration():
     msg=""
@@ -224,9 +228,8 @@ def check_blood_availability():
             mysql.connection.commit()
             if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = %s AND District = %s', (State, District)):
                 session['bloodgroup'] = bloodgroup
-                cursor.execute('SELECT Blood_bank_name, Street, District FROM Blood_bank WHERE State = %s AND District = %s ', (State, District))
-                rows = cursor.fetchall();
-                # cursor.execute('SELECT updation_time FROM Blood_Stock WHERE Blood_group = %s')
+                cursor.execute('SELECT Blood_bank_name, Street, FROM Blood_bank WHERE State = %s AND District = %s', (State, District))
+                rows = cursor.fetchall()
                 for row in rows:
                     row = row
                 cursor.close()
@@ -267,7 +270,12 @@ def admin_login():
 
 @app.route('/registeration_verification_by_admin') 
 def registeration_verification_by_admin() :
-    return render_template('registeration_verification_by_admin.html')
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM Blood_bank WHERE Verification="Not Verified"')
+    rows = cursor.fetchall()
+    cursor.close()
+    result=request.form['result']
+    return render_template('registeration_verification_by_admin.html',rows=rows)
 
 
 # @app.route('/contact', methods = ['GET', 'POST'])
@@ -332,11 +340,10 @@ def user_msg_to_admin() :
     days = datetime.timedelta(7)
     new_date = current_date - days
     # cursor.execute('SELECT * FROM record WHERE username = % s AND date >= %s ORDER BY date DESC', (session['username'], new_date))
-    cursor.execute('SELECT * FROM Message_to_admin WHERE Email_id = %s AND Date >= %s ORDER BY Date DESC', (session['Email_id'], new_date))
-    rows = cursor.fetchall();
-    for row in rows:
-        row = row
-    return render_template("user_msg_to_admin.html", rows = rows, row = row)
+    cursor.execute('SELECT * FROM Message_to_admin WHERE Date >= %s ORDER BY Date DESC', (new_date,))
+    rows = cursor.fetchall()
+    
+    return render_template("user_msg_to_admin.html", rows = rows)
 
         
 
