@@ -19,9 +19,10 @@
       background-position: right center;
       background-size: auto 100%;
     }
-td{
-  padding: 10px;
-}
+
+    td {
+      padding: 10px;
+    }
 
     @media (min-width: 1025px) {
       .h-custom-2 {
@@ -38,12 +39,12 @@ td{
         <a class="navbar-brand nav1" href="#">iDonor </a>
       </span>
 
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
@@ -61,95 +62,132 @@ td{
       </div>
     </div>
   </nav>
-  <div class="my-4 " style="text-align: center; color: rgba(189, 3, 3, 0.856); ">
-    <h1>Edit Blood Stock</h1>
-</div>
-<div class="container border border-3 border-danger mb-4" style="background-color: rgba(224, 20, 20, 0.322);">
-  <div class="mx-5 px-5 py-4" style="background-color: white; ">
-  <table style="width: 70%; font-size: 22px; margin-left: 200px;">
+  <div class="my-4 " style="text-align: center; color: rgba(109, 77, 77, 0.856); ">
+    <h1 style="color: rgb(201, 36, 36);">Edit Blood Stock</h1>
+    <form action="" method="POST">
+    <div class="container my-5 rounded text-start" style="background-color:rgba(255, 121, 121, 0.822);">
+      <div class="mx-5 bg-white py-5">
+      <div class="mx-5">
+        <div class="row">
+          <div class="col-md-3">
 
-      <tr >
-        <td>
-          <label for="inputtate"> Blood Group:</label>
-        </td>
-        <td>
-          <select id="inputtate" required class="form-outline" name="Blood_group">
-            <option seleceted value="">Select blood group</option>
-            <option value="A+">A+</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B-">B-</option>
-            <option value="AB+">AB+</option>
-            <option value="AB">AB-</option>
-            <option value="O+">O+</option>
-            <option value="O-">O-</option>
-          </select>
+          </div>
+          <div class="col-md-3">
+            <label for="inputtate">
+              <h4>Blood Group:</h4>
+            </label>
+          </div>
+          <div class="col-md-3">
+            <select id="inputtate" required class="form-control" name="Blood_group">
+              <option seleceted value="">Select blood group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+          <div class="col-md-3">
 
-        </td>
-      </tr>
+          </div>
 
-    <!-- <tr>
-            <td>
-<label for="add">ADD/DEL</label>
-            </td>
-            <td>
-                <select id="add" required class="form-control" name="">
-                    <option value="ADD">ADD</option>
-                    <option value="DEL">DELETE</option>
-                </select>
-            </td>
-        </tr> -->
- 
-      <tr >
-        <td>
-          <label for="add">Adding Date:</label>
 
-        </td>
-        <td>
-          <input type="date" id="add" name="Adding_date" placeholder="Adding date">
-        </td>
-      </tr>
-    
-      <tr>
-        <td>
-          <label for="remove">Removing Date:</label>
-          
-        </td>
-        <td>
-          <input type="date" id="remove" name="Removing_date" placeholder="Removing date">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="add_units"> Units Added:</label>
-        </td>
-        <td>
-          <input type="number" id="add_units" class="form-outline" placeholder="Units Added" name="Units_added">
-        </td>
-      </tr>
-    <tr>
-      <td>
-        <label for="remove_units"> Units Removed:</label>
-      </td>
-      <td>
-        <input type="number" id="remove_units" class="form-outline" placeholder="Units Removed" name="Units_removed">
-      </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="updation_date"> Updation Date:</label>
-        </td>
-        <td>
-            <input type="date" id="updation_date" name="Updation_date"  >
-        </td>
-    </tr>
+        </div>
+        <div class="row my-3">
+          <div class="col-md-3">
 
-  </table>
-  <div style="text-align: center;" class="mt-4">
-    <button type="submit" class="btn btn-success" value="submit">Submit</button>
+          </div>
+          <div class="col-md-3">
+            <label for="add"><h4>Adding Date:</h4></label>
+          </div>
+          <div class="col-md-3">
+            <input type="date" id="add" name="Adding_date" class="form-control" placeholder="Adding date">
+          </div>
+          <div class="col-md-3">
+
+          </div>
+
+
+        </div>
+        <div class="row my-3">
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-3">
+            <label for="remove"><h4>Removing Date:</h4></label>
+          </div>
+          <div class="col-md-3">
+            <input type="date" id="remove" name="Removing_date" class="form-control" placeholder="Removing date">
+          </div>
+          <div class="col-md-3">
+
+          </div>
+
+
+        </div>
+
+        <div class="row my-3">
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-3">
+            <label for="add_units"> <h4>Units Added:</h4></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" id="add_units" class="form-control" placeholder="Units Added" name="Units_added">
+          </div>
+          <div class="col-md-3">
+
+          </div>
+
+
+        </div>
+
+        <div class="row my-3">
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-3">
+            <label for="remove_units"> <h4>Units Removed:</h4></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" id="remove_units" class="form-control" placeholder="Units Removed" name="Units_removed">
+          </div>
+          <div class="col-md-3">
+
+          </div>
+
+
+        </div>
+
+        <div class="row my-3">
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-3">
+            <label for="updation_date"><h4> Updation Date:</h4> </label>
+          </div>
+          <div class="col-md-3">
+            <input type="date" id="updation_date" class="form-control" name="Updation_date"  >
+          </div>
+          <div class="col-md-3">
+
+          </div>
+
+
+        </div>
+      </div>
+        <div style="text-align: center;" class="mt-4">
+    <button type="submit" class="btn btn-success" value="submit">Edit Blood Stock</button>
   </div>
 </div>
-</div>
+    </div>
+  </form>
+  </div>
+
 
   <!-- Optional JavaScript; choose one of the two! -->
 
