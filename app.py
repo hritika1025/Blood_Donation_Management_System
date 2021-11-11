@@ -122,9 +122,18 @@ def user_signup():
     
     return render_template('user_signup.html', msg = msg)
 
-@app.route("/user_profile",methods=['POST','GET'])
+@app.route("/user_profile")
 def user_profile():
-    return render_template('user_profile.html')
+    if session['loggedin'] == True :
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM Donor WHERE Email_id = %s', (session['Email_id']))
+        user_details = cursor.fetchall()
+
+    return render_template('user_profile.html', First_name = session['First_name'], )
+
+@app.route("/edit_user_profile", methods=['POST','GET'])
+def edit_user_profile() :
+    return render_template('edit_user_profile.html')
 
 @app.route("/bloodbank_registeration",methods=['POST','GET'])
 def bloodbank_registeration():
@@ -274,7 +283,7 @@ def registeration_verification_by_admin() :
     cursor.execute('SELECT * FROM Blood_bank WHERE Verification="Not Verified"')
     rows = cursor.fetchall()
     cursor.close()
-    result=request.form['result']
+    result=request.form['result']     
     return render_template('registeration_verification_by_admin.html',rows=rows)
 
 
