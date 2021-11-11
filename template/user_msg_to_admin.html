@@ -58,25 +58,10 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Admin Login</a></li>
             </ul> -->
-            <a class="btn btn-outline-light" href="contact.html" role="button" style="margin: auto 10px;">Contact Us</a>
+            <a class="btn btn-outline-light" href="admin_login.html" role="button" style="margin: auto 10px;">Admin</a>
+            <a class="btn btn-outline-light" href="admin_dashboard.html" role="button" style="margin: auto 10px;">Admin Dashboard</a>
             <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
-           <div class="dropdown">
-             <button
-               class="btn btn-light dropdown-toggle"
-               type="button"
-               style="margin-right: 35px"
-               id="dropdownMenuButton1"
-               data-bs-toggle="dropdown"
-               aria-expanded="false"
-             >
-               Log In
-             </button>
-             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-               <li><a class="dropdown-item" href="user_login.html">Donor Login</a></li>
-               <li><a class="dropdown-item" href="blood_bank_login.html">Blood Bank Login</a></li>
-               <li><a class="dropdown-item" href="#">Admin</a></li>
-             </ul>
-           </div>
+           
             <!-- <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
           </div>
@@ -84,9 +69,10 @@
       </nav>
       <br><br>
 
-      <div class="title" style="display:flex;">
+      <div class="title" >
         USER FEEDBACKS
       </div>
+      
       <br>
       <br>
       <br>
@@ -105,8 +91,14 @@
        {% for row in rows %}
        <br>
       <div class="user" style="display:flex;">
-        Name : {{row.Name}}
+        <div class="user" style="display:flex;">
+          Name : {{row.Name}}
+        </div>
+        <div class="date">
+          Date : {{row.Date}}
+        </div>
       </div>
+      
       <div class="user" style="display:flex;">
         Email Id : {{row.Email_id}}
       </div>
