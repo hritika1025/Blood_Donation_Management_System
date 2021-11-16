@@ -58,18 +58,13 @@
                 <tr class="bg-warning">
                   <th scope="col">Blood Bank</th>
                   <th scope="col">Address</th>
-                  <th scope="col">Availability</th>
-                  <th scope="col">Last updated</th>
-        
                 </tr>
               </thead>
               <tbody>
                 {% for row in rows %}
                 <tr class="rows bg-success">
                   <td>{{row.Blood_bank_name}}</td>
-                  <td>{{row.Address}}</td>
-                  <td>{{row.Availability}}</td>
-                  <td>{{row.Last_updated}}</td>
+                  <td>{{row.Street}}</td>
                 </tr>
                 {% endfor %}
               </tbody>
