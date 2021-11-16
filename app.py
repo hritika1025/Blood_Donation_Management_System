@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,session,redirect,url_for
+from flask import Flask, render_template, request,session,redirect, sessions,url_for
 from flask_mysqldb import MySQL
 import re
 import mysql.connector
@@ -78,7 +78,7 @@ def user_signup():
         Street=request.form['Street']
         Blood_group=request.form['Blood_group']
         Eligibility=request.form['eligibility']
-        Frequent=request.form['Frequent']
+        Frequent_donor = request.form['Frequent']
         City=request.form['City']
         District=request.form['District']
         State=request.form['State']
@@ -107,14 +107,21 @@ def user_signup():
             msg = 'Please fill out the form !'
         else:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Donor(First_name,Last_name,Email_id,Age,Phone_num,Password,Street,Blood_group,Eligibility,Frequent_Donor,City,District,State,Pincode,Gender) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)', (First_name,Last_name,Email_id,Age,Phone_num,Password,Street,Blood_group,Eligibility,Frequent,City,District,State,Pincode,Gender))
+            cursor.execute('INSERT INTO Donor(First_name,Last_name,Email_id,Age,Phone_num,Password,Street,Blood_group,Eligibility,Frequent_Donor,City,District,State,Pincode,Gender) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)', (First_name,Last_name,Email_id,Age,Phone_num,Password,Street,Blood_group,Eligibility,Frequent_donor,City,District,State,Pincode,Gender))
             mysql.connection.commit()
             session['loggedin'] = True
             session['Email_id'] = Email_id
             session['Phone_num'] = Phone_num
             session['First_name'] = First_name
             session['Last_name'] = Last_name
+            session['Age'] = Age
             session['Blood_group'] = Blood_group
+            session['Eligibility'] = Eligibility
+            session['Frequent_donor'] = Frequent_donor
+            session['Street'] = Street
+            session['District'] = District
+            session['City'] = City
+            session['State'] = State
             cursor.close()
             return redirect(url_for('home'))
     elif request.method == 'POST':
@@ -129,7 +136,12 @@ def user_profile():
         cursor.execute('SELECT * FROM Donor WHERE Email_id = %s', (session['Email_id']))
         user_details = cursor.fetchall()
 
-    return render_template('user_profile.html', First_name = session['First_name'], )
+    return render_template('user_profile.html', First_name = session['First_name'], 
+                            Last_name = session['Last_name'], Phone_num = session['Phone_num'], 
+                            Age = session['Age'], Eligibility = session['Eligibility'], Frequent_donor =
+                            session['Frequent_donor'], City = session['City'], District = 
+                            session['District'], Street = session['Street'], State = session['State']
+                             )
 
 @app.route("/edit_user_profile", methods=['POST','GET'])
 def edit_user_profile() :
