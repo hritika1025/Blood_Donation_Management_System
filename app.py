@@ -191,7 +191,7 @@ def blood_bank_login():
         License_number=request.form['License_number']
         Password=request.form['Password']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Blood_bank WHERE License_number=%s ',(License_number,))
+        cursor.execute('SELECT * FROM Blood_bank WHERE License_number=%s AND Verification="Accept"',(License_number,))
         account=cursor.fetchone()
         cursor.close()
         if account and account['Password']==Password:
@@ -252,7 +252,20 @@ def check_blood_availability():
             return render_template('check_blood_availability.html', msg = msg)
     return render_template('check_blood_availability.html')
 
-        
+@app.route("/edit_blood_stock")    
+def edit_blood_stock():
+    msg=''
+    if request.method=='POST'and "Blood_group" in request.form and "Adding_date" in request.form and "Removing_date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
+        Blood_group=request.form['Blood_group']
+        Adding_date=request.form['Adding_date']
+        Removing_date=request.form['Removing_date']
+        Units_added=request.form['Units_added']
+        Units_removed=request.form['Units_removed']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM Admin WHERE Email=%s ',(Email,))
+        account=cursor.fetchone()
+        cursor.close()
+    return render_template('edit_blood_stock.html')   
         # ADMIN PART :
 
 @app.route("/admin_dashboard")

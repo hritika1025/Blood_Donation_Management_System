@@ -21,7 +21,6 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Website` varchar(100) ,
            `Verification` varchar(100) NOT NULL DEFAULT 'Not Verified',
            PRIMARY KEY (`License_Number`) );
-
 CREATE TABLE IF NOT EXISTS `Blood_bank_timings` (
 		    `License_number` varchar(100) NOT NULL,
             `Opening_time` time NOT NULL,
