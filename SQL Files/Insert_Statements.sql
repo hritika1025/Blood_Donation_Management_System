@@ -33,9 +33,7 @@ VALUES
 ('4', '45587556', 'AB+', '2021-08-22',  '1300', '150'),
 ('5', '23699875', 'O+', '2021-08-22',  '4521', '630'),
 ('6', '57148222', 'O-', '2021-08-22',  '820', '360');
-USE blood_Donation_dbms;
-INSERT INTO Blood_stock(License_Number, Blood_group, Adding_date, Removing_date, Units_added, Units_removed)
-VALUES('32564178', 'A+', '2021-08-22', '2021-08-27', '23', '5');
+
 
 INSERT INTO Donor (Email_id, Password, First_name, Last_name, Age, Gender, Blood_group, Eligibility, Phone_num, Street, City, District, Pincode, State, Frequent_Donor)
 VALUES
@@ -43,6 +41,7 @@ VALUES
 ('mitika243@gmail.com', 'cht432', 'Mitika', 'Bhadada', '19', 'Female', 'A+', 'y', '9856421368', 'h56 Hazariganj Area', 'Gandhinagar', 'Gandhinagar', '600124', 'Gujarat','y'),
 ('hritika674@gmail.com', 'cht432', 'Hritika', 'Gautam', '19', 'Female', 'B+', 'y', '8788542631', 'B45 Kushal Society', 'Bengaluru', 'Bengaluru', '547896', 'Karnataka','y'),
 ('pradeepreddy1@gmail.com', 'cht432', 'Pradeep', 'Reddy', '19', 'Male', 'AB+', 'y', '9421569875', 'N89 Aquare XYZ', 'Nagpur', 'Nagpur', '400036', 'Delhi','y'),
+('ujjwal999@gmail.com', 'cht432', 'Ujjwal', 'Hendwe', '19', 'Male', 'AB+', 'y', '9424469875', 'N85 Aquare XYZ', 'Nagpur', 'Nagpur', '400036', 'Delhi','y'),
 ('aditya234@gmail.com', 'cht432', 'Aditya', 'Deshmukh', '19', 'Male', 'A+', 'y', '9021365478', 'G88 Street ABC', 'Bhopal', 'Bhopal', '755001', 'Madhya Pradesh','n');
 
 INSERT INTO Donations (Email_id, Date, Units, Blood_group) VALUES
@@ -79,7 +78,7 @@ VALUES
 (5, 'mitika243@gmail.com', 'This is another demo message', '2021-08-06'),
 (6, 'pradeepreddy1@gmail.com', 'This is another demo message', '2021-09-16');
 
-INSERT INTO Message_to_admin (Name, Email_id, phone_num, Message, Date)
+INSERT INTO Message_to_admin (Id,Name, Email_id, phone_num, Message, Date)
 VALUES
 (1, 'Aditya', 'aditya234@gmail.com', '9021365478', 'Demo Message', '2021-10-30'),
 (2, 'Chaitanya', 'chaitanya123@gmail.com', '6547812498', 'Demo Message', '2021-10-30'),
