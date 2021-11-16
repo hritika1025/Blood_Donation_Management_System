@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg red">
         <div class="container-fluid">
           <span>
-            <a class="navbar-brand nav1" href="index.html">iDonor</a>
+            <a class="navbar-brand nav1" href="{{url_for('index')}}">iDonor</a>
           </span>
   
           <button
@@ -58,7 +58,7 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Admin Login</a></li>
             </ul> -->
-            <a class="btn btn-outline-light" href="contact.html" role="button" style="margin: auto 10px;">Contact Us</a>
+            <a class="btn btn-outline-light" href="{{url_for('contact')}}" role="button" style="margin: auto 10px;">Contact Us</a>
             <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
            <div class="dropdown">
              <button
@@ -72,9 +72,9 @@
                Log In
              </button>
              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-               <li><a class="dropdown-item" href="user_login.html">Donor Login</a></li>
-               <li><a class="dropdown-item" href="blood_bank_login.html">Blood Bank Login</a></li>
-               <li><a class="dropdown-item" href="admin_login.html">Admin</a></li>
+               <li><a class="dropdown-item" href="{{url_for('user_login')}}">Donor Login</a></li>
+               <li><a class="dropdown-item" href="{{url_for('blood_bank_login')}}">Blood Bank Login</a></li>
+               <li><a class="dropdown-item" href="{{url_for('admin_login')}}">Admin</a></li>
              </ul>
            </div>
             <!-- <form class="d-flex">
@@ -94,13 +94,13 @@
       <br>
 
       <div class="links">
-        <a href="user_msg_to_admin.html"> USER FEEDBACKS </a>
+        <a href="{{url_for('user_msg_to_admin')}}"> USER FEEDBACKS </a>
       </div>
       <br>
       <br>
       <br>
       <div class="links">
-        <a href="registeration_verification_by_admin.html"> VERIFICATION REQUESTS </a>
+        <a href="{{url_for('registeration_verification_by_admin')}}"> VERIFICATION REQUESTS </a>
         
       </div>
       

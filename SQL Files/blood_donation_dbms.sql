@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `Admin` (
             `Email` varchar(100) NOT NULL,
             `Password` varchar(100) NOT NULL,
 	        PRIMARY KEY(`Email`) );
-
+SELECT * FROM Blood_bank;
 CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Password` varchar(100) NOT NULL,
            `License_number` varchar(100) NOT NULL,
@@ -21,7 +21,6 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Website` varchar(100) ,
            `Verification` varchar(100) NOT NULL DEFAULT 'Not Verified',
            PRIMARY KEY (`License_Number`) );
-		
 
 CREATE TABLE IF NOT EXISTS `Blood_bank_timings` (
 		    `License_number` varchar(100) NOT NULL,

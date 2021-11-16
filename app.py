@@ -280,13 +280,19 @@ def admin_login():
         msg = " Please fill the form !" 
     return render_template('admin_login.html',msg=msg)
 
-@app.route('/registeration_verification_by_admin') 
+@app.route('/registeration_verification_by_admin',methods=['GET','POST']) 
 def registeration_verification_by_admin() :
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM Blood_bank WHERE Verification="Not Verified"')
     rows = cursor.fetchall()
     cursor.close()
-    result=request.form['result']
+    if request.method=='POST'and "License_number" in request.form and "result" in request.form :
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        License_number=request.form['License_number']
+        result=request.form['result']
+        cursor.execute('UPDATE Blood_bank SET Verification = %s WHERE License_number=%s',(result,License_number,))
+        mysql.connection.commit()
+        cursor.close()
     return render_template('registeration_verification_by_admin.html',rows=rows)
 
 
