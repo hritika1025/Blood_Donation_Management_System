@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `Admin` (
 SELECT * FROM Blood_bank;
 CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Password` varchar(100) NOT NULL,
-           `License_number` varchar(100) NOT NULL,
+           `License_Number` varchar(100) NOT NULL,
            `Blood_bank_name` varchar(100) NOT NULL,
            `Owner_name` varchar(100) NOT NULL,
            `Email` varchar(100) NOT NULL,
@@ -23,13 +23,12 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            PRIMARY KEY (`License_Number`) );
 
 CREATE TABLE IF NOT EXISTS `Blood_bank_timings` (
-		    `License_number` varchar(100) NOT NULL,
+		    `License_Number` varchar(100) NOT NULL,
             `Opening_time` time NOT NULL,
             `Closing_time` time NOT NULL,
             `Weekday` varchar(50) NOT NULL,
             PRIMARY KEY (`License_Number` , `Weekday`), 
             FOREIGN KEY (`License_Number`) REFERENCES `Blood_bank`(`License_Number`)  ON DELETE CASCADE);
-
             
 CREATE TABLE IF NOT EXISTS `Blood_stock` (
             `Id` int NOT NULL AUTO_INCREMENT,
