@@ -263,18 +263,25 @@ def check_blood_availability():
 
 @app.route("/edit_blood_stock")    
 def edit_blood_stock():
+    
     msg=''
-    if request.method=='POST'and "Blood_group" in request.form and "Adding_date" in request.form and "Removing_date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
-        Blood_group=request.form['Blood_group']
-        Adding_date=request.form['Adding_date']
-        Removing_date=request.form['Removing_date']
-        Units_added=request.form['Units_added']
-        Units_removed=request.form['Units_removed']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Admin WHERE Email=%s ',(Email,))
-        account=cursor.fetchone()
-        cursor.close()
-    return render_template('edit_blood_stock.html')   
+    if session['loggedin'] == True :
+        if request.method=='POST'and "Blood_group" in request.form and "Adding_date" in request.form and "Removing_date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
+            Blood_group=request.form['Blood_group']
+            Date=request.form['Date']
+            Units_added=request.form['Units_added']
+            Units_removed=request.form['Units_removed']
+            License_number=session['License_number']
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('INSERT INTO blood_stock (Id, License_number, Blood_group,Date,Units_added, Units_removed) ',(NULL,License_number,Blood_group,Units_added,Units_removed,))
+            msg="Record Added"
+            mysql.connection.commit()
+            cursor.close()
+        else:
+            msg = " Please fill the form !" 
+    else:
+        return redirect(url_for('blood_bank_login'))
+    return render_template('edit_blood_stock.html',msg=msg)   
         # ADMIN PART :
 
 @app.route("/admin_dashboard")
