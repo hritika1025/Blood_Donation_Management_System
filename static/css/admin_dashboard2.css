@@ -84,7 +84,7 @@ body{
 }
 .minbox{
     margin: auto;
-    border: 2px solid rgb(173, 152, 152) ;
+    border: 2px solid rgb(128, 128, 128) ;
     width: 300px;
     height: 400px;
     background-color: white;
@@ -108,17 +108,25 @@ body{
 .user{
     margin: auto;
   width: 75%;
-  border: 3px solid white;
-  padding: 8px;
-  background-color: white;
+  
+  padding: 1px;
+  background-color: rgb(245, 223, 223);
   text-align: center;
+}
+.date{
+    margin: auto;
+  width: 75%;
+  
+  padding: 0.2px;
+  background-color: rgb(245, 223, 223);
+  text-align: right;
 }
 .message{
     margin: auto;
   width: 75%;
-  border: 3px solid rgb(245, 223, 223);
+  
   padding: 8px;
-  background-color: rgb(245, 223, 223);
+  background-color: rgba(247, 96, 96, 0.609);
   text-align: center;
 }
 
@@ -127,18 +135,19 @@ body{
     align-items: center;
     text-align: center;
   width: 35%;
-  border: 3px solid rgb(211, 9, 9);
+  border: 3px solid rgba(247, 96, 96, 0.609);
   padding: 8px;
-  background-color: rgb(211, 9, 9);
+  background-color: rgba(247, 96, 96, 0.609);
   text-align: center;
   border-radius: 10px;
   color: white;
 }
 .links{
     margin: auto;
-  width: 75%;
+    align-items: center;
+  width: 30%;
   border: 3px solid white;
-  padding: 20px;
+  padding: 10px;
   background-color: white;
   text-align: center;
 }
