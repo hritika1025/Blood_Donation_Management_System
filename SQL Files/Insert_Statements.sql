@@ -13,7 +13,6 @@ VALUES
 ('jbb6674', '57148222', 'Jeevan Blood Bank', 'Rekha Kumar', 'jeevanbloodbank@gmail.com', '96542135470', '369 , Patparganj Industrial Area', '500042', 'Hyderabad', 'Charminar','Telangana', 'www.rotarybankhyedrabad.com'),
 ('Save2Live44', '56324417', 'SaveLives Foundation', 'Rishabh Mehta', 'savelives121321@gmail.com', '96542135470', 'B22, Rasoolpur Nawada Industrial Area, Sector-62', '500042', 'Hyderabad','Yakutpura', 'Telangana', 'www.rotarybankhyedrabad.com'),
 ('Rcs33', '87546698', 'Red Cross Society', 'Kartik Jaseja', 'redcrosssocietyofficial@gmail.com', '96542135470', '#rd floor, Jeevan Anmol Hospital,Mayur Vihar', '500042', 'Hyderabad', 'Khairatbad','Telangana', 'www.rotarybankhyedrabad.com');
-
 INSERT INTO Blood_bank_timings (License_Number, Opening_time, Closing_time, Weekday)
 VALUES
 ('32564178', '22:00', '16:00', 'Monday'),

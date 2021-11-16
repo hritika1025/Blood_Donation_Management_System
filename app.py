@@ -147,8 +147,8 @@ def user_profile():
 def edit_user_profile() :
     return render_template('edit_user_profile.html')
 
-@app.route("/bloodbank_registeration",methods=['POST','GET'])
-def bloodbank_registeration():
+@app.route("/bloodbank_registration",methods=['POST','GET'])
+def bloodbank_registration():
     msg=""
     if request.method=='POST' and "Blood_bank_name" in request.form and "License_number" in request.form and "Owner_name" in request.form and "Phone_number" in request.form and "Email" in request.form and "Password" in request.form and "c_password" in request.form and "Street" in request.form and "City" in request.form and "Pincode" in request.form and "District" in request.form and "State" in request.form  and "Website" in request.form :
         Blood_bank_name=request.form['Blood_bank_name']
@@ -219,9 +219,9 @@ def blood_bank_login():
             session['loggedin'] = True
             session['Email'] = account['Email']
             session['Phone_number'] = account['Phone_number']
-            session['License_number'] = account['License_number']
+            session['License_Number'] = account['License_Number']
             session['Blood_bank_name'] = account['Blood_bank_name']
-            return render_template('')
+            return render_template('home.html')
         else:
             msg="Incorrect username/password!"
     else:
