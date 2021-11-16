@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg red">
         <div class="container-fluid">
           <span>
-            <a class="navbar-brand nav1" href="index.html">iDonor</a>
+            <a class="navbar-brand nav1" href="{{url_for('index')}}">iDonor</a>
           </span>
   
           <button
@@ -58,8 +58,8 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Admin Login</a></li>
             </ul> -->
-            <a class="btn btn-outline-light" href="admin_login.html" role="button" style="margin: auto 10px;">Admin</a>
-            <a class="btn btn-outline-light" href="admin_dashboard.html" role="button" style="margin: auto 10px;">Admin Dashboard</a>
+            <a class="btn btn-outline-light" href="{{url_for('admin_login')}}" role="button" style="margin: auto 10px;">Admin</a>
+            <a class="btn btn-outline-light" href="{{url_for('admin_dashboard')}}" role="button" style="margin: auto 10px;">Admin Dashboard</a>
             <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
            
             <!-- <form class="d-flex">
@@ -76,24 +76,24 @@
       <br>
       <br>
       {% for row in rows %}
-      
+      <form action="\registeration_verification_by_admin" method="post">
       <div class="user" style="display:flex;">
-        Blood Bank :{{row.Blood_bank_name}}
+        Blood Bank : {{row.Blood_bank_name}}
+      </div>
+      <div class="user" style="display:flex;"> 
+        License Number :<input type="text" value="{{row.License_number}}" style="margin: 10px; margin-top: 0px; " class="btn btn-light" name="License_number" placeholder="{{row.License_number}}">
       </div>
       <div class="user" style="display:flex;">
-        License Number :{{row.License_number}}
+        Owner Name : {{row.Owner_name}}
       </div>
       <div class="user" style="display:flex;">
-        Owner Name :{{row.Owner_name}}
+        Email Id : {{row.Email}}
       </div>
       <div class="user" style="display:flex;">
-        Email Id :{{row.Email}}
+        Phone Number : {{row.Phone_number}}
       </div>
       <div class="user" style="display:flex;">
-        Phone Number :{{row.Phone_number}}
-      </div>
-      <div class="user" style="display:flex;">
-        Website :{{row.Website}}
+        Website : {{row.Website}}
       </div>
       <div class="user" style="display:flex;">
         Address :{{row.Street}},{{row.City}},{{row.District}},{{row.Pincode}},{{row.State}},
@@ -101,10 +101,22 @@
       <!-- <div class="message" style="display:flex;">
         Do you want to verify this user?
       </div> -->
-      <div class="message" style="display:flex;">
-      <input type="button" value="Approve" style="margin: 10px;" class="btn btn-secondary" name="result" placeholder="Approve"><input type="button" value="Reject"  name = "result"style="margin: 10px;" class="btn btn-secondary" placeholder="Reject">
+      <div class="user" style="display:flex;">
+        <label for="result">Check this form:</label>
+        <input list="results" name="result" id="result">
+        <datalist id="results">
+        <option value="Accept">
+        <option value="Reject">
+        
+        </datalist>
+      <!-- <input type="button" value="Approve" style="margin: 10px;" class="btn btn-secondary" name="result" placeholder="Approve"><input type="button" value="Reject"  name = "result"style="margin: 10px;" class="btn btn-secondary" placeholder="Reject"> -->
       <!-- <button style="margin: 10px;" type="submit" class="btn btn-secondary">Approve</button><button style="margin: 10px;" type="submit" class="btn btn-secondary">Reject</button> -->
       </div>
+      <br>
+      <div class="message" style="display:flex;">
+      <button style="margin: 10px;" type="submit" class="btn btn-secondary">Submit</button>
+    </div>
+    </form>
       <br>
       {% endfor %}
      
