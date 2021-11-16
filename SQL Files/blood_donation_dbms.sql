@@ -21,7 +21,6 @@ CREATE TABLE IF NOT EXISTS  `Blood_bank` (
            `Website` varchar(100) ,
            `Verification` varchar(100) NOT NULL DEFAULT 'Not Verified',
            PRIMARY KEY (`License_Number`) );
-
 CREATE TABLE IF NOT EXISTS `Blood_bank_timings` (
 		    `License_Number` varchar(100) NOT NULL,
             `Opening_time` time NOT NULL,
@@ -34,8 +33,7 @@ CREATE TABLE IF NOT EXISTS `Blood_stock` (
             `Id` int NOT NULL AUTO_INCREMENT,
             `License_Number` varchar(100) NOT NULL,
             `Blood_group` varchar(10) NOT NULL,
-            `Adding_date` date ,
-            `Removing_date` date,
+            `Date` date ,
             `Units_added` int,
             `Units_removed` int,
             PRIMARY KEY (`Id`),
