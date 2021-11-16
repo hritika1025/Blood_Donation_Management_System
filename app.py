@@ -239,23 +239,23 @@ def bank_logout():
 def check_blood_availability():
     msg = ''
     if request.method == "POST":
-        Email_id = session['Email_id']
         State = request.form['State']
         District = request.form['District']
-        bloodgroup = request.form['Blood_group']
-        if len(Email_id) > 0 and len(State) > 0 and len(District) > 0 and len(bloodgroup) >0:
+        Blood_group = request.form['Blood_group']
+        if len(State) > 0 and len(District) > 0 and len(Blood_group) >0:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             # cursor.execute('INSERT INTO record VALUES (NULL, % s, % s, % s,% s)',(username , state, district, bloodgroup,))
-            mysql.connection.commit()
-            if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = %s AND District = %s', (State, District)):
-                session['bloodgroup'] = bloodgroup
-                cursor.execute('SELECT Blood_bank_name, Street, FROM Blood_bank WHERE State = %s AND District = %s', (State, District))
-                rows = cursor.fetchall()
-                for row in rows:
-                    row = row
-                cursor.close()
-                return render_template('blood_avail.html', rows = rows, row = row)
-            return render_template('check_blood_availability.html', msg = "Sorry! No data available.")
+            # mysql.connection.commit()
+            # if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = %s AND District = %s', (State, District)):
+            print(Blood_group)
+            # session['bloodgroup'] = Blood_group
+            cursor.execute('SELECT Blood_bank_name, Street FROM Blood_bank WHERE State = %s AND District = %s AND License_Number in (SELECT License_Number FROM Blood_stock WHERE Blood_group = %s)', (State, District, Blood_group,))
+            rows = cursor.fetchall()
+            # for row in rows:
+            #     row = row
+            cursor.close()
+            return render_template('blood_avail.html', rows = rows)
+            # return render_template('check_blood_availability.html', msg = "Sorry! No data available.")
         else:
             msg = "Please fill all the details!"
             return render_template('check_blood_availability.html', msg = msg)
