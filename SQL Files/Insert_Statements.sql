@@ -1,17 +1,17 @@
 INSERT INTO Admin ( Email, Password) VALUES 
             ('hritika123@gmail.com','Hritika123'),
             ('mitika343@gmail.com','Mitika343');
+
 INSERT INTO Blood_bank (Password, License_Number, Blood_bank_name, Owner_name, Email, Phone_number, Street, Pincode, City, District,State, Website)
 VALUES
-('riz345', '32564178', 'Rotary Blood Bank', 'Varun Tiwari', 'rotarybank321@gmail.com', '96542135470', 'i-587,2nd Floor, Moolchand Towers , Block i,sector 22', '500042', 'Hyderabad','Musheerabad', 'Telangna', 'www.rotarybankhyedrabad.com'),
-('e5hgvs', '25647895', 'Supppot2Care', 'Neha Sharma', 'support2care2@gmail.com', '96542135470', 'H-82, H-Block,Sector-63', '500042', 'Hyderabad','Malakpet', 'Telangna', 'www.rotarybankhyedrabad.com'),
-('rtl654yb', '69874328', 'Right To Live', 'Ahmed Joshi', 'righttollive12@gmail.com', '96542135470', 'E-2, OPP Ambedkar Hospital , Nithari Village , Sector-31', '500042', 'Hyderabad','Malakpet', 'Telangna', 'www.rotarybankhyedrabad.com'),
-('354abb6gr', '45587556', 'Aadhar Blood Bank', 'Rohit Kapoor', 'aadhar456@gmail.com', '96542135470', 'H54 , Judges Enclave , Ahinsa Khand 2', '500042', 'Hyderabad','Amberpet', 'Telangna', 'www.rotarybankhyedrabad.com'),
+('riz345', '32564178', 'Rotary Blood Bank', 'Varun Tiwari', 'rotarybank321@gmail.com', '96542135470', 'i-587,2nd Floor, Moolchand Towers , Block i,sector 22', '500042', 'Hyderabad','Musheerabad', 'Telangana', 'www.rotarybankhyedrabad.com'),
+('e5hgvs', '25647895', 'Supppot2Care', 'Neha Sharma', 'support2care2@gmail.com', '96542135470', 'H-82, H-Block,Sector-63', '500042', 'Hyderabad','Malakpet', 'Telangana', 'www.rotarybankhyedrabad.com'),
+('rtl654yb', '69874328', 'Right To Live', 'Ahmed Joshi', 'righttollive12@gmail.com', '96542135470', 'E-2, OPP Ambedkar Hospital , Nithari Village , Sector-31', '500042', 'Hyderabad','Malakpet', 'Telangana', 'www.rotarybankhyedrabad.com'),
+('354abb6gr', '45587556', 'Aadhar Blood Bank', 'Rohit Kapoor', 'aadhar456@gmail.com', '96542135470', 'H54 , Judges Enclave , Ahinsa Khand 2', '500042', 'Hyderabad','Amberpet', 'Telangana', 'www.rotarybankhyedrabad.com'),
 ('sbb35342', '23699875', 'Sanjeeev Blood Bank', 'Anuj Bajpayee', 'sanjeevcare5@gmail.com', '96542135470', 'H22 , B Block,Sector-62', '500042', 'Hyderabad','Karwan', 'Telangna', 'www.rotarybankhyedrabad.com'),
-('jbb6674', '57148222', 'Jeevan Blood Bank', 'Rekha Kumar', 'jeevanbloodbank@gmail.com', '96542135470', '369 , Patparganj Industrial Area', '500042', 'Hyderabad', 'Charminar','Telangna', 'www.rotarybankhyedrabad.com'),
-('Save2Live44', '56324417', 'SaveLives Foundation', 'Rishabh Mehta', 'savelives121321@gmail.com', '96542135470', 'B22, Rasoolpur Nawada Industrial Area, Sector-62', '500042', 'Hyderabad','Yakutpura', 'Telangna', 'www.rotarybankhyedrabad.com'),
-('Rcs33', '87546698', 'Red Cross Society', 'Kartik Jaseja', 'redcrosssocietyofficial@gmail.com', '96542135470', '#rd floor, Jeevan Anmol Hospital,Mayur Vihar', '500042', 'Hyderabad', 'Khairatbad','Telangna', 'www.rotarybankhyedrabad.com');
-
+('jbb6674', '57148222', 'Jeevan Blood Bank', 'Rekha Kumar', 'jeevanbloodbank@gmail.com', '96542135470', '369 , Patparganj Industrial Area', '500042', 'Hyderabad', 'Charminar','Telangana', 'www.rotarybankhyedrabad.com'),
+('Save2Live44', '56324417', 'SaveLives Foundation', 'Rishabh Mehta', 'savelives121321@gmail.com', '96542135470', 'B22, Rasoolpur Nawada Industrial Area, Sector-62', '500042', 'Hyderabad','Yakutpura', 'Telangana', 'www.rotarybankhyedrabad.com'),
+('Rcs33', '87546698', 'Red Cross Society', 'Kartik Jaseja', 'redcrosssocietyofficial@gmail.com', '96542135470', '#rd floor, Jeevan Anmol Hospital,Mayur Vihar', '500042', 'Hyderabad', 'Khairatbad','Telangana', 'www.rotarybankhyedrabad.com');
 INSERT INTO Blood_bank_timings (License_Number, Opening_time, Closing_time, Weekday)
 VALUES
 ('32564178', '22:00', '16:00', 'Monday'),
@@ -23,31 +23,31 @@ VALUES
 ('56324417', '22:00', '16:00', 'Thursday'),
 ('87546698', '22:00', '16:00', 'Monday');
 
-INSERT INTO Blood_stock (Id, License_Number, Blood_group, Adding_date, Removing_date, Units_added, Units_removed)
+INSERT INTO Blood_stock (Id, License_Number, Blood_group, Date,  Units_added, Units_removed)
 VALUES
-('1', '32564178', 'A +ve', '2021-08-22', '2021-07-27', '2340', '540'),
-('2', '25647895', 'A +ve', '2021-08-22', '2021-07-16', '3654', '200'),
-('3', '69874328', 'A +ve', '2021-08-22', '2021-08-02', '1063', '2220'),
-('4', '45587556', 'A +ve', '2021-08-22', '2021-08-15', '1300', '150'),
-('5', '23699875', 'A +ve', '2021-08-22', '2021-09-23', '4521', '630'),
-('6', '57148222', 'A +ve', '2021-08-22', '2021-10-20', '820', '360');
+('1', '32564178', 'B-', '2021-08-22',  '2340', '540'),
+('2', '25647895', 'B+', '2021-08-22', '3654', '200'),
+('3', '69874328', 'A+', '2021-08-22', '1063', '2220'),
+('4', '45587556', 'AB+', '2021-08-22',  '1300', '150'),
+('5', '23699875', 'O+', '2021-08-22',  '4521', '630'),
+('6', '57148222', 'O-', '2021-08-22',  '820', '360');
+
 
 INSERT INTO Donor (Email_id, Password, First_name, Last_name, Age, Gender, Blood_group, Eligibility, Phone_num, Street, City, District, Pincode, State, Frequent_Donor)
 VALUES
-('chaitanya123@gmail.com', 'cht432', 'Chaitanya', 'Dhanorkar', '19', 'Male', 'B +ve', 'TRUE', '6547812498', 'G29 Sector 22', 'Nagpur', 'Nagpur', '442233', 'Maharashtra','No'),
-('mitika243@gmail.com', 'cht432', 'Mitika', 'Bhadada', '19', 'Female', 'A +ve', 'TRUE', '9856421368', 'h56 Hazariganj Area', 'gandhinagar', 'Gandhinagar', '600124', 'Gujrat','Yes'),
-('hritika674@gmail.com', 'cht432', 'Hritika', 'Gautam', '19', 'Female', 'B +ve', 'TRUE', '8788542631', 'B45 Kushal Society', 'Bengaluru', 'Bengaluru', '547896', 'Karnataka','Yes'),
-('pradeepreddy1@gmail.com', 'cht432', 'Pradeep', 'Reddy', '19', 'Male', 'AB +ve', 'TRUE', '9421569875', 'N89 Aquare XYZ', 'Nagpur', 'Nagpur', '400036', 'Delhi','Yes'),
-('aditya234@gmail.com', 'cht432', 'Aditya', 'Deshmukh', '19', 'Male', 'A +ve', 'TRUE', '9021365478', 'G88 Street ABC', 'Bhopal', 'Bhopal', '755001', 'Madhya Pradesh','No'),
-('ujjwal999@gmail.com', 'cht432', 'Ujjwal', 'Hendwe', '19', 'Male', 'O +ve', 'TRUE', '8032147598', 'A44 Trinity Society, PQR', 'Panaji', 'Panaji', '633001', 'Goa','Yes');
+('chaitanya123@gmail.com', 'cht432', 'Chaitanya', 'Dhanorkar', '19', 'Male', 'B+', 'y', '6547812498', 'G29 Sector 22', 'Nagpur', 'Nagpur', '442233', 'Maharashtra','n'),
+('mitika243@gmail.com', 'cht432', 'Mitika', 'Bhadada', '19', 'Female', 'A+', 'y', '9856421368', 'h56 Hazariganj Area', 'Gandhinagar', 'Gandhinagar', '600124', 'Gujarat','y'),
+('hritika674@gmail.com', 'cht432', 'Hritika', 'Gautam', '19', 'Female', 'B+', 'y', '8788542631', 'B45 Kushal Society', 'Bengaluru', 'Bengaluru', '547896', 'Karnataka','y'),
+('pradeepreddy1@gmail.com', 'cht432', 'Pradeep', 'Reddy', '19', 'Male', 'AB+', 'y', '9421569875', 'N89 Aquare XYZ', 'Nagpur', 'Nagpur', '400036', 'Delhi','y'),
+('ujjwal999@gmail.com', 'cht432', 'Ujjwal', 'Hendwe', '19', 'Male', 'AB+', 'y', '9424469875', 'N85 Aquare XYZ', 'Nagpur', 'Nagpur', '400036', 'Delhi','y'),
+('aditya234@gmail.com', 'cht432', 'Aditya', 'Deshmukh', '19', 'Male', 'A+', 'y', '9021365478', 'G88 Street ABC', 'Bhopal', 'Bhopal', '755001', 'Madhya Pradesh','n');
 
 INSERT INTO Donations (Email_id, Date, Units, Blood_group) VALUES
-('chaitanya123@gmail.com', '2021-09-02', '1', 'B +ve'),
-('mitika243@gmail.com', '2021-09-17', '2', 'A +ve'),
-('hritika674@gmail.com', '2021-10-24', '4', 'B +ve'),
-('pradeepreddy1@gmail.com', '2021-07-02', '3', 'AB +ve'),
-('aditya234@gmail.com', '2021-08-09', '1', 'A +ve'),
-('ujjwal999@gmail.com', '2021-09-12', '4', 'O +ve');
+('chaitanya123@gmail.com', '2021-09-02', '1', 'B+'),
+('mitika243@gmail.com', '2021-09-17', '3', 'A+'),
+('hritika674@gmail.com', '2021-10-24', '4', 'B+'),
+('pradeepreddy1@gmail.com', '2021-07-02', '3', 'AB+'),
+('aditya234@gmail.com', '2021-08-09', '1', 'A+');
 
 INSERT INTO Notif_Admin_to_Blood_bank (Id, License_Number, Message, Date)
 VALUES
@@ -76,7 +76,7 @@ VALUES
 (5, 'mitika243@gmail.com', 'This is another demo message', '2021-08-06'),
 (6, 'pradeepreddy1@gmail.com', 'This is another demo message', '2021-09-16');
 
-INSERT INTO Message_to_admin (Id, Name, Email_id, phone_num, Message, Date)
+INSERT INTO Message_to_admin (Id,Name, Email_id, phone_num, Message, Date)
 VALUES
 (1, 'Aditya', 'aditya234@gmail.com', '9021365478', 'Demo Message', '2021-10-30'),
 (2, 'Chaitanya', 'chaitanya123@gmail.com', '6547812498', 'Demo Message', '2021-10-30'),
