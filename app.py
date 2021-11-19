@@ -291,7 +291,7 @@ def blood_bank_login():
             session['Phone_number'] = account['Phone_number']
             session['License_Number'] = account['License_Number']
             session['Blood_bank_name'] = account['Blood_bank_name']
-            return render_template('home.html')
+            return redirect(url_for('blood_bank_non_eit_profile'))
         else:
             msg="Incorrect username/password!"
     else:
@@ -304,6 +304,9 @@ def bank_logout():
     session.pop('License_number',None)
     return redirect(url_for('blood_bank_login'))
 
+@app.route("/blood_bank_non_edit_profile")
+def blood_bank_non_edit_profile():
+    return render_template('blood_bank_non_edit_profile.html')
 
 @app.route("/check_blood_availability", methods = ['GET', 'POST'])
 def check_blood_availability():
