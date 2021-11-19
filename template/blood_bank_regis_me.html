@@ -24,71 +24,83 @@
         height: 100%;
       }
     }
+    .dropdown:hover .dropdown-menu {
+            display: block;
+        }       
+        a.nav-link:hover {
+            background-color: rgba(114, 114, 114, 0.454);
+            font-size: 300px;
+            font-style: italic;
+        }
+      /* .form-control:hover{
+        transform: scale(1.03);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+      } */
   </style>
 </head>
 
 <body style="background-color: rgba(252, 173, 173, 0.089)">
-  <nav class="navbar navbar-expand-lg red">
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); ">
     <div class="container-fluid">
-      <span>
-        <a class="navbar-brand nav1" href="#">iDonor</a>
-      </span>
-
-      <!-- <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="#">
+            <h1 style="color: white;">iDonor</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
-      <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li> -->
-      </ul>
-      <!-- <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-      <!-- </form> -->
-      <!-- <a
-            href="/home"
-            class="btn btn-outline-light"
-            tabindex="-1"
-            role="button"
-            aria-disabled="true"
-            >Home</a
-          > -->
-      <a class="btn btn-outline-light" href="/home" role="button">Home</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="check_blood_availability.html" style="color: white ;font-size: 19px; ">Blood Availability</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: white ;font-size: 19px; ">Non-Eligibility</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Near By Bloodbanks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Donor List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Statistics</a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="color: white;font-size: 19px; ">
+                        Login
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">User Login</a></li>
+                        <li><a class="dropdown-item" href="#">Admin login</a></li>
+                        <li><a class="dropdown-item" href="#">Blood bank Login</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="color: white; font-size: 19px; ">
+                        Register
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">User Registration</a></li>
+                        <li><a class="dropdown-item" href="#">Blood bank Registration</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <a href="/home" class="btn btn-outline-light  mx-2 " tabindex="-1" role="button" aria-disabled="true">Contact Us</a>
+            <a href="/home" class="btn btn-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
+        </div>
     </div>
-    </div>
-  </nav>
+</nav>
   <div>
     <br />
   </div>
-  <!-- <div style="text-align: center;"class="container mx-5"  >
-      <h1
-      class="py-2"
-        style="
-          background-color: rgba(189, 3, 3, 0.856);
-          
-          color: WHITE;
-          text-align: center;
-          
-        " 
-      >
-        Blood Bank Registration
-      </h1>
-    </div> -->
   <div class="text-center mt-3 mb-3">
     <button class="btn btn-danger btn-lg ">
       <h1>Blood Bank Registration</h1>
@@ -96,18 +108,18 @@
   </div>
   <br />
 
-  <div class="container" style="background-color: rgba(253, 103, 103, 0.637);">
+  <div class="container" style="background-color: rgba(243, 76, 76, 0.719);">
     <div class="mx-5 mb-5 pb-5 border bordre-danger border-4 rounded-3 pt-1" style="
           background-color: white;
           border-color: rgb(143, 25, 25);
         ">
-      <div class="pb-3" style="text-align: center; color: yellow">
+      <div class="pb-3" style="text-align: center; color: rgb(14, 14, 1)">
         <h4>{{msg}}</h4>
       </div>
       <div class="mx-5">
         <form action="" method="post">
           <div class="row">
-            <div class="col-sm-6 pt-4 " style=" background-color: rgba(253, 103, 103, 0.437);">
+            <div class="col-sm-6 pt-4 " style=" background-color: rgba(160, 160, 160, 0.562);">
               <div class="form-control mb-4">
                 <label for="name">
                   <h5>Blood Bank Name:</h5>
@@ -162,7 +174,7 @@
               
             </div>
 
-            <div class="col-sm-6 text-black pt-4" style="background-color: rgba(253, 103, 103, 0.437);">
+            <div class="col-sm-6 text-black pt-4" style="background-color: rgba(160, 160, 160, 0.562);">
               <div class="form-control mb-4">
                 <label for="owner">
                   <h5>Owner Name:</h5>
@@ -218,7 +230,7 @@
 
             </div>
           </div>
-          <div class="row" style="background-color: rgba(253, 103, 103, 0.437);" >
+          <div class="row" style="background-color: rgba(160, 160, 160, 0.562);" >
           <div class="col-sm-12">
             <div class="form-control mb-4 " style="background-color: white;">
               <label for="State">
