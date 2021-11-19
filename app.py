@@ -270,6 +270,14 @@ def bloodbank_registration():
             session['Phone_number'] = Phone_number
             session['License_number'] = License_number
             session['Blood_bank_name'] = Blood_bank_name
+            session['Owner_name'] = Owner_name
+            session['Phone_number'] = Phone_number
+            session['Street'] = Street
+            session['City'] = City
+            session['Pincode'] = Pincode
+            session['State'] = State
+            session['District'] = District
+            session['Website'] = Website
             cursor.close()
     elif request.method == 'POST':
         msg = 'Please fill  the form !'
@@ -306,7 +314,10 @@ def bank_logout():
 
 @app.route("/blood_bank_non_edit_profile")
 def blood_bank_non_edit_profile():
-    return render_template('blood_bank_non_edit_profile.html')
+    if session[loggedin]==True:
+        return render_template('blood_bank_non_edit_profile.html', Blood_bank_name = session['Blood_bank_name'], Owner_name = session['Owner_name'], Phone_number = session['Phone_number'], Password = session['Password'], Website = session['Website'], Weekday =session['Weekday'],Opening_time =session['Opening_time'],Closing_time =session['Closing_time'], Street = session['Street'],  City = session['City'],Pincode=session['Pincode'], District = session['District'], State = session['State'])
+    return redirect(url_for('blood_bank_login'))
+
 
 @app.route("/check_blood_availability", methods = ['GET', 'POST'])
 def check_blood_availability():
@@ -388,7 +399,7 @@ def blood_bank_profile():
 def donor_list():
     if session[loggedin]==True and session[License_number]:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT Fisrt_name,Last_name,City,Phone_num FROM Donor WHERE Frequent_Donor!="No" AND City=%s'(session[City],))
+        cursor.execute('SELECT Fisrt_name,Last_name,City,Phone_num FROM Donor WHERE Frequent_Donor=="y" AND City=%s'(session[City],))
         rows=cursor.fetchall()
         cursor.close()
 
