@@ -34,10 +34,14 @@
             font-size: 300px;
             font-style: italic;
         }
-      /* .form-control:hover{
-        transform: scale(1.03);
+      .form-control:hover{
+        transform: scale(1.0);
           box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-      } */
+      }
+      .container:hover,button:hover{
+        transform: scale(1.02);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+      }
   </style>
 </head>
 
@@ -117,7 +121,7 @@
         Blood Bank Registration
       </h1>
     </div> -->
-  <div class="text-center mt-3 mb-3">
+  <div class="text-center mt-3 mb-4">
     <button class="btn btn-danger btn-lg ">
       <h1>Blood Bank Registration</h1>
     </button>
@@ -137,51 +141,51 @@
           <div class="row">
             <div class="col-sm-6 pt-4 " style=" background-color: rgba(160, 160, 160, 0.562);">
               <div class="form-control mb-4">
-                <label for="name">
+                <label for="name" class="my-1">
                   <h5>Blood Bank Name:</h5>
                 </label>
-                <input class="form-control mb-4" type="text" id="name" 
+                <input class="form-control mb-3" type="text" id="name" 
                   name="Blood_bank_name" value="{{Blood_bank_name}} " />
               </div>
               <div>
               </div>
               <div class="form-control mb-4">
-                <label for="License">
+                <label for="License" class="my-1">
                   <h5>License Number:</h5>
                 </label>
-                <input class="form-control mb-4" type="text" id="License" 
+                <input class="form-control mb-3" type="text" id="License" 
                   name="License_number" value="{{License_number}} " />
               </div>
               <div>
               </div>
               <div class="form-control mb-4">
-                <label for="email">
+                <label for="email" class="my-1">
                   <h5>Email Id:</h5>
                 </label>
-                <input class="form-control mb-4" type="email" id="email"  name="Email" value="{{Email}} " />
+                <input class="form-control mb-3" type="email" id="email"  name="Email" value="{{Email}} " />
               </div>
               <div>
               </div>
               <div class="form-control mb-4">
-                <label for="password">
+                <label for="password" class="my-1">
                   <h5>Password:</h5>
                 </label>
-                <input class="form-control mb-4" type="password" id="password" placeholder="Password" name="Password" />
+                <input class="form-control mb-3" type="password" id="password" placeholder="Password" name="Password" />
               </div>
               <div>
               </div>
               <div class="form-control mb-4">
-                <label for="address">
+                <label for="address" class="my-1">
                   <h5>Street:</h5>
                 </label>
-                <input class="form-control mb-4" type="text" id="street"  name="Street" value="{{Street}} " />
+                <input class="form-control mb-3" type="text" id="street"  name="Street" value="{{Street}} " />
               </div>
               <div>
                 <div class="form-control mb-4">
-                  <label for="pincode">
+                  <label for="pincode" class="my-1">
                     <h5>Pincode:</h5>
                   </label>
-                  <input class="form-control mb-4" type="text" id="pincode"name="Pincode" value="{{Pincode}} " />
+                  <input class="form-control mb-3" type="text" id="pincode"name="Pincode" value="{{Pincode}} " />
                 </div>
                 <div>
                 </div>
@@ -192,53 +196,53 @@
 
             <div class="col-sm-6 text-black pt-4" style="background-color: rgba(160, 160, 160, 0.562);">
               <div class="form-control mb-4">
-                <label for="owner">
+                <label for="owner" class="my-1">
                   <h5>Owner Name:</h5>
                 </label>
-                <input class="form-control mb-4" type="text" id="oname"  name="Owner_name" value="{{Owner_name}} " />
+                <input class="form-control mb-3" type="text" id="oname"  name="Owner_name" value="{{Owner_name}} " />
               </div>
               <div>
               </div>
               <div class="form-control mb-4">
-                <label for="phn">
+                <label for="phn" class="my-1">
                   <h5>Phone Number:</h5>
                 </label>
-                <input class="form-control mb-4" type="text" id="phn" value="{{Phone_number}} "
+                <input class="form-control mb-3" type="text" id="phn" value="{{Phone_number}} "
                   name="Phone_number" />
               </div>
               <div>
               </div>
               <div class="form-control mb-4">
-                <label for="website">
+                <label for="website" class="my-1">
                   <h5>Website:</h5>
                 </label>
-                <input class="form-control mb-4" type="text" id="website" value="{{Website}} " name="Website" />
+                <input class="form-control mb-3" type="text" id="website" value="{{Website}} " name="Website" />
               </div>
               <div>
               </div>
               <div class="form-control mb-4">
-                <label for="c_password">
+                <label for="c_password" class="my-1">
                   <h5>Confirm Password:</h5>
                 </label>
-                <input class="form-control mb-4" type="password" id="c_password" placeholder="Confirm Password"
+                <input class="form-control mb-3" type="password" id="c_password" placeholder="Confirm Password"
                   name="c_password" />
               </div>
               <div>
               </div>
               <div class="form-control mb-4">
-                <label for="city">
+                <label for="city" class="my-1">
                   <h5>City:</h5>
                 </label>
-                <input class="form-control mb-4" type="text" id="city"  name="City" value="{{City}} " />
+                <input class="form-control mb-3" type="text" id="city"  name="City" value="{{City}} " />
               </div>
               <div>
               </div>
 
               <div class="form-control mb-4">
-                <label for="district">
+                <label for="district" class="my-1">
                   <h5>District:</h5>
                 </label>
-                <input class="form-control mb-4" type="text" id="district"  name="District" value="{{District}} " />
+                <input class="form-control mb-3" type="text" id="district"  name="District" value="{{District}} " />
               </div>
               <div>
               </div>
@@ -249,7 +253,7 @@
           <div class="row" style="background-color: rgba(160, 160, 160, 0.562);" >
           <div class="col-sm-12">
             <div class="form-control mb-4 " style="background-color: white;">
-              <label for="State">
+              <label for="State"class="my-1">
                 <h5>State:</h5>
               </label>
               <select id="State" required class="form-control" name="State"  >

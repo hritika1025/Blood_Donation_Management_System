@@ -70,41 +70,75 @@
                 height: 100%;
             }
         }
+        
+
+  .dropdown:hover .dropdown-menu {
+            display: block;
+        }       
+        a.nav-link:hover {
+            background-color: rgba(114, 114, 114, 0.454);
+            font-size: 300px;
+            font-style: italic;
+        }
+        a.nav-link:active {
+            background-color: rgba(114, 114, 114, 0.454);
+            font-size: 300px;
+            text-decoration: underline;
+            font-style: italic;
+        }
+      .form-control:hover{
+        transform: scale(1.01);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+        }
+        .container:hover,button:hover{
+            transform: scale(1.03);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+      }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg red">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); ">
         <div class="container-fluid">
-            <span>
-                <a class="navbar-brand nav1" href="/home">iDonor </a>
-            </span>
-            <!--     
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
-            <!-- <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li> -->
-            </ul>
-            <!-- <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-            <!-- </form> -->
-            <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
-        </div>
+            <a class="navbar-brand" href="#">
+                <h1 style="color: white;">iDonor</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="check_blood_availability.html" style="color: white ;font-size: 19px; ">Blood Availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: white ;font-size: 19px; ">Non-Eligibility</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Near By Bloodbanks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Donor List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Profile</a>
+                    </li>
+                    
+
+                </ul>
+                <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
+            </div>
         </div>
     </nav>
-    <div class="mt-3 container text-center">
+
+    <div class="mt-3 container-fluid text-center">
         <button class="btn btn-lg btn-danger">
             <h2>Profile settings</h2>
         </button>
@@ -127,59 +161,56 @@
 
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <!-- <label class="labels"> -->
+                                <label class="labels">
                                     <h5>First name</h5>
-                                    {{First_name}}
+                                </label><input type="text" class="form-control" name="First_name" value="{{user_details[2]}} "></div>
                             <div class="col-md-6">
-                                <!-- <label class="labels"> -->
+                                <label class="labels">
                                     <h5>Last name</h5>
-                                    {{Last_name}}
-                                <!-- </label><input type="text" class="form-control" name="Last_name" value="{{user_details[3]}} "></div> -->
+                                </label><input type="text" class="form-control" name="Last_name" value="{{user_details[3]}} "></div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <!-- <label class="labels"> -->
+                                <label class="labels">
                                     <h5>Phone Number</h5>
-                                    {{Phone_num}}
-                                <!-- </label><input type="text" class="form-control" name="Phone_num" value="{{user_details[8]}} "></div> -->
+                                </label><input type="text" class="form-control" name="Phone_num" value="{{user_details[8]}} "></div>
                             <div class="col-md-6">
-                                <!-- <label class="labels"> -->
+                                <label class="labels">
                                     <h5>Age</h5>
-                                    {{Age}}
-                                <!-- </label><input type="text" class="form-control" name="Age" value="{{user_details[4]}} "></div> -->
+                                </label><input type="text" class="form-control" name="Age" value="{{user_details[4]}} "></div>
                         </div>
                         <div class="row mt-3">
-                            <!-- <div class="col-md-12"><label class="labels">
+                            <div class="col-md-12"><label class="labels">
                                     <h5>Password</h5>
-                                </label><input type="password" class="form-control" name="Password" value="{{user_details[1]}} "></div> -->
+                                </label><input type="password" class="form-control" name="Password" value="{{user_details[1]}} "></div>
                             <div class="col-md-12 my-3">
-                                <!-- <label class="labels"> -->
+                                <label class="labels">
                                     <h5>Eligibility of donation</h5>
-                                    {{Eligibility}}
-                                <!-- </label><input type="text" class="form-control" name="Eligibility" value="{{user_details[7]}} "></div> -->
+                                    
+                                </label><input type="text" class="form-control" name="Eligibility" value="{{user_details[7]}} "></div>
                             <div class="col-md-12">
-                                <!-- <label class="labels"> -->
+                                <label class="labels">
                                     <h5>Frequent donor?</h5>
-                                    {{Frequent_Donor}}
-                                <!-- </label><input type="text" class="form-control" name="Frequent_donor" value="{{user_details[14]}} "></div> -->
+                                  
+                                </label><input type="text" class="form-control" name="Frequent_donor" value="{{user_details[14]}} "></div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <!-- <label class="labels"> -->
+                                <label class="labels">
                                     <h5>Gender</h5>
-                                    {{Gender}}
-                                <!-- </label><select required class="form-control" name="Gender">
+                       
+                                </label><select required class="form-control" name="Gender">
                                     <option selected value="{{user_details[5]}}">{{user_details[5]}} </option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
-                                    <option value="Other">Other</option> -->
-                                <!-- </select> -->
+                                    <option value="Other">Other</option>
+                                </select>
                             </div>
                             <div class="col-md-6">
-                                <!-- <label class="labels"> -->
+                                <label class="labels">
                                     <h5>Blood group</h5>
-                                    {{Blood_group}}
-                                <!-- </label><select id="inputtate" required class="form-control" name="Blood_group">
+                           
+                                </label><select id="inputtate" required class="form-control" name="Blood_group">
                                     <option seleceted value="{{user_details[6]}}">{{user_details[6]}}</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
@@ -188,8 +219,8 @@
                                     <option value="AB+">AB+</option>
                                     <option value="AB">AB-</option>
                                     <option value="O+">O+</option>
-                                    <option value="O-">O-</option> -->
-                                <!-- </select> -->
+                                    <option value="O-">O-</option>
+                                </select>
                             </div>
                         </div>
 
@@ -198,30 +229,30 @@
                 <div class="col-md-4">
                     <div class="p-3 py-5 mt-1">
                         <div class="col-md-12 my-1">
-                            <!-- <label class="labels"> -->
+                            <label class="labels">
                                 <h5>Street</h5>
-                                {{Street}}
-                            <!-- </label><input type="text" class="form-control" name="Street" value="{{user_details[9]}} "></div> -->
+                     
+                            </label><input type="text" class="form-control" name="Street" value="{{user_details[9]}} "></div>
                         <div class="col-md-12 my-2">
-                            <!-- <label class="labels"> -->
+                            <label class="labels">
                                 <h5>City</h5>
-                                {{City}}
-                            <!-- </label><input type="text" class="form-control" name="City" value="{{user_details[10]}} "></div> -->
+                            
+                            </label><input type="text" class="form-control" name="City" value="{{user_details[10]}} "></div>
                         <div class="col-md-12 my-3">
-                            <!-- <label class="labels"> -->
+                            <label class="labels">
                                 <h5>Pincode</h5>
-                                {{Pincode}}
-                            <!-- </label><input type="text" class="form-control" name="Pincode" value="{{user_details[12]}} "></div> -->
+                         
+                            </label><input type="text" class="form-control" name="Pincode" value="{{user_details[12]}} "></div>
                         <div class="col-md-12 my-2">
-                            <!-- <label class="labels"> -->
+                            <label class="labels">
                                 <h5>District</h5>
-                                {{District}}
-                                <!-- </label><input type="text" class="form-control" name="District" value="{{user_details[11]}} "></div> -->
+                             
+                                </label><input type="text" class="form-control" name="District" value="{{user_details[11]}} "></div>
                         <div class="col-md-12 my-3">
-                            <!-- <label class="labels"> -->
+                            <label class="labels">
                                 <h5>State</h5>
-                                {{State}}
-                            <!-- </label><select id="inputState" required class="form-control" name="State">
+                        
+                            </label><select id="inputState" required class="form-control" name="State">
                                 <option selected value="{{user_details[13]}} " > {{user_details[13]}} </option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -258,8 +289,8 @@
                                 <option value="Tripura">Tripura</option>
                                 <option value="Uttar Pradesh">Uttar Pradesh</option>
                                 <option value="Uttarakhand">Uttarakhand</option>
-                                <option value="West Bengal">West Bengal</option> -->
-                            <!-- </select> -->
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
                         </div>
                     </div>
                 </div>
