@@ -132,10 +132,12 @@
     </nav>
     <div class="mt-3 container-fluid text-center">
         <button class="btn btn-lg btn-danger">
-            <h2>Profile settings</h2>
-        </button>
-    </div>
+            <h2>Edit Profile</h2>
 
+        </button>
+<div style="color: yellow; margin: 10px;font-size: 1.5rem;">{{msg}}</div>
+
+    </div>
     <div class="container rounded bg-white mt-4 mb-5">
         <form action="" method="POST">
             <div class="row">
@@ -143,8 +145,8 @@
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
                             class="rounded-circle mt-5" width="225px"
                             src="data:image/jpeg;base64,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"><span
-                            class="font-weight-bold">{{blood_bank_details[2]}} </span><span
-                            class="text-black-50">{{blood_bank_details[4]}} </span><span> </span></div>
+                            class="font-weight-bold">{{Blood_bank_name}} </span><span
+                            class="text-black-50">{{Email}} </span><span> </span></div>
                 </div>
                 <div class="col-md-5 border-right">
                     <div class="p-3 py-5">
@@ -155,7 +157,7 @@
                         <div class="row mt-2">
                             <div class="col-md-12"><label class="labels">
                                     <h5>Blood bank name</h5>
-                                </label><input type="text" class="form-control" name="Blood_bank_name" value="{{blood_bank_details[2]}} "></div>
+                                </label><input type="text" class="form-control" name="Blood_bank_name" value="{{Blood_bank_name}} "></div>
                             <!-- <div class="col-md-6"><label class="labels">
                                     <h5>Last name</h5>
                                 </label><input type="text" class="form-control" name="Last_name" value=""></div> -->
@@ -163,22 +165,22 @@
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">
                                 <h5>Owner name</h5>
-                            </label><input type="text" class="form-control" name="Owner_name" value="{{blood_bank_details[3]}}"></div>
+                            </label><input type="text" class="form-control" name="Owner_name" value="{{Owner_name}}"></div>
                             <div class="col-md-6"><label class="labels">
                                     <h5>Phone Number</h5>
-                                </label><input type="text" class="form-control" name="Phone_number" value="{{blood_bank_details[5]}}"></div>
+                                </label><input type="text" class="form-control" name="Phone_number" value="{{Phone_number}}"></div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">
                                     <h5>Password</h5>
-                                </label><input type="password" class="form-control" name="Password" value="{{blood_bank_details[0]}} "></div>
+                                </label><input type="password" class="form-control" name="Password" value="{{Password}} "></div>
                             <div class="col-md-12 my-3"><label class="labels">
                                     <h5>Website</h5>
-                                </label><input type="text" class="form-control" name="Website" value="{{blood_bank_details[11]}}"></div>
-                            <div class="col-md-12"><label class="labels">
-                                    <h5>Weekday</h5>
+                                </label><input type="text" class="form-control" name="Website" value="{{Website}}"></div>
+                            <!-- <div class="col-md-12"><label class="labels"> -->
+                                    <!-- <h5>Weekday</h5>
                                 </label><select id="weekday" required class="form-control" name="Weekday">
-                                    <option selected value="{{blood_bank_timings[3]}} "> {{blood_bank_timings[3]}}</option>
+                                    <option selected value="{{Weekday}} "> {{Weekday}}</option>
                                     <option value="Monday">Monday</option>
                                     <option value="Tuesday">Tuesday</option>
                                     <option value="Wednesday">Wednesday</option>
@@ -186,16 +188,16 @@
                                     <option value="Friday">Friday</option>
                                     <option value="Saturday">Saturday</option>
                                     <option value="Sunday">Sunday</option>
-                                  </select></div>
+                                  </select></div> -->
                         </div>
-                        <div class="row mt-3">
+                        <!-- <div class="row mt-3">
                             <div class="col-md-6"><label class="labels">
                                     <h5>Opening time</h5>
-                                </label> <input type="time" name="Opening_time" class="form-control" value="{{blood_bank_timings[1]}} " > </div>
+                                </label> <input type="time" name="Opening_time" class="form-control" value="{{Opening_time}} " > </div>
                             <div class="col-md-6"><label class="labels">
                                     <h5>Closing time</h5>
-                                </label><input type="time" name="Closing_time" class="form-control" value="{{blood_bank_timings[2]}}" ></div>
-                        </div>
+                                </label><input type="time" name="Closing_time" class="form-control" value="{{Closing_time}}" ></div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -203,20 +205,20 @@
                     <div class="p-3 py-5 mt-1">
                         <div class="col-md-12 my-1"><label class="labels">
                                 <h5>Street</h5>
-                            </label><input type="text" class="form-control" name="Street" value="{{blood_bank_details[6]}}"></div>
+                            </label><input type="text" class="form-control" name="Street" value="{{Street}}"></div>
                         <div class="col-md-12 my-2"><label class="labels">
                                 <h5>City</h5>
-                            </label><input type="text" class="form-control" name="City" value="{{blood_bank_details[8]}}"></div>
+                            </label><input type="text" class="form-control" name="City" value="{{City}}"></div>
                         <div class="col-md-12 my-3"><label class="labels">
                                 <h5>Pincode</h5>
-                            </label><input type="text" class="form-control" name="Pincode" value="{{blood_bank_details[7]}}"></div>
+                            </label><input type="text" class="form-control" name="Pincode" value="{{Pincode}}"></div>
                         <div class="col-md-12 my-2"><label class="labels">
                                 <h5>District</h5>
-                            </label><input type="text" class="form-control" name="District" value="{{blood_bank_details[9]}}"></div>
+                            </label><input type="text" class="form-control" name="District" value="{{District}}"></div>
                         <div class="col-md-12 my-3"><label class="labels">
                                 <h5>State</h5>
                             </label><select id="inputState" required class="form-control" name="State">
-                                <option selected value="{{blood_bank_details[10]}}">{{blood_bank_details[10]}}</option>
+                                <option selected value="{{State}}">{{State}}</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
