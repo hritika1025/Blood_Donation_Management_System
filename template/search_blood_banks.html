@@ -198,31 +198,25 @@
         <table class="table table-secondary table-hover table-bordered border-primary blood_avail_table">
             <thead>
                 <tr>
-                    <th scope="col">S. No.</th>
                     <th scope="col">Blood Bank</th>
-                    <th scope="col">Category</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Website</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Pincode</th>
-                    <th scope="col">Weekday</th>
-                    <th scope="col" >Address</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>..</td>
-                    <td>...</td>
-                    <td>....</td>
-                    <td>....</td>
-                    <td>....</td>
+                
+                {% for row in rows %}
+                <tr >
+                  <!-- <td></td> -->
+                  <td>{{row.Blood_bank_name}}</td>
+                  <td>{{row.Phone_number}}</td>
+                  <td>{{row.Website}}</td>
+                  <td>{{row.Street}}</td>
+                  <td>{{row.Pincode}}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>..</td>
-                    <td>...</td>
-                    <td>....</td>
-                    <td>....</td>
-                    <td>....</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
