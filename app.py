@@ -12,7 +12,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'mitika@03'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -405,7 +405,7 @@ def donor_list():
         return render_template("donor_list.html",rows=rows)
     return redirect(url_for('blood_bank_login'))
 
-@app.route('/blood_bank_statistics')
+@app.route('/blood_bank_statistics/<string:License_Number>')
 def blood_bank_statistics(License_Number : str) :
     # Blood_bank_name= row[2]
     # License_Number=row[1]
@@ -419,32 +419,34 @@ def blood_bank_statistics(License_Number : str) :
     # State=row[10]
     # Pincode=row[7]
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s',(License_Number))
+    cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s',(License_Number,))
     account = cursor.fetchone()
     cursor.close()
-    Email = account['Email']
-    Phone_number = account['Phone_number']
-    Blood_bank_name = account['Blood_bank_name']
-    Owner_name = account['Owner_name']
-    Phone_number = account['Phone_number']
-    Street = account['Street']
-    City = account['City']
-    Pincode = account['Pincode']
-    State = account['State']
-    District = account['District']
-    Website = account['Website']
+    # for account in accounts :
+    # Email = account['Email']
+    # Phone_number = account['Phone_number']
+    # Blood_bank_name = account['Blood_bank_name']
+    # Owner_name = account['Owner_name']
+    # Phone_number = account['Phone_number']
+    # Street = account['Street']
+    # City = account['City']
+    # Pincode = account['Pincode']
+    # State = account['State']
+    # District = account['District']
+    # Website = account['Website']
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     current_date = date.today()
     days = datetime.timedelta(7)
     new_date = current_date - days
     # cursor.execute('SELECT * FROM record WHERE username = % s AND date >= %s ORDER BY date DESC', (session['username'], new_date))
     # cursor.execute('SELECT * FROM Message_to_admin WHERE Date >= %s ORDER BY Date DESC', (new_date,))
-    Units_added = cursor.execute('SELECT SUM(Units_added) FROM Blood_stock WHERE License_Number = %s AND Date >= %s ORDER By Date DESC GROUPBY(Date)',(License_Number, new_date))
-    Units_removed = cursor.execute('SELECT SUM(Units_removed) FROM Blood_stock WHERE License_Number = %s AND Date >= %s ORDER By Date DESC GROUPBY(Date)',(License_Number, new_date))
-
-    return render_template('blood_bank_statistics.html', Blood_bank_name =  Blood_bank_name,
-    Owner_name=Owner_name, Phone_number=Phone_number, Email = Email, Street=Street, Website=Website,
-    City=City, District=District, State=State, Pincode=Pincode )
+    # cursor.execute('SELECT Date, SUM(Units_added) FROM Blood_stock WHERE License_Number = %s AND Date >= %s ORDER By Date DESC GROUP BY Date',(License_Number, new_date,))
+    # rows_unit_added = cursor.fetchall()
+    # cursor.execute('SELECT Date, SUM(Units_removed) FROM Blood_stock WHERE License_Number = %s AND Date >= %s ORDER By Date DESC GROUP BY Date',(License_Number, new_date,))
+    # rows_unit_removed = cursor.fetchall()
+    return render_template('blood_bank_statistics.html', Blood_bank_name =  account['Blood_bank_name'],
+    Owner_name=account['Owner_name'], Street = account['Street'], Website=account['Website'],
+    City=account['City'], District=account['District'], State=account['State'], Pincode=account['Pincode'] )
 
 
 
