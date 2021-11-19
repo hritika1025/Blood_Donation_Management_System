@@ -407,8 +407,11 @@ def donor_list():
         return render_template("donor_list.html",rows=rows)
     return redirect(url_for('blood_bank_login'))
 
+@app.route('/blood_bank_statistcs')
+def blood_bank_statistics() :
     
-        
+    return render_template('blood_bank_statistics.html')
+            
         # ADMIN PART :
 
 @app.route("/admin_dashboard")
