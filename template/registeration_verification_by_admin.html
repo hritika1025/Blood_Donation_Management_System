@@ -16,57 +16,81 @@
       href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
+    <style>
+      a.nav-link:hover {
+          background-color: rgba(114, 114, 114, 0.454);
+          color: red;
+          font-size: 300px;
+          font-style: italic;
+      }
+      a.nav-link:active {
+          background-color: rgba(114, 114, 114, 0.404);
+          color: red;
+          text-decoration:underline ;
+          font-size: 300px;
+          font-style: italic;
+      }
+      .dropdown:hover .dropdown-menu {
+          display: block;
+      }
+      
+  </style>
   </head>
   <body>
       <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg red">
+      <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); ">
         <div class="container-fluid">
-          <span>
-            <a class="navbar-brand nav1" href="{{url_for('index')}}">iDonor</a>
-          </span>
-  
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown"></li>
-              <!-- <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li> -->
-            </ul>
-            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Log In
+            <a class="navbar-brand" href="#">
+                <h1 style="color: white;">iDonor</h1>
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Donor Login</a></li>
-              <li><a class="dropdown-item" href="#">Blood Bank Login</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Admin Login</a></li>
-            </ul> -->
-            <a class="btn btn-outline-light" href="{{url_for('admin_login')}}" role="button" style="margin: auto 10px;">Admin</a>
-            <a class="btn btn-outline-light" href="{{url_for('admin_dashboard')}}" role="button" style="margin: auto 10px;">Admin Dashboard</a>
-            <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
-           
-            <!-- <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-          </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- 
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: white; font-size: 19px; ">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">User Login</a></li>
+                            <li><a class="dropdown-item" href="#">Admin login</a></li>
+                            <li><a class="dropdown-item" href="#">Blood bank Login</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: white;font-size: 19px; ">
+                            Register
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">User Registration</a></li>
+                            <li><a class="dropdown-item" href="#">Blood bank Registration</a></li>
+                        </ul>
+                    </li>
+                     -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="admin_dashboard.html" style="color: white ;font-size: 19px; ">Admin Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="user_msg_to_admin.html" style="color: white ;font-size: 19px; ">User Feedbacks</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="donor_list.html" style="color: white ;font-size: 19px; ">Donor List</a>
+                    </li>
+                </ul>
+
+                
+                <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
+            </div>
         </div>
-      </nav>
+    </nav>
       <br><br>
 
       <div  class="title" >

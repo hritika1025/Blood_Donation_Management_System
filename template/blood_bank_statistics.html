@@ -7,96 +7,92 @@
     <title>Statistics</title>
     <link rel="stylesheet" href="../static/css/admin_dashboard2.css" />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
+      a.nav-link:hover {
+          background-color: rgba(114, 114, 114, 0.454);
+          color: red;
+          font-size: 300px;
+          font-style: italic;
       }
-      .chartMenu {
-        width: 100vw;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgb(211, 9, 9);
+      a.nav-link:active {
+          background-color: rgba(114, 114, 114, 0.404);
+          color: red;
+          text-decoration:underline ;
+          font-size: 300px;
+          font-style: italic;
       }
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
+      .dropdown:hover .dropdown-menu {
+          display: block;
       }
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgb(243, 233, 233);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 700px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgb(211, 9, 9);
-        background: white;
-      }
-    </style>
+  </style>
   </head>
   <body>
-    
-    <nav class="navbar navbar-expand-lg red">
-        <div class="container-fluid">
-          <span>
-            <a class="navbar-brand nav1" href="index.html">iDonor</a>
-          </span>
-  
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); ">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <h1 style="color: white;">iDonor</h1>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown"></li>
-              <!-- <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li> -->
-            </ul>
-            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Log In
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Donor Login</a></li>
-              <li><a class="dropdown-item" href="#">Blood Bank Login</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Admin Login</a></li>
-            </ul> -->
-            <a class="btn btn-outline-light" href="admin_login.html" role="button" style="margin: auto 10px;">Admin</a>
-            <a class="btn btn-outline-light" href="admin_dashboard.html" role="button" style="margin: auto 10px;">Admin Dashboard</a>
-            <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
-           
-            <!-- <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" style="color: white ;font-size: 19px; ">Non-Eligibility</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="check_blood_availability.html" style="color: white ;font-size: 19px; ">Blood Availability</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Near By Bloodbanks</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false"
+                          style="color: white; font-size: 19px; ">
+                          Login
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">User Login</a></li>
+                          <li><a class="dropdown-item" href="#">Admin login</a></li>
+                          <li><a class="dropdown-item" href="#">Blood bank Login</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false"
+                          style="color: white;font-size: 19px; ">
+                          Register
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">User Registration</a></li>
+                          <li><a class="dropdown-item" href="#">Blood bank Registration</a></li>
+                      </ul>
+                  </li>
+
+              </ul>
+              <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
           </div>
-        </div>
-      </nav>
+      </div>
+  </nav>
       <br><br>
 
-    
+    <!---->
       <div class="title">
         Blood Bank Statistics
       </div>
+      <br><br><br>
+
+      <!-- Blood Banks -->
+      
+
+
+      <!--Chart-->
+      <br><br><br>
     <div class="chartCard">
-        
       <div class="chartBox">
         <canvas id="myChart"></canvas>
       </div>
