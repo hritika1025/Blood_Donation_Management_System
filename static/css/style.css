@@ -101,3 +101,16 @@ body{
 #box3{
     margin-left: 6px;
 }
+.instructions{
+    background-color: hsl(0, 100%, 76%);
+    color: white;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    font-size: 20px;
+    border-width: 1px;
+}
+.textcontent{
+    background-color: rgb(224, 49, 49);
+    
+}

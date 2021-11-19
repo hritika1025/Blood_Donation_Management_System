@@ -12,7 +12,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mitika@03'
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -351,6 +351,37 @@ def edit_blood_stock():
     else:
         return redirect(url_for('blood_bank_login'))
     return render_template('edit_blood_stock.html',msg=msg)   
+
+@app.route("/blood_bank_profile")
+def blood_bank_profile():
+    msg=''
+    if session['loggedin'] == True :
+        if request.method=='POST':
+            Blood_bank_name=request.form['Blood_bank_name']
+            Owner_name=request.form['Owner_name']
+            Phone_number=request.form['Phone_number']
+            Password=request.form['Password']
+            Website=request.form['Website']
+            Weekday=request.form['Weekday']
+            Opening_time=request.form['Opening_time']
+            Closing_time=request.form['Closing_time']
+            Street=request.form['Street']
+            City=request.form['City']
+            Pincode=request.form['Pincode']
+            District=request.form['District']
+            State=request.form['State']
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('INSERT INTO Blood_bank(Blood_bank_name,Owner_name,Phone_number,Password,Website,Weekday,Opening_time,Closing_time,Street,City,Pincode,District,State)',(Blood_bank_name,Owner_name,Phone_number,Password,Website,Weekday,Opening_time,Closing_time,Street,City,Pincode,District,State,))
+            msg="Data Edited"
+            mysql.connection.commit()
+            cursor.close()
+        else:
+            msg = " Please Edit the form !" 
+        return render_template('blood_bank_profile.html',msg=msg, Blood_bank_name = session['Blood_bank_name'], Owner_name = session['Owner_name'], Phone_number = session['Phone_number'], Password = session['Password'], Website = session['Website'], Weekday =session['Weekday'],Opening_time =session['Opening_time'],Closing_time =session['Closing_time'], Street = session['Street'],  City = session['City'],Pincode=session['Pincode'], District = session['District'], State = session['State'])
+    else:
+        return redirect(url_for('blood_bank_login'))
+        
+
         # ADMIN PART :
 
 @app.route("/admin_dashboard")
