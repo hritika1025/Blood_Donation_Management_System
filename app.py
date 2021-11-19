@@ -138,7 +138,7 @@ def user_signup():
         msg = 'Please fill out the form !'
     
     return render_template('user_signup.html', msg = msg)
-
+    
 @app.route("/non_eligibility")
 def non_eligibility():
     return render_template('non_eligibility.html')
