@@ -300,12 +300,16 @@ def blood_bank_login():
             session['District'] = account['District']
             session['Website'] = account['Website']
             session['Password'] = account['Password']
-            return redirect(url_for('blood_bank_non_edit_profile'))
+            return redirect(url_for('blood_bank_home'))
         else:
             msg="Incorrect username/password!"
     else:
         msg = " Please fill the form !" 
     return render_template('blood_bank_login.html',msg=msg)        
+
+@app.route("/blood_bank_home")
+def blood_bank_home():
+    return render_template('blood_bank_home.html')
 
 @app.route("/bank_logout")
 def bank_logout():
