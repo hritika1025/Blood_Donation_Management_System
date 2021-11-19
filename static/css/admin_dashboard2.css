@@ -131,16 +131,14 @@ body{
 }
 
 .title{
-    margin: auto;
-    align-items: center;
+    background-color: rgba(247, 96, 96, 0.609);
+    color: #ffffff;
     text-align: center;
-  width: 35%;
-  border: 3px solid rgba(247, 96, 96, 0.609);
-  padding: 8px;
-  background-color: rgba(247, 96, 96, 0.609);
-  text-align: center;
-  border-radius: 10px;
-  color: white;
+    width: 50%;
+    margin: auto;
+    font-size: 40px;
+    border-radius: 6px;
+    border-width: 1px;
 }
 .links{
     margin: auto;
@@ -235,7 +233,7 @@ body{
     position: relative;
 }
 .gray-bg {
-    background-color: rgba(247, 96, 96, 0.609);
+    background-color: rgba(7, 167, 145, 0.514);
 }
 img {
     max-width: 100%;
@@ -252,25 +250,37 @@ img {
   margin: 0 0 2px;
 }
 .stat_title{
-    background-color: #ffffff;
-    color: rgba(247, 96, 96, 0.609);
+    background-color: rgba(24, 86, 221, 0.514);
+    color: #ffffff;
     text-align: center;
     width: 50%;
     margin: auto;
     font-size: 40px;
     border-radius: 6px;
-    border-color: tomato;
     border-width: 1px;
 }
 .stat_title:hover {
     transform: scale(1.00);
     box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-    background-color: rgba(247, 96, 96, 0.609);
-    color: white;
+    background-color: white;
+    color: rgba(7, 167, 145, 0.514);
 }
 .graph-box{
     background-color: #ffffff;
-    width: 90%;
+    width: 75%;
     margin: auto;
     border-radius: 6px;
+}
+.title:hover {
+    transform: scale(1.00);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+    background-color: white;
+    color: rgba(247, 96, 96, 0.609);
+}
+
+.message:hover {
+    transform: scale(1.00);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+    background-color: white;
+    color: rgba(247, 96, 96, 0.609);
 }

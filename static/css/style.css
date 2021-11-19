@@ -102,8 +102,8 @@ body{
     margin-left: 6px;
 }
 .instructions{
-    background-color: hsl(0, 100%, 76%);
-    color: white;
+    background-color: hsl(200, 7%, 82%);
+    color: black;
     text-align: center;
     width: 90%;
     margin: auto;
@@ -111,6 +111,9 @@ body{
     border-width: 1px;
 }
 .textcontent{
-    background-color: rgb(224, 49, 49);
-    
+    background-color: rgb(255, 255, 255);
+    width: 75%;
+    margin: auto;
+    border-radius: 4px;
 }
+
