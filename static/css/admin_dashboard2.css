@@ -284,3 +284,7 @@ img {
     background-color: white;
     color: rgba(247, 96, 96, 0.609);
 }
+.imgbox{
+    margin: auto;
+    align-items: center;
+}
