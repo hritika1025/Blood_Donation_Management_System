@@ -12,36 +12,68 @@
     <link rel="stylesheet" href="../static/css/non_editable.css">
     <link rel="stylesheet" href="../static/css/blood_bank_regis_me.css">
     <title>Hello, world!</title>
+    <style>
+                .dropdown:hover .dropdown-menu {
+            display: block;
+        }       
+        a.nav-link:hover {
+            background-color: rgba(114, 114, 114, 0.454);
+            font-size: 300px;
+          
+        }
+        a.nav-link:active {
+            background-color: rgba(114, 114, 114, 0.454);
+            font-size: 300px;
+            text-decoration: underline;
+            font-style: italic;
+        }
+      /* .form-control:hover{
+        transform: scale(1.01);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+        } */
+        button:hover,.counter:hover{
+            transform: scale(1.03);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+      }
+      .card:hover{
+        transform: scale(1.01);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+      }
+    </style>
 </head>
 
 <body style="background-color: rgba(245, 94, 94, 0.541);" >
-    <nav class="navbar navbar-expand-lg red">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); ">
         <div class="container-fluid">
-            <span>
-                <a class="navbar-brand nav1" href="#">iDonor </a>
-            </span>
-            <!--     
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
-            <!-- <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li> -->
-            </ul>
-            <!-- <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-            <!-- </form> -->
-            <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
-        </div>
+            <a class="navbar-brand" href="#">
+                <h1 style="color: white;">iDonor</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item ">
+                        <a class="nav-link mx-1" href="#" style="color: white ;font-size: 19px; ">Edit Blood Stock</a>
+                    </li>
+                    
+                    <li class="nav-item ">
+                        <a class="nav-link mx-1" href="" style="color: white ;font-size: 19px; ">Donor List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="" style="color: white ;font-size: 19px; ">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1" href="" style="color: white ;font-size: 19px; ">Profile</a>
+                    </li>
+                    
+
+                </ul>
+                <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
+            </div>
         </div>
     </nav>
     <div class="container ">
