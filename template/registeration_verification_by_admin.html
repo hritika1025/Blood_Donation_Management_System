@@ -76,7 +76,7 @@
                     </li>
                      -->
                     <li class="nav-item">
-                      <a class="nav-link" href="admin_dashboard.html" style="color: white ;font-size: 19px; ">Admin Dashboard</a>
+                      <a class="nav-link" href="{{url_for('admin_dashboard')}}" style="color: white ;font-size: 19px; ">Admin Dashboard</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="user_msg_to_admin.html" style="color: white ;font-size: 19px; ">User Feedbacks</a>
@@ -100,12 +100,12 @@
       <br>
       <br>
       {% for row in rows %}
-      <form action="\registeration_verification_by_admin" method="post">
+      <form action="/registeration_verification_by_admin" method="post">
       <div class="user" style="display:flex;">
         Blood Bank : {{row.Blood_bank_name}}
       </div>
       <div class="user" style="display:flex;"> 
-        License Number :<input type="text" value="{{row.License_number}}" style="margin: 10px; margin-top: 0px; " class="btn btn-light" name="License_number" placeholder="{{row.License_number}}">
+        License Number :<input type="text" value="{{row.License_Number}}" style="margin: 10px; margin-top: 0px; " class="btn btn-light" name="License_Number" placeholder="{{row.License_Number}}">
       </div>
       <div class="user" style="display:flex;">
         Owner Name : {{row.Owner_name}}
