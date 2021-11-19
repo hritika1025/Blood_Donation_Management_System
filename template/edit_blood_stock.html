@@ -49,6 +49,10 @@
         transform: scale(1.03);
           box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
       }
+      .container:hover{
+        transform: scale(1.03);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+      }
   </style>
 </head>
 
@@ -93,16 +97,16 @@
       <div class="mx-5 bg-white py-5">
       <div class="mx-5">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-2">
             <div style="color:brown;">{{msg}}</div>
           </div>
           
-          <div class="col-md-3">
+          <div class="col-md-4">
             <label for="inputtate">
               <h4>Blood Group:</h4>
             </label>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <select id="inputtate" required class="form-control" name="Blood_group">
               <option seleceted value="">Select blood group</option>
               <option value="A+">A+</option>
@@ -115,28 +119,13 @@
               <option value="O-">O-</option>
             </select>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
 
           </div>
 
 
         </div>
-        <div class="row my-3">
-          <div class="col-md-3">
-
-          </div>
-          <div class="col-md-3">
-            <label for="add"><h4> Date:</h4></label>
-          </div>
-          <div class="col-md-3">
-            <input type="date" id="add" name="Date" class="form-control" placeholder="Adding date">
-          </div>
-          <div class="col-md-3">
-
-          </div>
-
-
-        </div>
+        
         <!-- <div class="row my-3">
           <div class="col-md-3">
 
@@ -155,16 +144,16 @@
         </div> -->
 
         <div class="row my-3">
-          <div class="col-md-3">
+          <div class="col-md-2">
 
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <label for="add_units"> <h4>Units Added:</h4></label>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <input type="number" id="add_units" class="form-control" placeholder="Units Added" name="Units_added">
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
 
           </div>
 
@@ -172,22 +161,37 @@
         </div>
 
         <div class="row my-3">
-          <div class="col-md-3">
+          <div class="col-md-2">
 
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <label for="remove_units"> <h4>Units Removed:</h4></label>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <input type="number" id="remove_units" class="form-control" placeholder="Units Removed" name="Units_removed">
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
 
           </div>
 
 
         </div>
+        <div class="row my-3">
+          <div class="col-md-2">
 
+          </div>
+          <div class="col-md-4">
+            <label for="add"><h4> Date:</h4></label>
+          </div>
+          <div class="col-md-4">
+            <input type="date" id="add" name="Date" class="form-control" placeholder="Date">
+          </div>
+          <div class="col-md-2">
+
+          </div>
+
+
+        </div>
         <!-- <div class="row my-3">
           <div class="col-md-3">
 
@@ -206,7 +210,7 @@
 
         </div>
       </div> -->
-        <div style="text-align: center;" class="mt-4">
+        <div style="text-align: center;" class="mt-5">
     <button type="submit" class="btn btn-success" value="submit">Edit Blood Stock</button>
   </div>
 </div>
