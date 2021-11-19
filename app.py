@@ -12,7 +12,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mitika@03'
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -176,8 +176,8 @@ def edit_user_profile() :
         cursor.close()
         return render_template('edit_user_profile.html')
     
-    else :
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    # else :
+        # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         # cursor.execute('SELECT * FROM Donor WHERE Email_id = %s', (session['Email_id']))
 
     return render_template('edit_user_profile.html', First_name = session['First_name'], 
@@ -279,6 +279,7 @@ def bloodbank_registration():
             session['State'] = State
             session['District'] = District
             session['Website'] = Website
+            session['Password']=Password
             cursor.close()
     elif request.method == 'POST':
         msg = 'Please fill  the form !'
@@ -308,6 +309,7 @@ def blood_bank_login():
             session['State'] = account['State']
             session['District'] = account['District']
             session['Website'] = account['Website']
+            session['Password'] = account['Password']
             return redirect(url_for('blood_bank_non_edit_profile'))
         else:
             msg="Incorrect username/password!"
@@ -347,18 +349,19 @@ def check_blood_availability():
             return render_template('check_blood_availability.html', msg = msg)
     return render_template('check_blood_availability.html')
 
-@app.route("/edit_blood_stock")    
+@app.route("/edit_blood_stock",methods=['GET','POST'])    
 def edit_blood_stock():
     msg=''
     if session['loggedin'] == True :
-        if request.method=='POST'and "Blood_group" in request.form and "Adding_date" in request.form and "Removing_date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
+        if request.method=='POST'and "Blood_group" in request.form and "Date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
             Blood_group=request.form['Blood_group']
             Date=request.form['Date']
             Units_added=request.form['Units_added']
             Units_removed=request.form['Units_removed']
             License_Number=session['License_Number']
+            print(Date)
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Blood_stock(License_Number, Blood_group,Date,Units_added, Units_removed)',(License_Number,Blood_group,Units_added,Units_removed,))
+            cursor.execute('INSERT INTO Blood_stock VALUES (NULL,%s,%s,%s,%s,%s)',( License_Number,Blood_group,Date,Units_added,Units_removed,))
             msg="Record Added"
             mysql.connection.commit()
             cursor.close()
@@ -378,22 +381,22 @@ def blood_bank_profile():
             Phone_number=request.form['Phone_number']
             Password=request.form['Password']
             Website=request.form['Website']
-            Weekday=request.form['Weekday']
-            Opening_time=request.form['Opening_time']
-            Closing_time=request.form['Closing_time']
             Street=request.form['Street']
             City=request.form['City']
             Pincode=request.form['Pincode']
             District=request.form['District']
             State=request.form['State']
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Blood_bank(Blood_bank_name,Owner_name,Phone_number,Password,Website,Weekday,Opening_time,Closing_time,Street,City,Pincode,District,State)',(Blood_bank_name,Owner_name,Phone_number,Password,Website,Weekday,Opening_time,Closing_time,Street,City,Pincode,District,State,))
-            msg="Data Edited"
+            cursor.execute('UPDATE Blood_bank SET Blood_bank_name = %s, Owner_name = %s, Phone_number = %s, Password = %s, Website = %s, Street = %s, City = %s, District = %s, State = %s, Pincode = %s WHERE License_Number = %s', (Blood_bank_name, Owner_name, Phone_number, Password, Website,  Street,  City, District, State, Pincode,session['License_Number']))
             mysql.connection.commit()
             cursor.close()
+            msg="Data Editted"
         else:
             msg = " Please Edit the form !" 
-        return render_template('blood_bank_profile.html',msg=msg, Blood_bank_name = session['Blood_bank_name'], Owner_name = session['Owner_name'], Phone_number = session['Phone_number'], Password = session['Password'], Website = session['Website'], Weekday =session['Weekday'],Opening_time =session['Opening_time'],Closing_time =session['Closing_time'], Street = session['Street'],  City = session['City'],Pincode=session['Pincode'], District = session['District'], State = session['State'])
+        return render_template('blood_bank_profile.html',msg=msg, Blood_bank_name = session['Blood_bank_name'],
+                                Owner_name = session['Owner_name'], Phone_number = session['Phone_number'], Password = session['Password'],
+                                Website = session['Website'], Street = session['Street'],  City = session['City'],Pincode=session['Pincode'],
+                                District = session['District'], State = session['State'])
     else:
         return redirect(url_for('blood_bank_login'))
         
@@ -402,7 +405,7 @@ def donor_list():
     if session['loggedin']==True and session['License_Number']:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         district = cursor.execute('SELECT District FROM Blood_bank WHERE License_Number = %s', (session['License_Number']))
-        cursor.execute('SELECT First_name, Last_name, City, Phone_num FROM Donor WHERE Frequent_Donor == "y" AND District=%s',(district))
+        cursor.execute('SELECT First_name, Last_name, City, Phone_num FROM Donor WHERE Frequent_Donor == "y" AND District=%s',(district,))
         rows=cursor.fetchall()
         cursor.close()
         return render_template("donor_list.html",rows=rows)

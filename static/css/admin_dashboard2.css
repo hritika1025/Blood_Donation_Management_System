@@ -143,7 +143,7 @@ body{
 .links{
     margin: auto;
     align-items: center;
-  width: 30%;
+  width: 50%;
   border: 3px solid white;
   padding: 10px;
   background-color: white;
@@ -284,3 +284,20 @@ img {
     background-color: white;
     color: rgba(247, 96, 96, 0.609);
 }
+.imgbox{
+    
+    align-items: center;
+    align-content: center;
+    text-align: right;
+
+}
+.row {
+    display: flex;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+    flex: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }

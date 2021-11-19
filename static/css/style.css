@@ -116,4 +116,17 @@ body{
     margin: auto;
     border-radius: 4px;
 }
+.textheading{
+    background-color: rgb(100, 211, 226);
+    width: 75%;
+    margin: auto;
+    border-radius: 4px;
+    font-size: 30px;
+}
+.textcontent:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+    background-color: rgb(141, 221, 217);
+    color: rgb(12, 19, 18);
+}
 
