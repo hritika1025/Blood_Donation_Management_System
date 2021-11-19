@@ -384,7 +384,7 @@ def blood_bank_profile():
         
 @app.route("/donor_list",methods=['GET','POST'])
 def donor_list():
-    if session[loggedin]==True and session[License_number]:
+    if session['loggedin']==True and session['License_number']:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT Fisrt_name,Last_name,City,Phone_num FROM Donor WHERE Frequent_Donor!="No" AND City=%s'(session[City],))
         rows=cursor.fetchall()
