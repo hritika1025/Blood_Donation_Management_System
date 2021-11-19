@@ -377,16 +377,13 @@ def blood_bank_profile():
             Phone_number=request.form['Phone_number']
             Password=request.form['Password']
             Website=request.form['Website']
-            Weekday=request.form['Weekday']
-            Opening_time=request.form['Opening_time']
-            Closing_time=request.form['Closing_time']
             Street=request.form['Street']
             City=request.form['City']
             Pincode=request.form['Pincode']
             District=request.form['District']
             State=request.form['State']
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Blood_bank(Blood_bank_name,Owner_name,Phone_number,Password,Website,Weekday,Opening_time,Closing_time,Street,City,Pincode,District,State)',(Blood_bank_name,Owner_name,Phone_number,Password,Website,Weekday,Opening_time,Closing_time,Street,City,Pincode,District,State,))
+            cursor.execute('INSERT INTO Blood_bank(Blood_bank_name,Owner_name,Phone_number,Password,Website,Street,City,Pincode,District,State)',(Blood_bank_name,Owner_name,Phone_number,Password,Website,Street,City,Pincode,District,State,))
             msg="Data Edited"
             mysql.connection.commit()
             cursor.close()
@@ -401,7 +398,7 @@ def donor_list():
     if session['loggedin']==True and session['License_Number']:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         district = cursor.execute('SELECT District FROM Blood_bank WHERE License_Number = %s', (session['License_Number']))
-        cursor.execute('SELECT First_name, Last_name, City, Phone_num FROM Donor WHERE Frequent_Donor == "y" AND District=%s'(district))
+        cursor.execute('SELECT First_name, Last_name, City, Phone_num FROM Donor WHERE Frequent_Donor == "y" AND District=%s',(district,))
         rows=cursor.fetchall()
         cursor.close()
         return render_template("donor_list.html",rows=rows)
