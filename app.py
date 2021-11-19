@@ -165,10 +165,7 @@ def edit_user_profile() :
         mysql.connection.commit()
         cursor.close()
         return render_template('edit_user_profile.html')
-    
-    # else :
-        # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        # cursor.execute('SELECT * FROM Donor WHERE Email_id = %s', (session['Email_id']))
+   
 
     return render_template('edit_user_profile.html', First_name = session['First_name'], 
                             Last_name = session['Last_name'], Phone_num = session['Phone_num'], 
@@ -398,8 +395,11 @@ def blood_bank_profile():
 def donor_list():
     if session['loggedin']==True and session['License_Number']:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        district = cursor.execute('SELECT District FROM Blood_bank WHERE License_Number = %s', (session['License_Number']))
-        cursor.execute('SELECT First_name, Last_name, City, Phone_num FROM Donor WHERE Frequent_Donor == "y" AND District=%s',(district,))
+        License_Number=session['License_Number']
+        cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s', (License_Number,))
+        result=cursor.fetchone()
+        District=result['District']
+        cursor.execute('SELECT * FROM Donor WHERE Frequent_Donor = "y" AND District=%s',(District,))
         rows=cursor.fetchall()
         cursor.close()
         return render_template("donor_list.html",rows=rows)
