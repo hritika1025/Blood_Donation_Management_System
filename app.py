@@ -12,7 +12,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'mitika@03'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -393,7 +393,7 @@ def blood_bank_profile():
         
 @app.route("/donor_list",methods=['GET','POST'])
 def donor_list():
-    if session['loggedin']==True and session['License_Number']:
+    if session['loggedin']==True:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         License_Number=session['License_Number']
         cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s', (License_Number,))
@@ -403,7 +403,7 @@ def donor_list():
         rows=cursor.fetchall()
         cursor.close()
         return render_template("donor_list.html",rows=rows)
-    return redirect(url_for('blood_bank_login'))
+    return redirect(url_for('home'))
 
 @app.route('/blood_bank_statistics/<string:License_Number>')
 def blood_bank_statistics(License_Number : str) :
