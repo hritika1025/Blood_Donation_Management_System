@@ -77,7 +77,7 @@
           </ul> -->
           
            <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
-          <div class="dropdown">
+          <!-- <div class="dropdown">
             <button
               class="btn btn-light dropdown-toggle"
               type="button"
@@ -93,7 +93,27 @@
               <li><a class="dropdown-item" href= '/blood_bank_login'>Blood Bank Login</a></li>
               <li><a class="dropdown-item" href="/admin_login">Admin</a></li>
             </ul>
-          </div>
+          </div> -->
+
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../static/Images/profile_icon.png" alt="">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="">My Profile</a></li>
+                    <li><a class="dropdown-item" href="/user_login">User Login</a></li>
+                    <li><a class="dropdown-item" href="/bloodbank_registration">Blood Bank Signup</a></li>
+                    <li><a class="dropdown-item" href="/admin_login">Admin Login</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
           <a class="btn btn-outline-light" href="/contact" role="button" style="margin: auto 10px;">Contact Us</a>
           <!-- <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
