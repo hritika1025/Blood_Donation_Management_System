@@ -377,7 +377,7 @@ def blood_bank_profile():
             cursor.close()
         else:
             msg = " Please Edit the form !" 
-        return render_template('blood_bank_profile.html',msg=msg)
+        return render_template('blood_bank_profile.html',msg=msg, Blood_bank_name = session['Blood_bank_name'], Owner_name = session['Owner_name'], Phone_number = session['Phone_number'], Password = session['Password'], Website = session['Website'], Weekday =session['Weekday'],Opening_time =session['Opening_time'],Closing_time =session['Closing_time'], Street = session['Street'],  City = session['City'],Pincode=session['Pincode'], District = session['District'], State = session['State'])
     else:
         return redirect(url_for('blood_bank_login'))
         
