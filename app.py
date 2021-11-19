@@ -139,19 +139,9 @@ def user_signup():
     
     return render_template('user_signup.html', msg = msg)
 
-# @app.route("/user_profile")
-# def user_profile():
-#     if session['loggedin'] == True :
-#         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#         cursor.execute('SELECT * FROM Donor WHERE Email_id = %s', (session['Email_id']))
-#         user_details = cursor.fetchall()
-
-#     return render_template('user_profile.html', First_name = session['First_name'], 
-#                             Last_name = session['Last_name'], Phone_num = session['Phone_num'], 
-#                             Age = session['Age'], Eligibility = session['Eligibility'], Frequent_donor =
-#                             session['Frequent_donor'], City = session['City'], District = 
-#                             session['District'], Street = session['Street'], State = session['State']
-#                              )
+@app.route("/non_eligibility")
+def non_eligibility():
+    return render_template('non_eligibility.html')
 
 @app.route("/edit_user_profile", methods=['POST','GET'])
 def edit_user_profile() :
@@ -505,30 +495,6 @@ def registeration_verification_by_admin() :
     return render_template('registeration_verification_by_admin.html',rows=rows)
 
 
-# @app.route('/contact', methods = ['GET', 'POST'])
-# def contact():
-#     msg = ''
-#     if request.method == 'POST' :
-#         Name = request.form['Name']
-#         Email_id = request.form['Email_id']
-#         phone_num = request.form['phone_num']
-#         Message = request.form['Message']
-#         Date = request.form['Date']
-#         if len(Name) > 0 and len(Email_id) > 0 and len(phone_num) > 0 and len(Message) > 0 and len(Date) >0:
-#             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#             cursor.execute('INSERT INTO Message_to_admin VALUES (NULL, % s, % s, % s,% s, %s)',(Name, Email_id, phone_num, Message, Date,))
-#             mysql.connection.commit()
-#             session['Name'] = Name
-#             session['Email_id'] = Email_id
-#             session['phone_num'] = phone_num
-#             session['Message'] = Message
-#             session['Date'] = Date
-#             cursor.close()
-#             return render_template('contact.html', msg = "Your message has been successfully sent to the admin.")
-#         else :
-#             return render_template('contact.html', msg = "Please fill out the form")
-#     return render_template('contact.html')
-
 @app.route("/contact",methods=['GET','POST'])
 def contact():
     msg=''
@@ -573,8 +539,6 @@ def user_msg_to_admin() :
     return render_template("user_msg_to_admin.html", rows = rows)
 
         
-@app.route('/non_eligibility')
-def non_eligibility() :
-    return render_template('non_eligibility.html')
+
 
 app.run(debug=True)
