@@ -394,7 +394,7 @@ def blood_bank_profile():
         
 @app.route("/donor_list")
 def donor_list():
-    if session['loggedin']==True:
+    if session['loggedin']==True and session['License_Number']:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s', (session['License_Number'],))
         result=cursor.fetchone()
