@@ -348,18 +348,19 @@ def check_blood_availability():
             return render_template('check_blood_availability.html', msg = msg)
     return render_template('check_blood_availability.html')
 
-@app.route("/edit_blood_stock")    
+@app.route("/edit_blood_stock",methods=['GET','POST'])    
 def edit_blood_stock():
     msg=''
     if session['loggedin'] == True :
-        if request.method=='POST'and "Blood_group" in request.form and "Adding_date" in request.form and "Removing_date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
+        if request.method=='POST'and "Blood_group" in request.form and "Date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
             Blood_group=request.form['Blood_group']
             Date=request.form['Date']
             Units_added=request.form['Units_added']
             Units_removed=request.form['Units_removed']
             License_Number=session['License_Number']
+            print(Date)
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Blood_stock(License_Number, Blood_group,Date,Units_added, Units_removed)',(License_Number,Blood_group,Units_added,Units_removed,))
+            cursor.execute('INSERT INTO Blood_stock VALUES (NULL,%s,%s,%s,%s,%s)',( License_Number,Blood_group,Date,Units_added,Units_removed,))
             msg="Record Added"
             mysql.connection.commit()
             cursor.close()
