@@ -88,7 +88,8 @@
               
                 {% for row in rows %}
                 <tr >
-                  <td>{{row.Blood_bank_name}}</td>
+                  <!-- <td></td> -->
+                  <td><a href="{{url_for('blood_bank_statistics', License_Number = row.License_Number)}}">{{row.Blood_bank_name}}</a></td>
                   <td>{{row.Street}}</td>
                 </tr>
                 {% endfor %}
