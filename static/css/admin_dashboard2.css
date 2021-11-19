@@ -141,14 +141,22 @@ body{
     border-width: 1px;
 }
 .links{
+    color: bisque;
     margin: auto;
     align-items: center;
   width: 70%;
   border: 3px solid white;
+  border-radius: 5px;
   padding: 12px;
   background-color: white;
   text-align: center;
   font-size: 26px;
+}
+.links:hover {
+    transform: scale(1.00);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+    background-color: rgba(230, 193, 193, 0.829);
+    color: rgb(255, 255, 255);
 }
 .btn btn-secondary{
     margin: 5px;

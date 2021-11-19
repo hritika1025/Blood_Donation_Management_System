@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <title>iDonor</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Great+Vibes&display=swap"
+        rel="stylesheet" />
+      <style>
+           .card:hover,button:hover{
+            transform: scale(1.0);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+      }
+      </style>
+</head>
+
+<body>
+    <!-- As a heading -->
+    <!-- <nav class="navbar red">
+      <div class="container-fluid">
+        <span>RaktKosh</span>
+      </div>
+     <button>Sign In</button>
+    </nav> -->
+
+    <nav class="navbar navbar-expand-lg red">
+        <div class="container-fluid">
+            <span>
+                <a class="navbar-brand nav1" href="index.html">iDonor</a>
+            </span>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown"></li>
+                    <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li> -->
+                </ul>
+                <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Log In
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Donor Login</a></li>
+            <li><a class="dropdown-item" href="#">Blood Bank Login</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Admin Login</a></li>
+          </ul> -->
+
+                <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
+                <!-- <div class="dropdown">
+            <button
+              class="btn btn-light dropdown-toggle"
+              type="button"
+              style="margin-right: 15px"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Log In
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href= '/user_login'>Donor Login</a></li>
+              <li><a class="dropdown-item" href= '/blood_bank_login'>Blood Bank Login</a></li>
+              <li><a class="dropdown-item" href="/admin_login">Admin</a></li>
+            </ul>
+          </div> -->
+
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../static/Images/profile_icon.png" alt="">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="">My Profile</a></li>
+                            <li><a class="dropdown-item" href="/user_login">User Login</a></li>
+                            <li><a class="dropdown-item" href="/bloodbank_registration">Blood Bank Signup</a></li>
+                            <li><a class="dropdown-item" href="/admin_login">Admin Login</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <a class="btn btn-outline-light" href="/contact" role="button" style="margin: auto 10px;">Contact Us</a>
+                <!-- <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+
+                <!-- </form> -->
+            </div>
+        </div>
+    </nav>
+    <!-- <br> -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../static/images/12.jpeg" class="d-block wid_img" alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>First slide label</h5> -->
+                    <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../static/images/2.jpg" class="d-block wid_img" alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>Second slide label</h5> -->
+                    <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../static/images/5.jfif" class="d-block wid_img" alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>Third slide label</h5> -->
+                    <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <br /><br />
+    <div class="container display-flex justify-content-center">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem">
+                    <img src="../static/images/18.webp" class="card-img-top" alt="..." height="200px" />
+                    <div class="card-body">
+                        <h4 class="card-title">Check For Blood Availability</h4>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        <a href="/check_blood_availability" class="btn btn-danger">Click Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem">
+                    <img src="../static/images/3.jpeg" class="card-img-top" alt="..." height="200px" />
+                    <div class="card-body">
+                        <h4 class="card-title">Search Nearby Blood Banks</h4>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        <a href="#" class="btn btn-danger">Click Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem">
+                    <img src="../static/images/17.jpeg" class="card-img-top" alt="..." height="200px" />
+                    <div class="card-body">
+                        <h4 class="card-title">Who Can Donate Blood</h4>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        <a href="#" class="btn btn-danger" style="margin: 13px auto">Click Here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- <div class="boxes">
+        <div id="box1" class ="minbox">
+          <h1>Check For Blood Availability</h1>
+          <img src="../static/images/18.webp" alt="" srcset="">
+        </div>
+        <div id="box2" class ="minbox">
+          <h1>Search Nearby Blood Banks</h1>
+          <img src="../static/images/3.jpeg" alt="" srcset="">
+        </div>
+        <div id="box3" class ="minbox">
+          <h1>My Blood Donations</h1>
+          <img src="../static/images/17.jpeg" alt="" srcset="">
+        </div>
+      
+    </div> -->
+    <br /><br />
+    <div class="card mx-2 my-2">
+        <div class="card-header text-center">
+            Before your donation:-
+        </div>
+        <div class="card-body" style="background-color: rgba(150, 150, 146, 0.644);color: white;">
+            <p class="card-text">1. Make an appointment and find a convenient day and time that works best for you.</p>
+            <p class="card-text">2. Have iron-rich foods , such as red meat , fish, poultry , beans, spinach,
+                iron-fortified cereals, or raisins.</p>
+            <p class="card-text">3. Get a good night's sleep the night before your donation, eat healthy foods and drink
+                extra liquids.</p>
+        </div>
+        
+       
+
+    </div>
+    <div class="card mx-2 my-3">
+        <div class="card-header text-center">
+            Day of donation:-
+        </div>
+        <div class="card-body " style="background-color: rgba(150, 150, 146, 0.644);color: white;">
+            <p class="card-text">1. Bring your donor card, adhaar card, and any other forms of identification.</p>
+            <p class="card-text">2. We'll need to know about all prescription and over-the-counter medications you're
+                taking .</p>
+            <p class="card-text">3. Drink an extra 16 oz of water ( or other non alcoholic drink ) before your
+                appointment.</p>
+            <p class="card-text">4. Eat a healthy meal , avoiding fatty foods like hamburgers , fries or ice cream.</p>
+            <p class="card-text">5. Wear a top / shirt with sleeves that you can roll up above your elbows.</p>
+            <p class="card-text">6. Let us know if you have a preferred arm or particular vein that has been used
+                successfully in the past to draw blood .</p>
+            <p class="card-text">7. Relax, listen to music, talk to other donors or read while you donate.</p>
+        </div>
+    </div>
+
+    <div class="card mx-2 my-3">
+        <div class="card-header text-center" ">
+            After your donation:- 
+        </div>
+        <div class=" card-body" style="background-color: rgba(150, 150, 146, 0.644);color: white;">
+            <p class="card-text">1. Relax for a few minutes in recovery area and have some snacks.</p>
+            <p class="card-text">2. Drink an extra four glass of liquids and avoid alcohol over the next 24 hours.</p>
+            <p class="card-text">3. Don't do any heavy lifting or vigorous exercise for the rest of the day.</p>
+            <p class="card-text">4. If the needle site starts bleeding, apply pressure and raise your arm straight up
+                for 5-10 minutes or until bleeding stops.</p>
+            <p class="card-text">5. Keep eating iron rich foods</p>
+            <p class="card-text">6. If you donate frequently, be sure to make multivitamins with iron to ensure you
+                continue to replenish your iron stores before your next donation.</p>
+        </div>
+    </div>
+<div class="display-flex col-sm-12">
+    <div class="card bg-dark text-white mx-5 ">
+        <img class="card-img" style="opacity: 0.5;" src="https://media.istockphoto.com/photos/professional-doctor-preparing-patient-for-procedure-picture-id627290560?k=20&m=627290560&s=612x612&w=0&h=LAe2Ou94kCGRju_7KDbAwZBSw1yH7EGLRRNKSOvFx2c=" alt="Card image">
+        <div class="card-img-overlay display-flex">
+          <h2 class="card-title text-center">Before your donation:- </h2>
+          <p class="card-text">1. Make an appointment and find a convenient day and time that works best for you.
+            <br>
+            2. Have iron-rich foods , such as red meat , fish, poultry , beans, spinach, iron-fortified cereals, or raisins.
+            <br>
+            3. Get a good night's sleep the night before your donation, eat healthy foods and drink extra liquids.</p>
+        
+          <h2 class="card-title text-center">Day of donation:- </h2>
+          <p class="card-text">1. Bring your donor card, adhaar card, and any other forms of identification.
+            <br>
+            2. We'll need to know about all prescription and over-the-counter medications you're taking .
+            <br>
+            3. Drink an extra 16 oz of water ( or other non alcoholic drink ) before your appointment.
+            <br>
+            4. Eat a healthy meal , avoiding fatty foods like hamburgers , fries or ice cream.
+            <br>
+            5. Wear a top / shirt with sleeves that you can roll up above your elbows.
+            <br>
+            6. Let us know if you have a preferred arm or particular vein that has been used successfully in the past to draw blood .
+            <br>
+            7. Relax, listen to music, talk to other donors or read while you donate.</p>
+        
+          <h2 class="card-title text-center">After your donation:- </h2>
+          <p class="card-text">1. Relax for a few minutes in recovery area and have some snacks.
+            <br>
+            2. Drink an extra four glass of liquids and avoid alcohol over the next 24 hours.
+            <br>
+            3. Don't do any heavy lifting or vigorous exercise for the rest of the day.
+            <br>
+            4. If the needle site starts bleeding, apply pressure and raise your arm straight up for 5-10 minutes or until bleeding stops.
+            <br>
+            5. Keep eating iron rich foods
+            <br>
+            6. If you donate frequently, be sure to make multivitamins with iron to ensure you continue to replenish your iron stores before your next donation.
+            </p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="card text-center">
+        <div class="card-header">
+            <!-- Featured -->
+        </div>
+        <div class="card-body" style="margin: auto 30px">
+            <h3 class="card-title" style="font-weight: bold; color: rgb(131, 127, 127)">
+                About This Website
+            </h3>
+            <p class="card-text">
+                A centralized Blood Inventory Management System for keeping track of
+                the blood stock across numerous blood banks.This website aims at
+                maintaining all information regarding blood donors , different blood
+                groups available in different blood banks as well as blood camps and
+                help them manage in a better way. Through this web app anyone who is
+                interested in donating the blood can register himself and can also
+                make request for blood online. Similarly, if any organization wants to
+                register itself with this site they can also register.
+            </p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+        <div class="card-footer text-muted">
+            <!-- 2 days ago -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <br /><br />
+    <div class="red">
+        <div class="container nav1">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3"></ul>
+                <p class="text-center text-muted">© 2021 Company, Inc</p>
+            </footer>
+        </div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
