@@ -12,7 +12,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'mitika@03'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -221,9 +221,9 @@ def search_blood_banks():
 @app.route("/bloodbank_registration",methods=['POST','GET'])
 def bloodbank_registration():
     msg=""
-    if request.method=='POST' and "Blood_bank_name" in request.form and "License_number" in request.form and "Owner_name" in request.form and "Phone_number" in request.form and "Email" in request.form and "Password" in request.form and "c_password" in request.form and "Street" in request.form and "City" in request.form and "Pincode" in request.form and "District" in request.form and "State" in request.form  and "Website" in request.form :
+    if request.method=='POST' and "Blood_bank_name" in request.form and "License_Number" in request.form and "Owner_name" in request.form and "Phone_number" in request.form and "Email" in request.form and "Password" in request.form and "c_password" in request.form and "Street" in request.form and "City" in request.form and "Pincode" in request.form and "District" in request.form and "State" in request.form  and "Website" in request.form :
         Blood_bank_name=request.form['Blood_bank_name']
-        License_number=request.form['License_number']
+        License_Number=request.form['License_Number']
         Owner_name=request.form['Owner_name']
         Phone_number=request.form['Phone_number']
         Email=request.form['Email']
@@ -236,7 +236,7 @@ def bloodbank_registration():
         State=request.form['State']
         Pincode=request.form['Pincode']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Blood_bank WHERE License_number= % s', (License_number, ))
+        cursor.execute('SELECT * FROM Blood_bank WHERE License_Number= % s', (License_Number, ))
         account1=cursor.fetchone()
         cursor.execute('SELECT * FROM Blood_bank WHERE Phone_number= % s', (Phone_number, ))
         account2=cursor.fetchone()
@@ -259,18 +259,26 @@ def bloodbank_registration():
             msg = 'Password must containe atleast 8 digits or characters !'
         elif (Password != c_password):
             msg="Password does not match! "
-        elif not Phone_number or not Password or not Email or not License_number or not Blood_bank_name or not Owner_name:
+        elif not Phone_number or not Password or not Email or not License_Number or not Blood_bank_name or not Owner_name:
             msg = 'Please fill out the form !'
         else:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Blood_bank(Password,License_number,Blood_bank_name,Owner_name,Email,Phone_number,Street,Pincode,City,District,State,Website) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',(Password,License_number,Blood_bank_name,Owner_name,Email,Phone_number,Street,Pincode,City,District,State,Website))
+            cursor.execute('INSERT INTO Blood_bank(Password,License_Number,Blood_bank_name,Owner_name,Email,Phone_number,Street,Pincode,City,District,State,Website) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',(Password,License_Number,Blood_bank_name,Owner_name,Email,Phone_number,Street,Pincode,City,District,State,Website))
             mysql.connection.commit()
             msg='Form Submitted. You can login once your application is approved.'
             session['loggedin'] = True
             session['Email'] = Email
             session['Phone_number'] = Phone_number
-            session['License_number'] = License_number
+            session['License_Number'] = License_Number
             session['Blood_bank_name'] = Blood_bank_name
+            session['Owner_name'] = Owner_name
+            session['Phone_number'] = Phone_number
+            session['Street'] = Street
+            session['City'] = City
+            session['Pincode'] = Pincode
+            session['State'] = State
+            session['District'] = District
+            session['Website'] = Website
             cursor.close()
     elif request.method == 'POST':
         msg = 'Please fill  the form !'
@@ -279,11 +287,11 @@ def bloodbank_registration():
 @app.route("/blood_bank_login",methods=['POST','GET'])
 def blood_bank_login():
     msg=''
-    if request.method=='POST'and "License_number" in request.form and "Password" in request.form :
-        License_number=request.form['License_number']
+    if request.method=='POST'and "License_Number" in request.form and "Password" in request.form :
+        License_Number=request.form['License_Number']
         Password=request.form['Password']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Blood_bank WHERE License_number=%s AND Verification="Accept"',(License_number,))
+        cursor.execute('SELECT * FROM Blood_bank WHERE License_Number=%s AND Verification="Accept"',(License_Number,))
         account=cursor.fetchone()
         cursor.close()
         if account and account['Password']==Password:
@@ -292,7 +300,15 @@ def blood_bank_login():
             session['Phone_number'] = account['Phone_number']
             session['License_Number'] = account['License_Number']
             session['Blood_bank_name'] = account['Blood_bank_name']
-            return render_template('home.html')
+            session['Owner_name'] = account['Owner_name']
+            session['Phone_number'] = account['Phone_number']
+            session['Street'] = account['Street']
+            session['City'] = account['City']
+            session['Pincode'] = account['Pincode']
+            session['State'] = account['State']
+            session['District'] = account['District']
+            session['Website'] = account['Website']
+            return redirect(url_for('blood_bank_non_edit_profile'))
         else:
             msg="Incorrect username/password!"
     else:
@@ -302,7 +318,13 @@ def blood_bank_login():
 @app.route("/bank_logout")
 def bank_logout():
     session.pop('loggedin',None)
-    session.pop('License_number',None)
+    session.pop('License_Number',None)
+    return redirect(url_for('blood_bank_login'))
+
+@app.route("/blood_bank_non_edit_profile")
+def blood_bank_non_edit_profile():
+    if session['loggedin']==True:
+        return render_template('blood_bank_non_edit_profile.html', Blood_bank_name = session['Blood_bank_name'], License_Number=session['License_Number'],Email=session['Email'],Owner_name = session['Owner_name'], Phone_number = session['Phone_number'],  Website = session['Website'], Street = session['Street'],  City = session['City'],Pincode=session['Pincode'], District = session['District'], State = session['State'])
     return redirect(url_for('blood_bank_login'))
 
 
@@ -315,18 +337,10 @@ def check_blood_availability():
         Blood_group = request.form['Blood_group']
         if len(State) > 0 and len(District) > 0 and len(Blood_group) >0:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            # cursor.execute('INSERT INTO record VALUES (NULL, % s, % s, % s,% s)',(username , state, district, bloodgroup,))
-            # mysql.connection.commit()
-            # if bloodgroup in ('SELECT Blood_Group From Blood_stock WHERE License_Number in (SELECT License_Number FROM Blood_bank WHERE State = %s AND District = %s', (State, District)):
-            print(Blood_group)
-            # session['bloodgroup'] = Blood_group
             cursor.execute('SELECT Blood_bank_name, Street FROM Blood_bank WHERE State = %s AND District = %s AND License_Number in (SELECT License_Number FROM Blood_stock WHERE Blood_group = %s)', (State, District, Blood_group,))
             rows = cursor.fetchall()
-            # for row in rows:
-            #     row = row
             cursor.close()
             return render_template('blood_avail.html', rows = rows)
-            # return render_template('check_blood_availability.html', msg = "Sorry! No data available.")
         else:
             msg = "Please fill all the details!"
             return render_template('check_blood_availability.html', msg = msg)
@@ -341,9 +355,9 @@ def edit_blood_stock():
             Date=request.form['Date']
             Units_added=request.form['Units_added']
             Units_removed=request.form['Units_removed']
-            License_number=session['License_number']
+            License_Number=session['License_Number']
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Blood_stock(License_number, Blood_group,Date,Units_added, Units_removed)',(License_number,Blood_group,Units_added,Units_removed,))
+            cursor.execute('INSERT INTO Blood_stock(License_Number, Blood_group,Date,Units_added, Units_removed)',(License_Number,Blood_group,Units_added,Units_removed,))
             msg="Record Added"
             mysql.connection.commit()
             cursor.close()
@@ -384,18 +398,28 @@ def blood_bank_profile():
         
 @app.route("/donor_list",methods=['GET','POST'])
 def donor_list():
-    if session['loggedin']==True and session['License_number']:
+    if session['loggedin']==True and session['License_Number']:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT Fisrt_name,Last_name,City,Phone_num FROM Donor WHERE Frequent_Donor!="No" AND City=%s'(session[City],))
+        district = cursor.execute('SELECT District FROM Blood_bank WHERE License_Number = %s', (session['License_Number']))
+        cursor.execute('SELECT First_name, Last_name, City, Phone_num FROM Donor WHERE Frequent_Donor == "y" AND District=%s'(district))
         rows=cursor.fetchall()
         cursor.close()
+        return render_template("donor_list.html",rows=rows)
+    return redirect(url_for('blood_bank_login'))
 
-    return render_template("donor_list.html",rows=rows)
+    
+        
         # ADMIN PART :
 
 @app.route("/admin_dashboard")
 def admin_dashboard():
     return render_template('admin_dashboard.html')
+
+@app.route("/admin_logout")
+def admin_logout():
+    session.pop('loggedin',None)
+    session.pop('Email',None)
+    return redirect(url_for('index'))
 
 @app.route("/admin_login",methods=['GET','POST'])
 def admin_login():
@@ -424,12 +448,13 @@ def registeration_verification_by_admin() :
     cursor.execute('SELECT * FROM Blood_bank WHERE Verification="Not Verified"')
     rows = cursor.fetchall()
     cursor.close()
-    if request.method=='POST'and "License_number" in request.form and "result" in request.form :
+    if request.method=='POST'and "License_Number" in request.form and "result" in request.form :
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        License_number=request.form['License_number']
+        License_Number=request.form['License_Number']
         result=request.form['result']
-        cursor.execute('UPDATE Blood_bank SET Verification = %s WHERE License_number=%s',(result,License_number,))
+        cursor.execute('UPDATE Blood_bank SET Verification = %s WHERE License_Number=%s',(result,License_Number,))
         mysql.connection.commit()
+        print("done")
         cursor.close()
     return render_template('registeration_verification_by_admin.html',rows=rows)
 
@@ -502,5 +527,8 @@ def user_msg_to_admin() :
     return render_template("user_msg_to_admin.html", rows = rows)
 
         
+@app.route('/non_eligibility')
+def non_eligibility() :
+    return render_template('non_eligibility.html')
 
 app.run(debug=True)

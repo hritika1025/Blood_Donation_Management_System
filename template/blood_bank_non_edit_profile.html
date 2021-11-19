@@ -43,7 +43,7 @@
 </head>
 
 <body style="background-color: rgba(245, 94, 94, 0.541);" >
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); ">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); font-family: 'Baloo Bhai 2', cursive; ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <h1 style="color: white;">iDonor</h1>
@@ -57,18 +57,16 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item ">
-                        <a class="nav-link mx-1" href="#" style="color: white ;font-size: 19px; ">Edit Blood Stock</a>
+                        <a class="nav-link mx-1" href="edit_blood_stock.html" style="color: white ;font-size: 19px; ">Edit Blood Stock</a>
                     </li>
                     
                     <li class="nav-item ">
-                        <a class="nav-link mx-1" href="" style="color: white ;font-size: 19px; ">Donor List</a>
+                        <a class="nav-link mx-1" href="donor_list.html" style="color: white ;font-size: 19px; ">Donor List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-1" href="" style="color: white ;font-size: 19px; ">Statistics</a>
+                        <a class="nav-link mx-1" href="blood_bank_statistics.html" style="color: white ;font-size: 19px; ">Statistics</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-1" href="" style="color: white ;font-size: 19px; ">Profile</a>
-                    </li>
+                    
                     
 
                 </ul>
@@ -84,39 +82,40 @@
                             src="https://cdnassets.hw.net/b1/71/24f010f74c5baa2994d453f2f3fe/52463d30b37a47899444bcade4c80054.jpg"
                             width="230" class="rounded-circle"> </div>
                     <div class="text-center mt-3">
-                        <h3 class="mt-3 mb-0">{{blood_bank_details[2]}}</h3>
-                        <h5 class="mt-2 mb-4 text-muted">{{blood_bank_details[4]}}</h5>
+                        <h3 class="mt-3 mb-0">{{Blood_bank_name}}</h3>
+                        <h5 class="mt-2 mb-4 text-muted">{{Street}} , {{District}} , {{City}}, {{State}}</h5>
                                 <section class=" about-section gray-bg " >
                                     <div class="pt-5">
                                         <div class="row ">
                                             <div class="col-md-6">
                                                 <div class="media">
                                                     <h5><u>Owner name</u></h5>
-                                                    <p>{{blood_bank_details[3]}}</p>
+                                                    <p>{{Owner_name}}</p>
                                                 </div>
                                                 <div class="media">
                                                     <h5><u>Website</u></h5>
-                                                    <p>{{blood_bank_details[11]}}</p>
+                                                    <p>{{Website}}</p>
                                                 </div>
                                                 <div class="media">
                                                     <h5><u>Pincode</u></h5>
-                                                    <p>{{blood_bank_details[7]}}</p>
+                                                    <p>{{Pincode}}</p>
                                                 </div>
                                                 
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="media">
-                                                    <h5><u>City</u></h5>
-                                                    <p>{{blood_bank_details[8]}}</p>
+                                                    <h5><u>Email</u></h5>
+                                                    <p>{{Email}}</p>
                                                 </div>
                                                 <div class="media">
-                                                    <h5><u>District</u></h5>
-                                                    <p>{{blood_bank_details[9]}}</p>
+                                                    <h5><u>City</u></h5>
+                                                    <p>{{City}}</p>
                                                 </div>
+                                                
                                                 <div class="media">
                                                     <h5><u>State</u></h5>
                                             
-                                                    <p>{{blood_bank_details[10]}}</p>
+                                                    <p>{{State}}</p>
                                                 </div>
                                                
                                             </div>
@@ -128,34 +127,24 @@
                                         <div class="row">
                                             <div class="col-6 col-lg-6">
                                                 <div class="count-data text-center">
-                                                    <h5 class="count " >{{blood_bank_details[1]}}</h5>
-                                                    <p class="m-0px font-w-600">License</p>
+                                                    <h5 class="count " >{{License_Number}}</h5>
+                                                    <p class="m-0px font-w-600">License Number</p>
                                                 </div>
                                             </div>
                                             <div class="col-6 col-lg-6">
                                                 <div class="count-data text-center">
-                                                    <h5 class="count ">{{blood_bank_details[5]}}</h5>
+                                                    <h5 class="count ">{{Phone_number}}</h5>
                                                     <p class="m-0px font-w-600">Phone number</p>
                                                 </div>
                                             </div>
-                                            <!-- <div class="col-6 col-lg-6">
-                                                <div class="count-data text-center">
-                                                    <h6 class="count h2" >{{blood_bank_timings[2]}}</h6>
-                                                    <p class="m-0px font-w-600">Closing time</p>
-                                                </div>
-                                            </div> -->
-                                            <!-- <div class="col-6 col-lg-">
-                                                <div class="count-data text-center">
-                                                    <h6 class="count h2" > {{blood_bank_timings[3]}}</h6>
-                                                    <p class="m-0px font-w-600">Weekday</p>
-                                                </div>
-                                            </div> -->
+                                            
                                         </div>
 
                                     </div>
                                 </div>
                                 <div style="text-align: center;">
-                                <button class="btn mb-4 btn-success" value="Edit profile">Edit profile </button>
+                                    <a href="{{url_for('blood_bank_profile')}}"class="btn btn-success btn-lg " role="button" aria-disabled="true">Edit Profile</a>
+                                <!-- <button class="btn mb-4 btn-success" value="Edit profile">Edit profile </button> -->
                                 </div>
                         </section>
                     </div>
