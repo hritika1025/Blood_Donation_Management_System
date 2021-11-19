@@ -102,8 +102,8 @@ body{
     margin-left: 6px;
 }
 .instructions{
-    background-color: hsl(0, 100%, 76%);
-    color: white;
+    background-color: hsl(200, 7%, 82%);
+    color: black;
     text-align: center;
     width: 90%;
     margin: auto;
@@ -111,6 +111,22 @@ body{
     border-width: 1px;
 }
 .textcontent{
-    background-color: rgb(224, 49, 49);
-    
+    background-color: rgb(255, 255, 255);
+    width: 75%;
+    margin: auto;
+    border-radius: 4px;
 }
+.textheading{
+    background-color: rgb(100, 211, 226);
+    width: 75%;
+    margin: auto;
+    border-radius: 4px;
+    font-size: 30px;
+}
+.textcontent:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+    background-color: rgb(141, 221, 217);
+    color: rgb(12, 19, 18);
+}
+
