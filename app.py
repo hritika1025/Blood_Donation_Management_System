@@ -352,7 +352,7 @@ def edit_blood_stock():
         return redirect(url_for('blood_bank_login'))
     return render_template('edit_blood_stock.html',msg=msg)   
 
-@app.route("/blood_bank_profile")
+@app.route("/blood_bank_profile",methods=['GET','POST'])
 def blood_bank_profile():
     msg=''
     if session['loggedin'] == True :
@@ -381,7 +381,15 @@ def blood_bank_profile():
     else:
         return redirect(url_for('blood_bank_login'))
         
+@app.route("/donor_list",methods=['GET','POST'])
+def donor_list():
+    if session[loggedin]==True and session[License_number]:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT Fisrt_name,Last_name,City,Phone_num FROM Donor WHERE Frequent_Donor!="No" AND City=%s'(session[City],))
+        rows=cursor.fetchall()
+        cursor.close()
 
+    return render_template("donor_list.html",rows=rows)
         # ADMIN PART :
 
 @app.route("/admin_dashboard")

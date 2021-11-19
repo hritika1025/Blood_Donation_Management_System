@@ -106,27 +106,14 @@
             </tr>
         </thead>
         <tbody>
+            {% for row in rows %}
             <tr class="active-row">
-                <td class="cell">User1</td>
-                <td class="cell">City1</td>
-                <td class="cell">Contact1</td>
+                <td class="cell">{{row.First_name}} {{row.Last_name}}</td>
+                <td class="cell">{{row.City}}</td>
+                <td class="cell">{{row.Phone_num}}</td>
             </tr>
-            <tr class="active-row">
-                <td class="cell">User2</td>
-                <td class="cell">City2</td>
-                <td class="cell">Contact2</td>
-            </tr>
-            <tr class="active-row">
-                <td class="cell">User3</td>
-                <td class="cell">City3</td>
-                <td class="cell">Contact3</td>
-            </tr>
-            <tr class="active-row">
-                <td class="cell">User4</td>
-                <td class="cell">City4</td>
-                <td class="cell">Contact4</td>
-            </tr>
-            
+           
+            {% endfor %}
             
         </tbody>
     </table>
