@@ -392,18 +392,35 @@ def blood_bank_profile():
     else:
         return redirect(url_for('blood_bank_login'))
         
-@app.route("/donor_list")
+@app.route("/donor_list", methods = ['GET', 'POST'])
 def donor_list():
-    if session['loggedin']==True and session['License_Number']:
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s', (session['License_Number'],))
-        result=cursor.fetchone()
-        District=result['District']
-        cursor.execute('SELECT * FROM Donor WHERE Frequent_Donor = "y" AND District=%s',(District,))
-        rows=cursor.fetchall()
-        cursor.close()
-        return render_template("donor_list.html",rows=rows)
-    return redirect(url_for('home'))
+    msg = ''
+    if request.method == "POST" and 'State' in request.form and "District" in request.form :
+        State = request.form['State']
+        District = request.form['District']
+        if len(State) > 0 and len(District) > 0:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('SELECT * FROM Donor WHERE Frequent_Donor = %s AND State = %s AND District = %s', ('y',State, District,))
+            rows = cursor.fetchall()
+            cursor.close()
+            return render_template('donor_list.html', rows = rows)
+        else:
+            msg = "Please fill all the details!"
+            return render_template('donor_list.html', msg = msg)
+    return render_template('donor_list.html')
+
+
+
+    # if session['loggedin']==True:
+    #     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    #     cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s', (session['License_Number'],))
+    #     result=cursor.fetchone()
+    #     District=result['District']
+    #     cursor.execute('SELECT * FROM Donor WHERE Frequent_Donor = "y" AND District=%s',(District,))
+    #     rows=cursor.fetchall()
+    #     cursor.close()
+    #     return render_template("donor_list.html",rows=rows)
+    # return redirect(url_for('home'))
 
 @app.route('/blood_bank_statistics/<string:License_Number>')
 def blood_bank_statistics(License_Number : str) :
