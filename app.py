@@ -145,26 +145,27 @@ def non_eligibility():
 
 @app.route("/edit_user_profile", methods=['POST','GET'])
 def edit_user_profile() :
-    if request.method == 'POST' :
-        First_name = request.form['First_name']
-        Last_name=request.form['Last_name']
-        Gender=request.form['Gender']
-        Age=request.form['Age']
-        Phone_num=request.form['Phone_num']
-        Password=request.form['Password']
-        Street=request.form['Street']
-        Blood_group=request.form['Blood_group']
-        Eligibility=request.form['Eligibility']
-        Frequent_Donor = request.form['Frequent_Donor']
-        City=request.form['City']
-        District=request.form['District']
-        State=request.form['State']
-        Pincode=request.form['Pincode']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('UPDATE DONOR SET First_name = %s, Last_name = %s, Gender = %s, Age = %s, Phone_num = %s, Password = %s, Street = %s, Blood_group = %s, Eligibility = %s, Frequent_Donor = %s, City = %s, District = %s, State = %s, Pincode = %s WHERE Email_id = %s', (First_name, Last_name, Gender, Age, Phone_num, Password, Street, Blood_group, Eligibility, Frequent_Donor, City, District, State, Pincode, session['Email_id']))
-        mysql.connection.commit()
-        cursor.close()
-        return render_template('edit_user_profile.html')
+    if session['loggedin'] == True :
+        if request.method == 'POST' :
+            First_name = request.form['First_name']
+            Last_name=request.form['Last_name']
+            Gender=request.form['Gender']
+            Age=request.form['Age']
+            Phone_num=request.form['Phone_num']
+            Password=request.form['Password']
+            Street=request.form['Street']
+            Blood_group=request.form['Blood_group']
+            Eligibility=request.form['Eligibility']
+            Frequent_Donor = request.form['Frequent_Donor']
+            City=request.form['City']
+            District=request.form['District']
+            State=request.form['State']
+            Pincode=request.form['Pincode']
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('UPDATE DONOR SET First_name = %s, Last_name = %s, Gender = %s, Age = %s, Phone_num = %s, Password = %s, Street = %s, Blood_group = %s, Eligibility = %s, Frequent_Donor = %s, City = %s, District = %s, State = %s, Pincode = %s WHERE Email_id = %s', (First_name, Last_name, Gender, Age, Phone_num, Password, Street, Blood_group, Eligibility, Frequent_Donor, City, District, State, Pincode, session['Email_id']))
+            mysql.connection.commit()
+            cursor.close()
+            return render_template('edit_user_profile.html')
    
 
     return render_template('edit_user_profile.html', First_name = session['First_name'], 
@@ -391,12 +392,11 @@ def blood_bank_profile():
     else:
         return redirect(url_for('blood_bank_login'))
         
-@app.route("/donor_list",methods=['GET','POST'])
+@app.route("/donor_list")
 def donor_list():
     if session['loggedin']==True:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        License_Number=session['License_Number']
-        cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s', (License_Number,))
+        cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s', (session['License_Number'],))
         result=cursor.fetchone()
         District=result['District']
         cursor.execute('SELECT * FROM Donor WHERE Frequent_Donor = "y" AND District=%s',(District,))
