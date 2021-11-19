@@ -56,10 +56,50 @@
                         <a class="nav-link" href="check_blood_availability.html" style="color: white ;font-size: 19px; ">Blood Availability</a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" href="non_eligibility.html" style="color: white ;font-size: 19px; ">Non-Eligibility</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="search_blood_banks.html" style="color: white ;font-size: 19px; ">Near By Bloodbanks</a>
+=======
+                        <a class="nav-link" href="/non_eligibility" style="color: white ;font-size: 19px; ">Non-Eligibility</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/search_blood_banks" style="color: white ;font-size: 19px; ">Near By Bloodbanks</a>
+                    </li>
+                    <li class="nav-item">
+<<<<<<< HEAD
+                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Profile</a>
+=======
+                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Donor List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Statistics</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: white;font-size: 19px; ">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/user_profile">User Login</a></li>
+                            <li><a class="dropdown-item" href="/admin_login">Admin login</a></li>
+                            <li><a class="dropdown-item" href="/blood_bank_login">Blood bank Login</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: white; font-size: 19px; ">
+                            Register
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">User Registration</a></li>
+                            <li><a class="dropdown-item" href="#">Blood bank Registration</a></li>
+                        </ul>
+>>>>>>> bc715582c3ad4d35138a07b7aa8011b2b784eb54
+>>>>>>> df0a3ac81890f70110b6be980c348a15eac714bc
                     </li>
                     
                     
@@ -79,39 +119,39 @@
                             src="https://dfge.de/wp-content/uploads/blank-profile-picture-973460_640-300x300.png"
                             width="180" class="rounded-circle"> </div>
                     <div class="text-center mt-3">
-                        <h3 class="mt-3 mb-0">{{user_details[2]}} {{user_details[3]}}</h3>
-                        <h5 class="mt-2 text-muted"> {{user_details[0]}}</h5>
+                        <h3 class="mt-3 mb-0">{{First_name}} {{Last_name}}</h3>
+                        <h5 class="mt-2 text-muted"> {{Email_id}}</h5>
                                 <section class=" about-section gray-bg " >
                                     <div class="pt-5">
                                         <div class="row ">
                                             <div class="col-md-6">
                                                 <div class="media">
                                                     <h5><u>Gender</u></h5>
-                                                    <p>{{user_details[5]}}</p>
+                                                    <p>{{Gender}}</p>
                                                 </div>
                                                 <div class="media">
                                                     <h5><u>Phone Number</u></h5>
-                                                    <p>{{user_details[8]}}</p>
+                                                    <p>{{Phone_num}}</p>
                                                 </div>
                                                 <div class="media">
                                                     <h5><u>Pincode</u></h5>
-                                                    <p>{{user_details[12]}}</p>
+                                                    <p>{{Pincode}}</p>
                                                 </div>
                                                 
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="media">
                                                     <h5><u>City</u></h5>
-                                                    <p>{{user_details[10]}}</p>
+                                                    <p>{{City}}</p>
                                                 </div>
                                                 <div class="media">
                                                     <h5><u>District</u></h5>
-                                                    <p>{{user_details[11]}}</p>
+                                                    <p>{{District}}</p>
                                                 </div>
                                                 <div class="media">
                                                     <h5><u>State</u></h5>
                                             
-                                                    <p> {{user_details[13]}}</p>
+                                                    <p> {{State}}</p>
                                                 </div>
                                                
                                             </div>
@@ -123,26 +163,26 @@
                                         <div class="row">
                                             <div class="col-6 col-lg-3">
                                                 <div class="count-data text-center">
-                                                    <h6 class="count h2" >{{user_details[4]}}</h6>
+                                                    <h6 class="count h2" >{{Age}}</h6>
                                                     <p class="m-0px font-w-600">Age</p>
                                                 </div>
                                             </div>
                                             <div class="col-6 col-lg-3">
                                                 <div class="count-data text-center">
-                                                    <h6 class="count h2">{{user_details[6]}}</h6>
+                                                    <h6 class="count h2">{{Blood_group}}</h6>
                                                     <p class="m-0px font-w-600">Blood group</p>
                                                 </div>
                                             </div>
                                             <div class="col-6 col-lg-3">
                                                 <div class="count-data text-center">
-                                                    <h6 class="count h2" >{{user_details[7]}}</h6>
+                                                    <h6 class="count h2" >{{Eligibility}}</h6>
                                                     <p class="m-0px font-w-600">Eligibility</p>
                                                 </div>
                                             </div>
                                             <div class="col-6 col-lg-3">
                                                 <div class="count-data text-center">
-                                                    <h6 class="count h2" >{{user_details[14]}}</h6>
-                                                    <p class="m-0px font-w-600">Frequent donor</p>
+                                                    <h6 class="count h2" >{{Frequent_Donor}}</h6>
+                                                    <p class="m-0px font-w-600">Frequent Donor</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -150,7 +190,9 @@
                                     </div>
                                 </div>
                                 <div style="text-align: center;">
-                                <button class="btn mb-4 btn-success" value="Edit profile">Edit profile </button>
+                                    <p class="mb-0" style="text-align: center;"><a href="{{url_for('edit_user_profile')}} "
+                                        style="color: grey;" class=" fw-bold">Edit User Profile</a></p>
+                                <!-- <button class="btn mb-4 btn-success"  value="Edit profile"> <a href="/edit_user_profile" >Edit profile</a></button> -->
                                 </div>
                         </section>
 
