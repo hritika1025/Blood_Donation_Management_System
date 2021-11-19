@@ -12,7 +12,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mitika@03'
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -176,8 +176,8 @@ def edit_user_profile() :
         cursor.close()
         return render_template('edit_user_profile.html')
     
-    else :
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    # else :
+        # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         # cursor.execute('SELECT * FROM Donor WHERE Email_id = %s', (session['Email_id']))
 
     return render_template('edit_user_profile.html', First_name = session['First_name'], 
@@ -279,6 +279,7 @@ def bloodbank_registration():
             session['State'] = State
             session['District'] = District
             session['Website'] = Website
+            session['Password']=Password
             cursor.close()
     elif request.method == 'POST':
         msg = 'Please fill  the form !'
@@ -308,6 +309,7 @@ def blood_bank_login():
             session['State'] = account['State']
             session['District'] = account['District']
             session['Website'] = account['Website']
+            session['Password'] = account['Password']
             return redirect(url_for('blood_bank_non_edit_profile'))
         else:
             msg="Incorrect username/password!"
@@ -383,13 +385,16 @@ def blood_bank_profile():
             District=request.form['District']
             State=request.form['State']
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Blood_bank(Blood_bank_name,Owner_name,Phone_number,Password,Website,Street,City,Pincode,District,State)',(Blood_bank_name,Owner_name,Phone_number,Password,Website,Street,City,Pincode,District,State,))
-            msg="Data Edited"
+            cursor.execute('UPDATE Blood_bank SET Blood_bank_name = %s, Owner_name = %s, Phone_number = %s, Password = %s, Website = %s, Street = %s, City = %s, District = %s, State = %s, Pincode = %s WHERE License_Number = %s', (Blood_bank_name, Owner_name, Phone_number, Password, Website,  Street,  City, District, State, Pincode,session['License_Number']))
             mysql.connection.commit()
             cursor.close()
+            msg="Data Editted"
         else:
             msg = " Please Edit the form !" 
-        return render_template('blood_bank_profile.html',msg=msg, Blood_bank_name = session['Blood_bank_name'], Owner_name = session['Owner_name'], Phone_number = session['Phone_number'], Password = session['Password'], Website = session['Website'], Weekday =session['Weekday'],Opening_time =session['Opening_time'],Closing_time =session['Closing_time'], Street = session['Street'],  City = session['City'],Pincode=session['Pincode'], District = session['District'], State = session['State'])
+        return render_template('blood_bank_profile.html',msg=msg, Blood_bank_name = session['Blood_bank_name'],
+                                Owner_name = session['Owner_name'], Phone_number = session['Phone_number'], Password = session['Password'],
+                                Website = session['Website'], Street = session['Street'],  City = session['City'],Pincode=session['Pincode'],
+                                District = session['District'], State = session['State'])
     else:
         return redirect(url_for('blood_bank_login'))
         
