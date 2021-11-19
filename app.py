@@ -12,7 +12,7 @@ app.secret_key="blood_donation"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mitika@03'
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'blood_donation_dbms'
 
 mysql = MySQL(app) 
@@ -191,12 +191,12 @@ def user_non_edit_profile() :
 @app.route('/search_blood_banks', methods = ['GET', 'POST'])
 def search_blood_banks():
     msg = ''
-    if request.method == "POST":
+    if request.method == "POST" and "State" in request.form and "District" in request.form:
         State = request.form['State']
         District = request.form['District']
         if len(State) > 0 and len(District) > 0:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('SELECT Blood_bank_name, Phone_number, Website, Street, Pincode  FROM Blood_bank WHERE State = %s AND District = %s', (State, District,))
+            cursor.execute('SELECT *  FROM Blood_bank WHERE State = %s AND District = %s', (State, District,))
             rows = cursor.fetchall()
             cursor.close()
             return render_template('search_blood_banks.html', rows = rows)
