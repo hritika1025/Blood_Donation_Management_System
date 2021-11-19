@@ -171,7 +171,7 @@ def edit_user_profile() :
         State=request.form['State']
         Pincode=request.form['Pincode']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('UPDATE DONOR SET First_name = %s, Last_name = %s, Gender = %s, Age = %s, Phone_num = %s, Password = %s, Street = %s, Blood_group = %s, Eligibility = %s, Frequent_Donor = %s, City = %s, District = %s, State = %s, Pincode = %s', (First_name, Last_name, Gender, Age, Phone_num, Password, Street, Blood_group, Eligibility, Frequent_Donor, City, District, State, Pincode))
+        cursor.execute('UPDATE DONOR SET First_name = %s, Last_name = %s, Gender = %s, Age = %s, Phone_num = %s, Password = %s, Street = %s, Blood_group = %s, Eligibility = %s, Frequent_Donor = %s, City = %s, District = %s, State = %s, Pincode = %s WHERE Email_id = %s', (First_name, Last_name, Gender, Age, Phone_num, Password, Street, Blood_group, Eligibility, Frequent_Donor, City, District, State, Pincode, session['Email_id']))
         mysql.connection.commit()
         cursor.close()
         return render_template('edit_user_profile.html')
@@ -339,7 +339,8 @@ def check_blood_availability():
         Blood_group = request.form['Blood_group']
         if len(State) > 0 and len(District) > 0 and len(Blood_group) >0:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('SELECT Blood_bank_name, Street FROM Blood_bank WHERE State = %s AND District = %s AND License_Number in (SELECT License_Number FROM Blood_stock WHERE Blood_group = %s)', (State, District, Blood_group,))
+            # cursor.execute('SELECT Blood_bank_name, Street FROM Blood_bank WHERE State = %s AND District = %s AND License_Number in (SELECT License_Number FROM Blood_stock WHERE Blood_group = %s)', (State, District, Blood_group,))
+            cursor.execute('SELECT * FROM Blood_bank WHERE State = %s AND District = %s AND License_Number in (SELECT License_Number FROM Blood_stock WHERE Blood_group = %s)', (State, District, Blood_group,))
             rows = cursor.fetchall()
             cursor.close()
             return render_template('blood_avail.html', rows = rows)
@@ -348,18 +349,19 @@ def check_blood_availability():
             return render_template('check_blood_availability.html', msg = msg)
     return render_template('check_blood_availability.html')
 
-@app.route("/edit_blood_stock")    
+@app.route("/edit_blood_stock",methods=['GET','POST'])    
 def edit_blood_stock():
     msg=''
     if session['loggedin'] == True :
-        if request.method=='POST'and "Blood_group" in request.form and "Adding_date" in request.form and "Removing_date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
+        if request.method=='POST'and "Blood_group" in request.form and "Date" in request.form and "Units_added" in request.form and "Units_removed" in request.form :
             Blood_group=request.form['Blood_group']
             Date=request.form['Date']
             Units_added=request.form['Units_added']
             Units_removed=request.form['Units_removed']
             License_Number=session['License_Number']
+            print(Date)
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('INSERT INTO Blood_stock(License_Number, Blood_group,Date,Units_added, Units_removed)',(License_Number,Blood_group,Units_added,Units_removed,))
+            cursor.execute('INSERT INTO Blood_stock VALUES (NULL,%s,%s,%s,%s,%s)',( License_Number,Blood_group,Date,Units_added,Units_removed,))
             msg="Record Added"
             mysql.connection.commit()
             cursor.close()
@@ -409,8 +411,50 @@ def donor_list():
         return render_template("donor_list.html",rows=rows)
     return redirect(url_for('blood_bank_login'))
 
-    
-        
+@app.route('/blood_bank_statistics')
+def blood_bank_statistics(License_Number : str) :
+    # Blood_bank_name= row[2]
+    # License_Number=row[1]
+    # Owner_name=row[3]
+    # Phone_number=row[5]
+    # Email=row[4]
+    # Street=row[6]
+    # Website=row[11]
+    # City=row[8]
+    # District=row[9]
+    # State=row[10]
+    # Pincode=row[7]
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s',(License_Number))
+    account = cursor.fetchone()
+    cursor.close()
+    Email = account['Email']
+    Phone_number = account['Phone_number']
+    Blood_bank_name = account['Blood_bank_name']
+    Owner_name = account['Owner_name']
+    Phone_number = account['Phone_number']
+    Street = account['Street']
+    City = account['City']
+    Pincode = account['Pincode']
+    State = account['State']
+    District = account['District']
+    Website = account['Website']
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    current_date = date.today()
+    days = datetime.timedelta(7)
+    new_date = current_date - days
+    # cursor.execute('SELECT * FROM record WHERE username = % s AND date >= %s ORDER BY date DESC', (session['username'], new_date))
+    # cursor.execute('SELECT * FROM Message_to_admin WHERE Date >= %s ORDER BY Date DESC', (new_date,))
+    Units_added = cursor.execute('SELECT SUM(Units_added) FROM Blood_stock WHERE License_Number = %s AND Date >= %s ORDER By Date DESC GROUPBY(Date)',(License_Number, new_date))
+    Units_removed = cursor.execute('SELECT SUM(Units_removed) FROM Blood_stock WHERE License_Number = %s AND Date >= %s ORDER By Date DESC GROUPBY(Date)',(License_Number, new_date))
+
+    return render_template('blood_bank_statistics.html', Blood_bank_name =  Blood_bank_name,
+    Owner_name=Owner_name, Phone_number=Phone_number, Email = Email, Street=Street, Website=Website,
+    City=City, District=District, State=State, Pincode=Pincode )
+
+
+
+            
         # ADMIN PART :
 
 @app.route("/admin_dashboard")
