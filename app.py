@@ -426,7 +426,7 @@ def blood_bank_statistics(License_Number : str) :
     # Pincode=row[7]
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM Blood_bank WHERE License_Number = %s',(License_Number,))
-    accounts = cursor.fetchone()
+    account = cursor.fetchone()
     cursor.close()
     # for account in accounts :
     # Email = account['Email']
