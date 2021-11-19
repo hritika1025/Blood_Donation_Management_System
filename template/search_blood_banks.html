@@ -66,7 +66,7 @@
 <body style="background-color: rgba(252, 147, 147, 0.089);">
 
 
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); ">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5);  font-family: 'Baloo Bhai 2', cursive;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <h1 style="color: white;">iDonor</h1>
@@ -80,24 +80,21 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/check_blood_availability" style="color: white ;font-size: 19px; ">Blood Availability</a>
+                        <a class="nav-link" href="check_blood_availability.html" style="color: white ;font-size: 19px; ">Blood Availability</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white ;font-size: 19px; ">Non-Eligibility</a>
+                        <a class="nav-link" href="non_eligibility.html" style="color: white ;font-size: 19px; ">Non-Eligibility</a>
                     </li>
+                  
                     <li class="nav-item">
-                        <a class="nav-link" href="/search_blood_banks" style="color: white ;font-size: 19px; ">Near By Bloodbanks</a>
+                        <a class="nav-link" href="user_non_edit_profile.html" style="color: white ;font-size: 19px; ">Profile</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Donor List</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="" style="color: white ;font-size: 19px; ">Statistics</a>
-                    </li>
+                   
+                   
                     
 
                 </ul>
-                <a href="/home" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
+                <a href="home.html" class="btn btn-outline-light " tabindex="-1" role="button" aria-disabled="true">Home</a>
             </div>
         </div>
     </nav>
@@ -105,7 +102,7 @@
     <div class="my-4 " style="text-align: center; color: rgba(189, 3, 3, 0.856); ">
         <h1>Search Nearby Blood Banks</h1>
     </div>
-    <form action="" method = 'POST'>
+    <form action="">
 
         <div class="container border rounded border-danger border-3 pt-4 px-5" style="background-color: white; ">
 
@@ -164,7 +161,7 @@
                     <label for="district">
                         <h5>District</h5>
                     </label>
-                    <input type="text" required name="District" class="form-control" id="District"
+                    <input type="text" required name="district" class="form-control" id="District"
                         placeholder="District (Please use starting letter as capital letter)">
 
                 </div>
@@ -196,28 +193,36 @@
 
         </div>
     </form>
-    <p>{{msg}}</p>
+
     <div class="container-fluid my-5 px-5">
         <table class="table table-secondary table-hover table-bordered border-primary blood_avail_table">
             <thead>
                 <tr>
+                    <th scope="col">S. No.</th>
                     <th scope="col">Blood Bank</th>
-                    <th scope="col">Contact</th>
-                    <th scope="col">Website</th>
-                    <th scope="col">Address</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Pincode</th>
+                    <th scope="col">Weekday</th>
+                    <th scope="col" >Address</th>
                 </tr>
             </thead>
             <tbody>
-                {% for row in rows %}
-                <tr >
-                  <td>{{row.Blood_bank_name}}</td>
-                  <td>{{row.Phone_number}}</td>
-                  <td>{{row.Website}}</td>
-                  <td>{{row.Street}}</td>
-                  <td>{{row.Pincode}}</td>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>..</td>
+                    <td>...</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
                 </tr>
-                {% endfor %}
+                <tr>
+                    <th scope="row">2</th>
+                    <td>..</td>
+                    <td>...</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                </tr>
             </tbody>
         </table>
     </div>
