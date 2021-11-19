@@ -143,11 +143,12 @@ body{
 .links{
     margin: auto;
     align-items: center;
-  width: 50%;
+  width: 70%;
   border: 3px solid white;
-  padding: 10px;
+  padding: 12px;
   background-color: white;
   text-align: center;
+  font-size: 26px;
 }
 .btn btn-secondary{
     margin: 5px;
@@ -289,6 +290,7 @@ img {
     align-items: center;
     align-content: center;
     text-align: right;
+    border-radius: 10px;
 
 }
 .row {
