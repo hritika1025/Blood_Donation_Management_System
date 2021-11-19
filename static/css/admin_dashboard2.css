@@ -194,3 +194,83 @@ body{
 .tablebox{
     align-items: center;
 }
+
+
+.social-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0
+}
+
+.social-list li {
+    padding: 2px;
+    color: #8E24AA;
+    font-size: 19px
+}
+
+.buttons button:nth-child(1) {
+    border: 1px solid #8E24AA !important;
+    color: #8E24AA;
+    height: 40px
+}
+
+.buttons button:nth-child(1):hover {
+    border: 1px solid #8E24AA !important;
+    color: #fff;
+    height: 40px;
+    background-color: #8E24AA
+}
+
+.buttons button:nth-child(2) {
+    border: 1px solid #8E24AA !important;
+    background-color: rgb(245, 223, 223);
+    color: #fff;
+    height: 40px
+}
+
+
+.section {
+    padding: 2px 0;
+    position: relative;
+}
+.gray-bg {
+    background-color: rgba(247, 96, 96, 0.609);
+}
+img {
+    max-width: 100%;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+/* About Me 
+---------------------*/
+.about-text h3 {
+  font-size: 45px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+.stat_title{
+    background-color: #ffffff;
+    color: rgba(247, 96, 96, 0.609);
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    font-size: 40px;
+    border-radius: 6px;
+    border-color: tomato;
+    border-width: 1px;
+}
+.stat_title:hover {
+    transform: scale(1.00);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+    background-color: rgba(247, 96, 96, 0.609);
+    color: white;
+}
+.graph-box{
+    background-color: #ffffff;
+    width: 90%;
+    margin: auto;
+    border-radius: 6px;
+}
