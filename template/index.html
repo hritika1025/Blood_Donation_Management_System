@@ -39,7 +39,7 @@
     <nav class="navbar navbar-expand-lg red">
       <div class="container-fluid">
         <span>
-          <a class="navbar-brand nav1" href="index.html">iDonor</a>
+          <a class="navbar-brand nav1" href="/index">iDonor</a>
         </span>
 
         <button
@@ -66,34 +66,7 @@
               <a class="nav-link disabled">Disabled</a>
             </li> -->
           </ul>
-          <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Log In
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Donor Login</a></li>
-            <li><a class="dropdown-item" href="#">Blood Bank Login</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Admin Login</a></li>
-          </ul> -->
           
-           <!-- <button class="btn btn-outline-light" type="submit"  >Contact Us</button> -->
-          <!-- <div class="dropdown">
-            <button
-              class="btn btn-light dropdown-toggle"
-              type="button"
-              style="margin-right: 15px"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Log In
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href= '/user_login'>Donor Login</a></li>
-              <li><a class="dropdown-item" href= '/blood_bank_login'>Blood Bank Login</a></li>
-              <li><a class="dropdown-item" href="/admin_login">Admin</a></li>
-            </ul>
-          </div> -->
 
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item dropdown">
@@ -102,14 +75,14 @@
                     <img src="../static/Images/profile_icon.png" alt="">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="">My Profile</a></li>
+                    <!-- <li><a class="dropdown-item" href="">My Profile</a></li> -->
                     <li><a class="dropdown-item" href="/user_login">User Login</a></li>
-                    <li><a class="dropdown-item" href="/bloodbank_registration">Blood Bank Signup</a></li>
+                    <li><a class="dropdown-item" href="/blood_bank_login">Blood Bank Login</a></li>
                     <li><a class="dropdown-item" href="/admin_login">Admin Login</a></li>
                     <li>
-                        <hr class="dropdown-divider">
+                        <!-- <hr class="dropdown-divider"> -->
                     </li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Logout</a></li> -->
                 </ul>
             </li>
         </ul>
@@ -229,7 +202,7 @@
             <div class="card-body">
               <h4 class="card-title">Search Nearby Blood Banks</h4>
               <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-              <a href="#" class="btn btn-danger">Click Here</a>
+              <a href="/search_blood_banks" class="btn btn-danger">Click Here</a>
             </div>
           </div>
         </div>
@@ -243,8 +216,8 @@
             />
             <div class="card-body">
               <h4 class="card-title">Who Can Donate Blood</h4>
-              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-              <a href="#" class="btn btn-danger" style="margin: 13px auto"
+             
+              <a href="{{url_for('non_eligibility')}}" class="btn btn-danger" style="margin: 13px auto"
                 >Click Here</a
               >
             </div>
@@ -252,21 +225,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="boxes">
-        <div id="box1" class ="minbox">
-          <h1>Check For Blood Availability</h1>
-          <img src="../static/images/18.webp" alt="" srcset="">
-        </div>
-        <div id="box2" class ="minbox">
-          <h1>Search Nearby Blood Banks</h1>
-          <img src="../static/images/3.jpeg" alt="" srcset="">
-        </div>
-        <div id="box3" class ="minbox">
-          <h1>My Blood Donations</h1>
-          <img src="../static/images/17.jpeg" alt="" srcset="">
-        </div>
-      
-    </div> -->
+    
     <br /><br />
     <div class="card text-center">
       <div class="card-header">
