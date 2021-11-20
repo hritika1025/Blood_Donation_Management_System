@@ -13,8 +13,8 @@ This website has feature like:
     
 ## Snapshots
 
-- Homepage
-**The homepage is the main page of the website. It provides links to check for blood availability, nearby blood banks, information on blood donation. Also it shows the instructions one needs to follow during blood donations.**
+- **Homepage:
+The homepage is the main page of the website. It provides links to check for blood availability, nearby blood banks, information on blood donation. Also it shows the instructions one needs to follow during blood donations.**
 ![home_page](https://github.com/hritika1025/Blood_Donation_Management_System/blob/main/static/images/Screenshots2/home1.png)
 ![home_page](https://github.com/hritika1025/Blood_Donation_Management_System/blob/main/static/images/Screenshots2/home2.png)
 ![home_page](https://github.com/hritika1025/Blood_Donation_Management_System/blob/main/static/images/Screenshots2/home3.png)
