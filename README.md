@@ -1,8 +1,9 @@
+# iDonor
 # Blood_Donation_Management_System
 
 
 
-The **Blood_Donation_Management_System** website is designed to help the donors to donate blood to their nearest blood banks and the persons who need blood to receive required blood group from the nearby blood bank and active donors.
+The **iDonor** is a **Blood_Donation_Management_System**  designed to help the donors to donate blood to their nearest blood banks and the persons who need blood to receive required blood group from the nearby blood bank and active donors.
 This website has feature like:
  searching for blood banks in the nearby area, 
  checking blood availability,
@@ -29,6 +30,8 @@ git clone https://github.com/hritika1025/Blood_Donation_Management_System.git
    cmd.
 
    
+
+   
 - **Step 4.**
    Open the project files in the code editor. Open `app.py` file and if your MySQL username and password are not **root** then you can replace the username and password written in `app.py` file with your MySQL username and password.
 
@@ -50,7 +53,14 @@ git clone https://github.com/hritika1025/Blood_Donation_Management_System.git
     pip install flask_mail
     flask run
     ```
+
+    - Or run `requirements.txt` file :
+    ```
+    pip install -r requirements.txt
     
+    ```
+
+
   For Pycharm code editor do the following:
    - Open the terminal
 
