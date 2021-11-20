@@ -14,43 +14,46 @@
     <style>
         .dropdown:hover .dropdown-menu {
             display: block;
-        }       
+        }
+
         a.nav-link:hover {
             background-color: rgba(114, 114, 114, 0.454);
             font-size: 300px;
             font-style: italic;
         }
+
         .container:hover {
-          transform: scale(1.05);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-          background-color: rgba(30, 107, 107, 0.726);
-          
-      }
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+            background-color: rgba(30, 107, 107, 0.726);
+
+        }
+
         .form-control:hover {
-          transform: scale(1.05);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-          background-color: rgba(253, 240, 215, 0.212);
-          
-      }
-          
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+            background-color: rgba(253, 240, 215, 0.212);
+
+        }
+
         .bg-image-vertical {
-          position: relative;
-          overflow: hidden;
-          background-repeat: no-repeat;
-          background-position: right center;
-          background-size: auto 100%;
+            position: relative;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: auto 100%;
         }
-    
+
         @media (min-width: 1025px) {
-          .h-custom-2 {
-            height: 100%;
-          }
+            .h-custom-2 {
+                height: 100%;
+            }
         }
-      </style>
+    </style>
 </head>
 
-<body style="background-color: rgba(252, 147, 147, 0.089);" >
-    
+<body style="background-color: rgba(252, 147, 147, 0.089);">
+
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(199, 5, 5); ">
         <div class="container-fluid">
             <a class="navbar-brand" href="/home">
@@ -87,91 +90,101 @@
     <form action="/check_blood_availability" class="bld_avail_form" method="POST">
 
         <div class="container  border rounded border-danger border-3 pt-4 px-5" style="background-color: white; ">
-            
-                <div class="row">
-                    <div class="col-4">
-                        <label for="State">
-                            <h5>State</h5>
-                        </label>
-                        <select id="inputState" required class="form-control" name="State">
-                            <option selected>Select Your state</option>
-                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chandigarh">Chandigarh</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                            <option value="Daman and Diu">Daman and Diu</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Lakshadweep">Lakshadweep</option>
-                            <option value="Puducherry">Puducherry</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="West Bengal">West Bengal</option>
-                        </select>
+
+            <div class="row">
+                <div class="col-4">
+                    <label for="State">
+                        <h5>State</h5>
+                    </label>
+                    <select id="inputState" required class="form-control" name="State">
+                        <option selected>Select Your state</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
 
 
-
-                    </div>
-
-
-                    <div class="col-4">
-
-                        <label for="District">
-                            <h5>District</h5>
-                        </label>
-                        <input type="text" name="District" class="form-control" id="District" placeholder="District">
-
-                    </div>
-
-                    <div class="col-4">
-                        <label for="inputtate">
-                            <h5>Blood group</h5>
-                        </label>
-                        <select id="inputtate" required class="form-control" name="Blood_group">
-                            <option seleceted value="">Select blood group</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                        </select>
-
-
-                    </div>
 
                 </div>
-                <div class="my-4" style="text-align: center;">
 
-                    <button type="submit" class="btn btn-success" value="submit">submit</button>
+
+                <div class="col-4">
+
+                    <label for="District">
+                        <h5>District</h5>
+                    </label>
+                    <input type="text" name="District" class="form-control" id="District" placeholder="District">
+
                 </div>
-            
+
+                <div class="col-4">
+                    <label for="inputtate">
+                        <h5>Blood group</h5>
+                    </label>
+                    <select id="inputtate" required class="form-control" name="Blood_group">
+                        <option seleceted value="">Select blood group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+
+
+                </div>
+
+            </div>
+            <div class="my-4" style="text-align: center;">
+
+                <button type="submit" class="btn btn-success" value="submit">submit</button>
+            </div>
+
         </div>
     </form>
     <h4 class="py-4" style="text-align: center; color: tomato;">{{msg}}</h4>
+
+  <br><br><br><br><br><br><br><br>
+        <div class="pt-2">
+            <div class="container-fluid text-center py-2 mt-5"
+                style="background-color: rgba(218, 5, 5, 0.795); font-family: 'Baloo Bhai 2', cursive;">
+                <h3 class="text-center text-muted ">© 2021 Copyright: iDonor</h3>
+            </div>
+        </div>
+    </div>
+</body>
