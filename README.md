@@ -72,6 +72,37 @@ git clone https://github.com/anjali7786/Sleep-Tracker.git
 **User can register themselves with our website to donate blood at the available blood banks or to search for required blood groups from blood banks.**
 - Blood Bank Registration Page
 **Blood Banks can register themselves with us using the registration page where they need to fill the required details such as license number, etc.**
+- User Login Page
+**Page for user login**
+- Admin Login Page
+**Admin can login using admin credentials.**
+- Blood Bank Login Page
+**Login page for Blood Banks**
+- Edit User Profile Page
+**Users can edit their profile details on this page.**
+- Blood Bank Profile Page
+**It displays the inforation about the particular blood bank after logging in to the website and the blood bank can edit their profile details here.**
+- Search Blood Banks Page
+**User can search for blood banks in their area by filling out the location details. The page will show them a list of all the blood banks available in that particular region.**
+- Blood Availability Page
+**Users after logging in with their credentials, can search for required blood group in the area nearest to them.**
+- Edit blood Stock Page
+**Admin can edit the blood stock manually to the database of the website in case of any dispensaries**
+- Admin Dashboard Page
+**After logging in, admin is redirected to this page from where he can go to the User Message to Admin page or to Verification Requests page.**
+- Verification Requests Page
+**The admin can approve or reject the requests of blood banks or user from this page.**
+- Contact Page
+**Users can send their feedbacks/messages to admin of the website using thiis page.**
+- User Message to Admin Page
+**Admin can read the messages/feedbacks sent by the user to him on the user feedbacks page.**
+- Non-Eligibility Page
+**It shows the required conditions that are needed by a persson to be eligible to donate bloood to the blood banks.**
+- Donor List
+**It shows the list of active donors along with their other necessary information.**
+
+
+
 
 
 
