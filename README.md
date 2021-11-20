@@ -2,12 +2,12 @@
 
 
 
-The **Blood_Donation_Management_System** website is designed to help the donors to donate blood to their nearest blood camps and the persons who need blood to receive required blood group from the neareblood bank and active donors.
+The **Blood_Donation_Management_System** website is designed to help the donors to donate blood to their nearest blood banks and the persons who need blood to receive required blood group from the nearby blood bank and active donors.
 This website has feature like:
  searching for blood banks in the nearby area, 
  checking blood availability,
  checking eligibility for blood donation,
- taking feedbacks/messages from th users about the website,
+ taking feedbacks/messages from the users about the website,
  editing the profiles of blood banks and users.
 
 ## Instructions For Project Setup
@@ -64,8 +64,8 @@ git clone https://github.com/hritika1025/Blood_Donation_Management_System.git
 
 ## Snapshots
 
-- Homepage
-**The homepage is the main page of the website. It provides links to check for blood availability, nearby blood banks, information on blood donation. Also it shows the instructions one needs to follow during blood donations.**
+- **Homepage:
+The homepage is the main page of the website. It provides links to check for blood availability, nearby blood banks, information on blood donation. Also it shows the instructions one needs to follow during blood donations.**
 ![home_page](https://github.com/hritika1025/Blood_Donation_Management_System/blob/main/static/images/Screenshots2/home1.png)
 ![home_page](https://github.com/hritika1025/Blood_Donation_Management_System/blob/main/static/images/Screenshots2/home2.png)
 ![home_page](https://github.com/hritika1025/Blood_Donation_Management_System/blob/main/static/images/Screenshots2/home3.png)
