@@ -1,9 +1,14 @@
 # iDonor
+
+- Group 6
 # Blood_Donation_Management_System
+- Contributers:
+Hritika Gautam      - 200001029
+Mitika Bhadada      - 200001046
+Pradeep Reddy       - 200001005
+Chaitanya Dhanorkar - 200001021
 
-
-
-The **iDonor** is a **Blood_Donation_Management_System**  designed to help the donors to donate blood to their nearest blood banks and the persons who need blood to receive required blood group from the nearby blood bank and active donors.
+The **iDonor** is a **Blood_Donation_Management_System**  designed to help the donors to donate blood to their nearest blood banks and the people who need blood to receive required blood group from the nearby blood banks and active donors.
 This website has feature like:
  searching for blood banks in the nearby area, 
  checking blood availability,
@@ -161,9 +166,4 @@ The homepage is the main page of the website. It provides links to check for blo
 ![donor_list](https://github.com/hritika1025/Blood_Donation_Management_System/blob/main/static/images/Screenshots2/donor_list.png)
 
 
-- Contributers:
 
-Hritika Gautam      - 200001029
-Mitika Bhadada      - 200001046
-Pradeep Reddy       - 200001005
-Chaitanya Dhanorkar - 200001021
