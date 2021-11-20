@@ -109,8 +109,29 @@
 
         </table>
     </div>
-
-
-</body>
-
-</html>
+</nav>
+      
+      <h1 style="color: red; text-align: center;" class="my-5">Available Blood Banks</h1>
+      <div class="container">       
+            <table class=" table  table-striped table-danger table-responsive table-hover ">
+              
+                <tr  class="bg-success">
+                  <th > <h5>Blood Bank</h5></th>
+                  <th ><h5>Address</h5></th>
+                </tr>
+              
+              
+                {% for row in rows %}
+                <tr >
+                  <td>{{row.Blood_bank_name}}</td>
+                  <td>{{row.Street}}</td>
+                </tr>
+                {% endfor %}
+              
+            </table>
+          </div>
+        
+  
+  </body>
+  
+  </html>
